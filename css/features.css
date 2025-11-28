@@ -2,6 +2,24 @@
    Features Section – Enhanced
 ================================ */
 
+body[data-theme="light"] {
+    background-image: url('../bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+body[data-theme="dark"] {
+    background-image: url('../bg5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
 .section {
     padding: 6rem 0 4rem;
     background: transparent;

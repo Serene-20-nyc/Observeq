@@ -5,6 +5,24 @@
 
 /* ---------- Theme tokens (light default) ---------- */
 
+body[data-theme="light"] {
+    background-image: url('../wg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+body[data-theme="dark"] {
+    background-image: url('../images/bg5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
 body {
     --page-bg: radial-gradient(circle at top, #eff6ff 0, #f9fafb 32%, #ffffff 70%);
     --section-bg: transparent;

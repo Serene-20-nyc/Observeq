@@ -28,9 +28,7 @@ html {
     --color-warning: #FFB020;
 
     /* Light theme */
-    --bg-primary: linear-gradient(135deg, #F7F9FC 0%, #E8EDFF 100%);
-    --bg-elevated: #FFFFFF;
-    --bg-soft: #EEF1FF;
+  
 
     --text-primary: #0F172A;
     --text-muted: #6B7280;
@@ -53,21 +51,7 @@ html {
 }
 
 /* Dark theme overrides */
-body[data-theme="dark"] {
-    --bg-primary: linear-gradient(135deg, #050816 0%, #0a0f2e 100%);
-    --bg-elevated: #0B1020;
-    --bg-soft: #050816;
 
-    --text-primary: #F9FAFB;
-    --text-muted: #9CA3AF;
-    --border-subtle: rgba(148, 163, 184, 0.32);
-
-    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.7);
-    --shadow-glow: 0 8px 32px rgba(91, 124, 255, 0.35);
-
-    --color-primary-soft: rgba(91, 124, 255, 0.2);
-    --color-secondary-soft: rgba(0, 217, 163, 0.18);
-}
 .navbar {
     position: fixed;
     top: 0;
