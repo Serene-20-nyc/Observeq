@@ -4,40 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ObserveQ – Help & Support (Teacher)</title>
-
-    <!-- Global + shared dashboard styles -->
-    <link rel="stylesheet" href="../../../css/home.css">
-    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_help.css">
-    <!-- Teacher-specific dashboard styles -->
-    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
-    <!-- Optional page-specific CSS if you create it: -->
-    <!-- <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_help.css"> -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body data-theme="light">
-
-    <!-- Top Navbar -->
-    <header class="navbar" id="navbar">
-        <div class="container navbar-content">
-            <!-- Logo + Teacher toggle (collapses sidebar) -->
-            <a href="#" class="logo parent-logo-toggle" id="teacher-logo-toggle">
-                <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
-                <div class="logo-text-group">
-                    <span class="logo-brand">ObserveQ</span>
-                    <span class="child-name-pill" id="teacher-name-pill">Ms. Sharma · Science</span>
-                </div>
+    <!-- Teacher sidebar toggle JS handled in global js/home.js -->
             </a>
 
             <!-- Main site nav -->
             <nav class="nav-menu" id="nav-menu">
-                <a href="../../../home.html">Home</a>
-                <a href="../../../about.html">About</a>
-                <a href="../../../features.html">Features</a>
-                <a href="../../../how-it-works.html">How It Works</a>
-                <a href="../../../story.html">Stories</a>
-                <a href="../../../contact.html">Contact</a>
+                <a href="../../home.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../how-it-works.html">How It Works</a>
+                <a href="../../story.html">Stories</a>
+                <a href="../../contact.html">Contact</a>
                 <a href="teacher_dashboard.html" class="nav-active">Teacher Dashboard</a>
             </nav>
 
@@ -411,33 +388,11 @@
     </footer>
 
     <!-- Shared JS (theme toggle, navbar, etc.) -->
-    <script src="../../../home.js"></script>
+    <script src="../../../js/home.js"></script>
 
     <!-- Teacher sidebar + FAQ interactions -->
     <script>
-        // Sidebar collapse (same pattern as other teacher pages)
-        (function() {
-            const logoToggle = document.getElementById('teacher-logo-toggle');
-            const sidebar = document.querySelector('.teacher-sidebar');
-            const layout = document.querySelector('.teacher-dashboard-layout');
-            const fabToggle = document.getElementById('teacher-fab-toggle');
-
-            if (!sidebar || !layout) return;
-
-            function toggleSidebar(e) {
-                if (e) e.preventDefault();
-                sidebar.classList.toggle('collapsed');
-                layout.classList.toggle('sidebar-collapsed');
-            }
-
-            if (logoToggle) {
-                logoToggle.addEventListener('click', toggleSidebar);
-            }
-
-            if (fabToggle) {
-                fabToggle.addEventListener('click', toggleSidebar);
-            }
-        })();
+        // NOTE: sidebar collapse now handled by global `js/home.js`; keep this file for the FAQ accordion only.
 
         // FAQ accordion behaviour
         (function() {

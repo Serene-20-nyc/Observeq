@@ -5,43 +5,7 @@
 // ===============================
 
 (function () {
-    // ---------------------------
-    // THEME TOGGLE LOGIC
-    // ---------------------------
-    const body = document.body;
-    const toggleBtn = document.getElementById('demo-theme-toggle');
-    const icon = document.getElementById('demo-theme-icon');
-
-    // Load theme from localStorage if available
-    const savedTheme = localStorage.getItem('observeq-demo-theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-        body.setAttribute('data-theme', savedTheme);
-    } else if (!body.getAttribute('data-theme')) {
-        // Fallback if no data-theme set in HTML
-        body.setAttribute('data-theme', 'dark');
-    }
-
-    function applyIcon(theme) {
-        if (!icon) return;
-        if (theme === 'light') {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        }
-    }
-
-    // Initial icon state
-    applyIcon(body.getAttribute('data-theme') || 'dark');
-
-    toggleBtn?.addEventListener('click', () => {
-        const current = body.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        const next = current === 'light' ? 'dark' : 'light';
-        body.setAttribute('data-theme', next);
-        localStorage.setItem('observeq-demo-theme', next);
-        applyIcon(next);
-    });
+    // Theme handled by shared js/home.js; demo.js focuses on upload simulation only
 
     // ---------------------------
     // DRAG & DROP UPLOAD LOGIC

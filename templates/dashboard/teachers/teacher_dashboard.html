@@ -4,35 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ObserveQ – Teacher Dashboard</title>
-
-    <link rel="stylesheet" href="../../../css/home.css">
-    <link rel="stylesheet" href="../../../css/dashboard.css">
-    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body data-theme="light">
-<header class="navbar" id="navbar">
-    <div class="container navbar-content">
-        <a href="#" class="logo teacher-logo-toggle" id="teacher-logo-toggle">
-            <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
-            <div class="logo-text-group">
-                <span class="logo-brand">ObserveQ</span>
-                <span class="teacher-name-pill" id="teacher-dashboard-pill">
-                    Your Classes
-                </span>
-            </div>
-        </a>
-
-        <nav class="nav-menu" id="nav-menu">
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="features.html">Features</a>
-            <a href="how-it-works.html">How It Works</a>
-            <a href="story.html">Stories</a>
-            <a href="contact.html">Contact</a>
+    <!-- Teacher sidebar toggle JS handled in global js/home.js -->
+            <a href="../../about.html">About</a>
+            <a href="../../features.html">Features</a>
+            <a href="../../how-it-works.html">How It Works</a>
+            <a href="../../story.html">Stories</a>
+            <a href="../../contact.html">Contact</a>
             <a href="teacher-dashboard" class="nav-active">Teacher Dashboard</a>
         </nav>
 
@@ -345,30 +322,7 @@
     </div>
 </footer>
 
-<script src="../../../home.js"></script>
-<script>
-    (function() {
-        const logoToggle = document.getElementById('teacher-logo-toggle');
-        const sidebar = document.querySelector('.teacher-sidebar');
-        const layout = document.querySelector('.teacher-dashboard-layout');
-        const fabToggle = document.getElementById('teacher-fab-toggle');
-
-        if (!sidebar || !layout) return;
-
-        function toggleSidebar(e) {
-            if (e) e.preventDefault();
-            sidebar.classList.toggle('collapsed');
-            layout.classList.toggle('sidebar-collapsed');
-        }
-
-        if (logoToggle) {
-            logoToggle.addEventListener('click', toggleSidebar);
-        }
-
-        if (fabToggle) {
-            fabToggle.addEventListener('click', toggleSidebar);
-        }
-    })();
-</script>
+<script src="../../../js/home.js"></script>
+<!-- Teacher sidebar toggle JS handled in global js/home.js -->
 </body>
 </html>

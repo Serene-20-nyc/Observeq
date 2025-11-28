@@ -31,6 +31,7 @@
     max-height: calc(100vh - 6.5rem);
     overflow-y: auto;
     transition: all 0.25s ease;
+    transform: translateX(0);
 }
 
 body[data-theme="dark"] .teacher-sidebar {
@@ -38,31 +39,36 @@ body[data-theme="dark"] .teacher-sidebar {
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
 }
 
-/* Collapsed sidebar (desktop) */
+/* Collapsed sidebar (desktop) -> slide out */
 .teacher-sidebar.collapsed {
-    width: 68px;
-    min-width: 68px;
-    padding-inline: 0.75rem;
+    transform: translateX(-110%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .teacher-dashboard-layout.sidebar-collapsed {
-    grid-template-columns: 80px minmax(0, 1fr);
+    grid-template-columns: 0 minmax(0, 1fr);
 }
 
 /* Mobile behaviour: slide down */
 @media (max-width: 960px) {
     .teacher-sidebar {
         position: fixed;
-        inset: 5rem 0 auto 0;
+        top: 5rem;
+        left: 0;
+        z-index: 50;
+        right: auto;
+        width: 100%;
+        max-width: 100%;
         max-height: calc(100vh - 5rem);
         border-radius: 0 0 18px 18px;
-        transform: translateY(-130%);
+        transform: translateX(-110%);
         opacity: 0;
         pointer-events: none;
     }
 
     .teacher-sidebar.collapsed {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
         pointer-events: auto;
         width: 100%;
@@ -443,4 +449,9 @@ body[data-theme="dark"] .session-card {
     .teacher-fab-toggle {
         display: inline-flex;
     }
+}
+
+/* Show FAB when the teacher sidebar is collapsed (desktop or mobile) */
+body.teacher-sidebar-collapsed .teacher-fab-toggle {
+    display: inline-flex;
 }

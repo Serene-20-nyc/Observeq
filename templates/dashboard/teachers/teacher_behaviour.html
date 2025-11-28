@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../../css/dashboard.css">
 
     <!-- Teacher-specific dashboard styles -->
-    <link rel="stylesheet" href="../../../css/teacher_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
     <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_behaviour.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,12 +32,12 @@
 
             <!-- Main site nav -->
             <nav class="nav-menu" id="nav-menu">
-                <a href="../../../home.html">Home</a>
-                <a href="../../../about.html">About</a>
-                <a href="../../../features.html">Features</a>
-                <a href="../../../how-it-works.html">How It Works</a>
-                <a href="../../../story.html">Stories</a>
-                <a href="../../../contact.html">Contact</a>
+                <a href="../../home.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../how-it-works.html">How It Works</a>
+                <a href="../../story.html">Stories</a>
+                <a href="../../contact.html">Contact</a>
                 <a href="teacher_dashboard.html" class="nav-active">Teacher Dashboard</a>
             </nav>
 
@@ -476,32 +476,9 @@
     </footer>
 
     <!-- Shared JS (theme toggle, navbar, etc.) -->
-    <script src="../../../home.js"></script>
+    <script src="../../../js/home.js"></script>
 
     <!-- Teacher sidebar toggle logic -->
-    <script>
-        (function() {
-            const logoToggle = document.getElementById('teacher-logo-toggle');
-            const sidebar = document.querySelector('.teacher-sidebar');
-            const layout = document.querySelector('.teacher-dashboard-layout');
-            const fabToggle = document.getElementById('teacher-fab-toggle');
-
-            if (!sidebar || !layout) return;
-
-            function toggleSidebar(e) {
-                if (e) e.preventDefault();
-                sidebar.classList.toggle('collapsed');
-                layout.classList.toggle('sidebar-collapsed');
-            }
-
-            if (logoToggle) {
-                logoToggle.addEventListener('click', toggleSidebar);
-            }
-
-            if (fabToggle) {
-                fabToggle.addEventListener('click', toggleSidebar);
-            }
-        })();
-    </script>
+    <!-- Teacher sidebar toggle JS handled in global js/home.js -->
 </body>
 </html>

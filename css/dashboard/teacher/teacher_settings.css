@@ -27,7 +27,7 @@
 }
 
 .teacher-dashboard-layout.sidebar-collapsed {
-    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-columns: 0 minmax(0, 1fr);
 }
 
 @media (max-width: 960px) {

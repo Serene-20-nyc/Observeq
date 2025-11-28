@@ -194,31 +194,8 @@
         </div>
     </footer>
 
-    <script src="../../../home.js"></script>
-    <script>
-    (function() {
-        const logoToggle = document.getElementById('parent-logo-toggle');
-        const sidebar = document.querySelector('.dashboard-sidebar');
-        const layout = document.querySelector('.parent-dashboard-layout');
-        const fabToggle = document.getElementById('parent-fab-toggle');
-
-        if (!sidebar || !layout) return;
-
-        function toggleSidebar(e) {
-            if (e) e.preventDefault();
-            sidebar.classList.toggle('collapsed');
-            layout.classList.toggle('sidebar-collapsed');
-        }
-
-        if (logoToggle) {
-            logoToggle.addEventListener('click', toggleSidebar);
-        }
-
-        if (fabToggle) {
-            fabToggle.addEventListener('click', toggleSidebar);
-        }
-    })();
-</script>
+    <script src="../../../js/home.js"></script>
+    <!-- Parent sidebar toggle JS handled in global js/home.js -->
 
 
 </body>

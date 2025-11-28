@@ -110,4 +110,64 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         });
     });
 });
+// --- Dashboard sidebar toggle for parents & teachers ---
+(function () {
+    function setupDashboardToggle(logoId, sidebarSelector, layoutSelector, fabId) {
+        const logo = document.getElementById(logoId);
+        const sidebar = document.querySelector(sidebarSelector);
+        const layout = document.querySelector(layoutSelector);
+        if (!logo || !sidebar || !layout) return;
+
+        // Apply persisted collapsed state if present
+        try {
+            const persisted = localStorage.getItem(storageKey);
+            if (persisted === 'true') {
+                sidebar.classList.add('collapsed');
+                layout.classList.add('sidebar-collapsed');
+                logo.classList.add('toggled');
+                if (layoutSelector.includes('parent-dashboard-layout')) {
+                    document.body.classList.add('parent-sidebar-collapsed');
+                } else if (layoutSelector.includes('teacher-dashboard-layout')) {
+                    document.body.classList.add('teacher-sidebar-collapsed');
+                }
+                logo.setAttribute('aria-expanded', 'false');
+            }
+        } catch (err) {
+            // Ignore localStorage errors
+        }
+
+        const storageKey = `observeq-${logoId}-collapsed`;
+
+        function toggleSidebar(e) {
+            if (e) e.preventDefault();
+            sidebar.classList.toggle('collapsed');
+            layout.classList.toggle('sidebar-collapsed');
+            logo.classList.toggle('toggled');
+            const expanded = sidebar.classList.contains('collapsed') ? 'false' : 'true';
+            logo.setAttribute('aria-expanded', expanded);
+            // Toggle body class so FAB visibility and other UI can respond reliably
+            if (layoutSelector.includes('parent-dashboard-layout')) {
+                document.body.classList.toggle('parent-sidebar-collapsed');
+            } else if (layoutSelector.includes('teacher-dashboard-layout')) {
+                document.body.classList.toggle('teacher-sidebar-collapsed');
+            }
+            // Persist in localStorage
+            localStorage.setItem(storageKey, sidebar.classList.contains('collapsed'));
+        }
+
+        logo.addEventListener('click', toggleSidebar);
+        logo.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+                toggleSidebar(ev);
+            }
+        });
+        if (fabId) {
+            const fab = document.getElementById(fabId);
+            if (fab) fab.addEventListener('click', toggleSidebar);
+        }
+    }
+
+    setupDashboardToggle('parent-logo-toggle', '.dashboard-sidebar', '.parent-dashboard-layout', 'parent-fab-toggle');
+    setupDashboardToggle('teacher-logo-toggle', '.teacher-sidebar', '.teacher-dashboard-layout', 'teacher-fab-toggle');
+})();
 

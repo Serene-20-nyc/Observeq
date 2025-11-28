@@ -25,7 +25,7 @@
 }
 
 .teacher-dashboard-layout.sidebar-collapsed {
-    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-columns: 0 minmax(0, 1fr);
 }
 
 /* On smaller screens, sidebar stacks */
@@ -511,6 +511,11 @@
 
 .teacher-fab-toggle i {
     font-size: 0.9rem;
+}
+
+/* Show FAB when the teacher sidebar is collapsed (desktop or mobile) */
+body.teacher-sidebar-collapsed .teacher-fab-toggle {
+    display: inline-flex;
 }
 
 .teacher-fab-toggle:hover {

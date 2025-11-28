@@ -19,6 +19,7 @@
         opacity 0.2s ease,
         transform 0.2s ease,
         margin-right 0.2s ease;
+    transform: translateX(0);
 }
 
 body[data-theme="dark"] .dashboard-sidebar {
@@ -27,10 +28,11 @@ body[data-theme="dark"] .dashboard-sidebar {
 }
 
 .dashboard-sidebar.collapsed {
-    max-height: 0;
+    /* Slide out horizontally */
+    max-height: 999px; /* keep space for off-canvas
+       (we hide with transform & pointer-events) */
     opacity: 0;
-    transform: translateY(-8px);
-    margin-right: -260px; /* slide it out of view */
+    transform: translateX(-110%);
     pointer-events: none;
 }
 
@@ -66,11 +68,33 @@ body[data-theme="dark"] .dashboard-sidebar {
     display: inline-flex;
 }
 
+/* Use body class as source-of-truth for FAB visibility */
+body.parent-sidebar-collapsed .parent-fab-toggle {
+    display: inline-flex;
+}
+
 /* On very small screens, always show the FAB when collapsed */
 @media (max-width: 960px) {
     .dashboard-sidebar {
-        position: relative;
-        top: 0;
+        position: fixed;
+        top: 5rem;
+        left: 0;
+        z-index: 50;
+        right: auto;
+        width: 100%;
+        max-width: 100%;
+        transform: translateX(-110%);
+        opacity: 0;
+        pointer-events: none;
+        border-radius: 0 0 18px 18px;
+    }
+
+    .dashboard-sidebar.collapsed {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+        width: 100%;
+        max-width: 100%;
     }
 }
 
@@ -127,12 +151,12 @@ body[data-theme="dark"] .dashboard-sidebar {
     transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.2s ease;
     max-height: 999px; /* large enough for full content */
     opacity: 1;
+    transform: translateX(0);
 }
 
 .dashboard-sidebar.collapsed {
-    max-height: 0;
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateX(-110%);
     pointer-events: none;
 }
 
@@ -144,6 +168,10 @@ body[data-theme="dark"] .dashboard-sidebar {
 
 #parent-logo-toggle.toggled {
     transform: translateY(1px);
+}
+
+.parent-dashboard-layout.sidebar-collapsed {
+    grid-template-columns: 0 minmax(0, 1fr);
 }
 
 

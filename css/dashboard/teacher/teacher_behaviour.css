@@ -41,29 +41,34 @@ body[data-theme="dark"] .teacher-sidebar {
 
 /* Collapsed sidebar (desktop) */
 .teacher-sidebar.collapsed {
-    width: 68px;
-    min-width: 68px;
-    padding-inline: 0.75rem;
+    transform: translateX(-110%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .teacher-dashboard-layout.sidebar-collapsed {
-    grid-template-columns: 80px minmax(0, 1fr);
+    grid-template-columns: 0 minmax(0, 1fr);
 }
 
 /* Mobile behaviour: slide down */
 @media (max-width: 960px) {
     .teacher-sidebar {
         position: fixed;
-        inset: 5rem 0 auto 0;
+        top: 5rem;
+        left: 0;
+        z-index: 50;
+        right: auto;
+        width: 100%;
+        max-width: 100%;
         max-height: calc(100vh - 5rem);
         border-radius: 0 0 18px 18px;
-        transform: translateY(-130%);
+        transform: translateX(-110%);
         opacity: 0;
         pointer-events: none;
     }
 
     .teacher-sidebar.collapsed {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
         pointer-events: auto;
         width: 100%;
@@ -540,4 +545,9 @@ body[data-theme="dark"] .trend-card {
     .teacher-fab-toggle {
         display: inline-flex;
     }
+}
+
+/* Show FAB when teacher sidebar collapsed on any screen via body class */
+body.teacher-sidebar-collapsed .teacher-fab-toggle {
+    display: inline-flex;
 }
