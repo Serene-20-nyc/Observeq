@@ -1,0 +1,362 @@
+/* =======================================
+   Teacher – Recorded Sessions Styles
+   File: css/dashboard/teacher/teacher_sessions.css
+   ======================================= */
+
+/* Slight extra breathing space for this page */
+.dashboard-section.dashboard-header {
+    padding-top: 1.8rem;
+}
+
+/* ----------------- Upload form ----------------- */
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.upload-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.upload-field label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted, #556270);
+}
+
+.input-text,
+.input-select {
+    width: 100%;
+    border-radius: 0.6rem;
+    border: 1px solid var(--border-subtle, #e2e8f0);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.9rem;
+    outline: none;
+    background: var(--surface-subtle, #ffffff);
+    color: var(--text-primary, #132238);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.input-text:focus,
+.input-select:focus {
+    border-color: var(--accent, #2563eb);
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15);
+}
+
+/* Compact select used in "Recent recorded sessions" header */
+.compact-input {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.85rem;
+}
+
+/* ----------------- Upload dropzone ----------------- */
+
+.upload-dropzone {
+    border-radius: 0.9rem;
+    border: 1.5px dashed var(--border-subtle, #d0dae6);
+    background: var(--surface-soft, rgba(148, 163, 184, 0.05));
+    padding: 1.8rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.upload-dropzone:hover {
+    border-color: var(--accent, #2563eb);
+    background: rgba(37, 99, 235, 0.02);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.dropzone-inner {
+    text-align: center;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.upload-dropzone i {
+    font-size: 2.4rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.85;
+}
+
+.dropzone-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.dropzone-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted, #6b7280);
+    margin-bottom: 0.8rem;
+}
+
+.upload-dropzone .btn.small {
+    font-size: 0.8rem;
+}
+
+/* ----------------- Upload actions ----------------- */
+
+.upload-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.2rem;
+    margin-top: 0.4rem;
+}
+
+.upload-actions .btn-primary i {
+    margin-right: 0.35rem;
+}
+
+.upload-note {
+    font-size: 0.8rem;
+    color: var(--text-muted, #6b7280);
+    max-width: 420px;
+}
+
+/* ----------------- Sessions table ----------------- */
+
+.sessions-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 0.4rem;
+}
+
+.sessions-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    min-width: 780px;
+}
+
+.sessions-table thead {
+    background: var(--surface-subtle, #f8fafc);
+}
+
+.sessions-table th,
+.sessions-table td {
+    padding: 0.75rem 0.85rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle, #e2e8f0);
+    vertical-align: top;
+}
+
+.sessions-table th {
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted, #64748b);
+}
+
+.sessions-table tbody tr:hover {
+    background: var(--surface-soft, rgba(148, 163, 184, 0.06));
+}
+
+/* Left column blocks */
+
+.session-class {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.session-class-main {
+    font-weight: 600;
+    color: var(--text-primary, #111827);
+    font-size: 0.9rem;
+}
+
+.session-class small {
+    font-size: 0.78rem;
+    color: var(--text-muted, #6b7280);
+}
+
+.session-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+}
+
+.session-meta span {
+    font-size: 0.85rem;
+}
+
+.session-meta small {
+    font-size: 0.78rem;
+    color: var(--text-muted, #6b7280);
+}
+
+.session-topic {
+    font-size: 0.85rem;
+    max-width: 220px;
+}
+
+/* ----------------- Metric & flag chips ----------------- */
+
+.metric-chip,
+.flag-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+/* Attention / participation */
+.metric-good {
+    background: rgba(22, 163, 74, 0.07);
+    color: #15803d;
+    border-color: rgba(22, 163, 74, 0.25);
+}
+
+.metric-neutral {
+    background: rgba(37, 99, 235, 0.05);
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.25);
+}
+
+.metric-warning {
+    background: rgba(234, 179, 8, 0.08);
+    color: #a16207;
+    border-color: rgba(234, 179, 8, 0.4);
+}
+
+/* Flags */
+.flag-none {
+    background: rgba(15, 118, 110, 0.06);
+    color: #0f766e;
+    border-color: rgba(15, 118, 110, 0.35);
+}
+
+.flag-light {
+    background: rgba(59, 130, 246, 0.06);
+    color: #1d4ed8;
+    border-color: rgba(59, 130, 246, 0.32);
+}
+
+.flag-warning {
+    background: rgba(220, 38, 38, 0.06);
+    color: #b91c1c;
+    border-color: rgba(220, 38, 38, 0.4);
+}
+
+/* ----------------- Icon-only actions ----------------- */
+
+.session-actions {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.btn-icon-only {
+    border: none;
+    background: transparent;
+    padding: 0.28rem;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-icon-only i {
+    font-size: 0.85rem;
+    color: var(--text-muted, #64748b);
+}
+
+.btn-icon-only:hover {
+    background: rgba(148, 163, 184, 0.15);
+    transform: translateY(-1px);
+}
+
+.btn-icon-only:hover i {
+    color: var(--text-primary, #111827);
+}
+
+/* ----------------- Table footer ----------------- */
+
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.8rem;
+    margin-top: 0.2rem;
+    border-top: 1px solid var(--border-subtle, #e2e8f0);
+    font-size: 0.78rem;
+    color: var(--text-muted, #6b7280);
+}
+
+/* ----------------- Highlights list ----------------- */
+
+.highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.2rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.highlights-list li strong {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+}
+
+.highlights-list li p {
+    font-size: 0.82rem;
+    color: var(--text-muted, #6b7280);
+}
+
+/* ----------------- Responsive tweaks ----------------- */
+
+@media (max-width: 920px) {
+    .upload-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sessions-table {
+        font-size: 0.8rem;
+        min-width: 640px;
+    }
+
+    .upload-actions {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .dashboard-heading-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+    }
+
+    .upload-dropzone {
+        padding: 1.4rem 1rem;
+    }
+
+    .table-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+}

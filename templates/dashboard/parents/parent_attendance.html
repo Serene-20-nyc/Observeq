@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Attendance</title>
+
+    <!-- Shared project styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_attendance.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body data-theme="light">
+<header class="navbar" id="navbar">
+    <div class="container navbar-content">
+        <a href="parent_dashboard.html" class="logo">
+            <span class="logo-icon"><i class="fas fa-child"></i></span>
+            <div class="logo-text-group">
+                <span class="logo-brand">ObserveQ</span>
+                <span class="child-name-pill">Your Child</span>
+            </div>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../home.html">Home</a>
+            <a href="../../about.html">About</a>
+            <a href="../../features.html">Features</a>
+            <a href="../../how-it-works.html">How It Works</a>
+            <a href="../../story.html">Stories</a>
+            <a href="../../contact.html">Contact</a>
+            <a href="parent_dashboard.html" class="nav-active">Parent Dashboard</a>
+        </nav>
+
+        <div class="nav-right-items">
+            <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+            <button id="theme-toggle-desktop" class="btn btn-icon">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="attendance-page">
+    <div class="container">
+        <header style="margin-bottom: 1.5rem;">
+            <h1 class="page-title">Attendance</h1>
+            <p class="page-subtitle">
+                Monthly overview of class attendance for <strong>Aarav Mehta</strong>, Grade 7A.
+                See where days were missed, late, or excused at a glance.
+            </p>
+        </header>
+
+        <div class="attendance-grid">
+            <!-- LEFT: Summary & Calendar -->
+            <section class="panel-card">
+                <h2 class="section-heading">November summary</h2>
+                <p class="section-subtext">
+                    Based on official school attendance synced with ObserveQ.
+                </p>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Attendance rate</div>
+                        <div class="stat-value">94%</div>
+                        <div class="stat-caption">Goal: 95% or higher</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Present days</div>
+                        <div class="stat-value">19</div>
+                        <div class="stat-caption">out of 22 school days</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Absent days</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-caption">1 excused (fever)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Late check-ins</div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-caption">all under 10 minutes</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item"><span class="legend-dot dot-present"></span> Present</div>
+                    <div class="legend-item"><span class="legend-dot dot-absent"></span> Absent</div>
+                    <div class="legend-item"><span class="legend-dot dot-late"></span> Late</div>
+                    <div class="legend-item"><span class="legend-dot dot-excused"></span> Excused</div>
+                </div>
+
+                <div class="month-header">
+                    <span class="month-name">November 2025</span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">
+                        School days only
+                    </span>
+                </div>
+
+                <!-- Simple static calendar with invented statuses -->
+                <div class="calendar-grid">
+                    <!-- Day names -->
+                    <div class="calendar-day-name">Mon</div>
+                    <div class="calendar-day-name">Tue</div>
+                    <div class="calendar-day-name">Wed</div>
+                    <div class="calendar-day-name">Thu</div>
+                    <div class="calendar-day-name">Fri</div>
+                    <div class="calendar-day-name">Sat</div>
+                    <div class="calendar-day-name">Sun</div>
+
+                    <!-- Week 1 (starts on Fri) -->
+                    <div class="calendar-cell muted"></div>
+                    <div class="calendar-cell muted"></div>
+                    <div class="calendar-cell muted"></div>
+                    <div class="calendar-cell muted"></div>
+                    <div class="calendar-cell present">1</div>
+                    <div class="calendar-cell muted">2</div>
+                    <div class="calendar-cell muted">3</div>
+
+                    <!-- Week 2 -->
+                    <div class="calendar-cell present">4</div>
+                    <div class="calendar-cell present">5</div>
+                    <div class="calendar-cell late">6</div>
+                    <div class="calendar-cell present">7</div>
+                    <div class="calendar-cell present">8</div>
+                    <div class="calendar-cell muted">9</div>
+                    <div class="calendar-cell muted">10</div>
+
+                    <!-- Week 3 -->
+                    <div class="calendar-cell present">11</div>
+                    <div class="calendar-cell present">12</div>
+                    <div class="calendar-cell present">13</div>
+                    <div class="calendar-cell excused">14</div>
+                    <div class="calendar-cell absent">15</div>
+                    <div class="calendar-cell muted">16</div>
+                    <div class="calendar-cell muted">17</div>
+
+                    <!-- Week 4 -->
+                    <div class="calendar-cell present">18</div>
+                    <div class="calendar-cell late">19</div>
+                    <div class="calendar-cell present">20</div>
+                    <div class="calendar-cell present">21</div>
+                    <div class="calendar-cell present">22</div>
+                    <div class="calendar-cell muted">23</div>
+                    <div class="calendar-cell muted">24</div>
+
+                    <!-- Week 5 -->
+                    <div class="calendar-cell present">25</div>
+                    <div class="calendar-cell present">26</div>
+                    <div class="calendar-cell late">27</div>
+                    <div class="calendar-cell present">28</div>
+                    <div class="calendar-cell present">29</div>
+                    <div class="calendar-cell muted">30</div>
+                    <div class="calendar-cell muted"></div>
+                </div>
+
+                <div class="note-box">
+                    <strong>Quick parent takeaway</strong>
+                    Aarav’s attendance is healthy overall, with one genuine sick day and a few mild late arrivals.
+                    Keeping a consistent morning routine should help reduce late check-ins.
+                </div>
+            </section>
+
+            <!-- RIGHT: Recent records table -->
+            <section class="panel-card">
+                <h2 class="section-heading">Recent attendance records</h2>
+                <p class="section-subtext">
+                    Detailed log for the last few weeks. Use this when talking to school staff or planning routines at home.
+                </p>
+
+                <div class="table-wrapper">
+                    <table class="attendance-table">
+                        <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Status</th>
+                            <th>Time In</th>
+                            <th>Notes</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>28 Nov 2025</td>
+                            <td>Friday</td>
+                            <td><span class="status-pill status-present"><i class="fas fa-check-circle"></i> Present</span></td>
+                            <td>08:04 AM</td>
+                            <td>On time, joined morning assembly.</td>
+                        </tr>
+                        <tr>
+                            <td>27 Nov 2025</td>
+                            <td>Thursday</td>
+                            <td><span class="status-pill status-late"><i class="fas fa-clock"></i> Late</span></td>
+                            <td>08:14 AM</td>
+                            <td>Traffic delay noted by parent.</td>
+                        </tr>
+                        <tr>
+                            <td>26 Nov 2025</td>
+                            <td>Wednesday</td>
+                            <td><span class="status-pill status-present"><i class="fas fa-check-circle"></i> Present</span></td>
+                            <td>08:02 AM</td>
+                            <td>Joined Science practical on time.</td>
+                        </tr>
+                        <tr>
+                            <td>21 Nov 2025</td>
+                            <td>Friday</td>
+                            <td><span class="status-pill status-present"><i class="fas fa-check-circle"></i> Present</span></td>
+                            <td>08:05 AM</td>
+                            <td>Full day present.</td>
+                        </tr>
+                        <tr>
+                            <td>15 Nov 2025</td>
+                            <td>Friday</td>
+                            <td><span class="status-pill status-absent"><i class="fas fa-times-circle"></i> Absent</span></td>
+                            <td>—</td>
+                            <td>Marked sick; fever reported by parent.</td>
+                        </tr>
+                        <tr>
+                            <td>14 Nov 2025</td>
+                            <td>Thursday</td>
+                            <td><span class="status-pill status-excused"><i class="fas fa-file-medical"></i> Excused</span></td>
+                            <td>—</td>
+                            <td>Doctor’s appointment (half-day leave).</td>
+                        </tr>
+                        <tr>
+                            <td>06 Nov 2025</td>
+                            <td>Thursday</td>
+                            <td><span class="status-pill status-late"><i class="fas fa-clock"></i> Late</span></td>
+                            <td>08:18 AM</td>
+                            <td>Reached during first period; reason: bus delay.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="note-box">
+                    <strong>How to use this</strong>
+                    Look for patterns: repeated late arrivals on specific days may indicate a bus timing issue or
+                    a morning routine that needs a small adjustment. If absences increase, reach out to the class
+                    teacher early rather than waiting for report card time.
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>ObserveQ. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../../js/home.js"></script>
+</body>
+</html>

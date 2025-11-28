@@ -1,0 +1,282 @@
+/* ============================================
+   Story Page – Theme + Layout Overrides
+   Works with body[data-theme="light" | "dark"]
+============================================ */
+
+/* ---------- Base tokens (light default) ---------- */
+
+body {
+    --page-bg: #f9fafb;
+    --card-bg: #ffffff;
+    --card-border: rgba(148, 163, 184, 0.35);
+    --text-primary: #0f172a;
+    --text-muted: #6b7280;
+    --accent: #3b82f6;
+    --accent-soft: rgba(59, 130, 246, 0.08);
+    --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Dark theme overrides */
+body[data-theme="dark"] {
+    --page-bg: radial-gradient(circle at top, #020617 0, #020617 20%, #020617 40%, #020617 60%, #020617 100%);
+    --card-bg: rgba(15, 23, 42, 0.96);
+    --card-border: rgba(148, 163, 184, 0.45);
+    --text-primary: #e5e7eb;
+    --text-muted: #9ca3af;
+    --accent: #60a5fa;
+    --accent-soft: rgba(37, 99, 235, 0.16);
+    --shadow-soft: 0 22px 55px rgba(15, 23, 42, 0.9);
+}
+
+/* ---------- Page background ---------- */
+
+body {
+    background: var(--page-bg);
+    color: var(--text-primary);
+}
+
+/* ---------- Navbar theming ---------- */
+
+.navbar {
+    background: rgba(15, 23, 42, 0.04);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    transition:
+        background 0.2s ease-out,
+        border-color 0.2s ease-out,
+        box-shadow 0.2s ease-out;
+}
+
+body[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.92);
+    border-bottom-color: rgba(30, 64, 175, 0.7);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+}
+
+.navbar .logo span,
+.navbar .logo {
+    color: var(--text-primary);
+}
+
+.nav-menu a {
+    color: var(--text-muted);
+    transition: color 0.15s ease-out, opacity 0.15s ease-out;
+}
+
+.nav-menu a:hover {
+    color: var(--text-primary);
+    opacity: 0.95;
+}
+
+/* Highlight active "Stories" link if you want */
+.nav-menu a[href="story.html"] {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Right-side buttons are themed via home.css; just tweak colors if needed */
+.btn.btn-link {
+    color: var(--text-muted);
+}
+
+.btn.btn-link:hover {
+    color: var(--text-primary);
+}
+
+/* Theme toggle button icon color */
+.btn.btn-icon i {
+    color: var(--text-muted);
+}
+
+body[data-theme="dark"] .btn.btn-icon i {
+    color: #e5e7eb;
+}
+
+/* ---------- Section: Stories / Testimonials ---------- */
+
+.section.testimonials-section {
+    padding: 7rem 0 4.5rem;
+    background: transparent;
+    color: var(--text-primary);
+    position: relative;
+}
+
+/* Optional subtle gradient halo behind cards in dark mode */
+body[data-theme="dark"] .testimonials-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.12), transparent 60%);
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.section-heading h2 {
+    font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--text-primary);
+}
+
+.section-heading p {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    max-width: 32rem;
+    margin-inline: auto;
+}
+
+/* Testimonials grid */
+
+.testimonials-grid {
+    margin-top: 2.2rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (max-width: 960px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.testimonial-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 1.4rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition:
+        transform 0.16s ease-out,
+        box-shadow 0.18s ease-out,
+        border-color 0.18s ease-out,
+        background 0.2s ease-out;
+}
+
+/* soft accent glow top edge */
+.testimonial-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.12),
+        rgba(96, 165, 250, 0.05),
+        transparent 60%
+    );
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+body[data-theme="dark"] .testimonial-card::before {
+    background: radial-gradient(circle at top left,
+        rgba(59, 130, 246, 0.3),
+        transparent 60%);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.14);
+    border-color: rgba(59, 130, 246, 0.8);
+}
+
+/* card content sits above overlay */
+.testimonial-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 1.1rem;
+}
+
+.testimonial-text::before {
+    content: "“";
+    font-size: 2.4rem;
+    line-height: 1;
+    display: inline-block;
+    margin-right: 0.1rem;
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+.testimonial-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.testimonial-meta .name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.testimonial-meta .role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: transparent;
+    border-top: 1px solid rgba(148, 163, 184, 0.28);
+    padding: 1.4rem 0 1.6rem;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+}
+
+.footer-content p {
+    color: var(--text-muted);
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    transition: color 0.15s ease-out, opacity 0.15s ease-out;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+    opacity: 0.95;
+}
+
+body[data-theme="dark"] .footer {
+    border-top-color: rgba(15, 23, 42, 0.85);
+}
+
+/* ---------- Small utility tweaks ---------- */
+
+.desktop-cta {
+    /* ensure CTA theme looks okay on both themes */
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #f9fafb;
+    border: none;
+}
+
+.desktop-cta:hover {
+    transform: translateY(-1px);
+}
+
+/* Ensure "Demo" link in button is styled like text */
+.btn.btn-primary.small a,
+.desktop-cta a {
+    color: inherit;
+    text-decoration: none;
+}

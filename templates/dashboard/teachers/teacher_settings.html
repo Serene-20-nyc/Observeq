@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Settings (Teacher)</title>
+
+    <!-- Global & shared styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+
+    <!-- Teacher-specific styles -->
+     <link rel="stylesheet" href="../../../css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_settings.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-theme="light">
+    <!-- Top Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <!-- Logo also used as sidebar toggle -->
+            <a href="#" class="logo parent-logo-toggle" id="teacher-logo-toggle">
+                <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">ObserveQ</span>
+                    <span class="child-name-pill" id="teacher-name-pill">Ms. Sharma · Science</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../home.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../how-it-works.html">How It Works</a>
+                <a href="../../story.html">Stories</a>
+                <a href="../../contact.html">Contact</a>
+                <a href="../../dashboard" class="nav-active">Teacher Dashboard</a>
+            </nav>
+
+            <div class="nav-right-items">
+                <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+                <button id="theme-toggle-desktop" class="btn btn-icon">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-main">
+        <div class="container teacher-dashboard-layout">
+            <!-- Sidebar -->
+            <aside class="dashboard-sidebar">
+                <div class="sidebar-header">
+                    <span class="sidebar-label">For Teachers</span>
+                    <span class="sidebar-child-name">
+                        Ms. Ananya Sharma
+                        <span class="sidebar-child-tag">Grade 7 · Science</span>
+                    </span>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Overview</div>
+                        <a href="teacher_dashboard.html" class="sidebar-link">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div class="sidebar-link-text">
+                                <span>Dashboard</span>
+                                <small>Today’s overview & key alerts</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Classroom</div>
+                        <a href="teacher_classes.html" class="sidebar-link">
+                            <i class="fas fa-users-class"></i>
+                            <div class="sidebar-link-text">
+                                <span>My Classes</span>
+                                <small>Sections, subjects & rosters</small>
+                            </div>
+                        </a>
+                        <a href="teacher_behaviour.html" class="sidebar-link">
+                            <i class="fas fa-wave-square"></i>
+                            <div class="sidebar-link-text">
+                                <span>Behaviour Analytics</span>
+                                <small>Patterns across classes</small>
+                            </div>
+                        </a>
+                        <a href="teacher_sessions.html" class="sidebar-link">
+                            <i class="fas fa-video"></i>
+                            <div class="sidebar-link-text">
+                                <span>Sessions</span>
+                                <small>Recorded lessons & analysis</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Insights</div>
+                        <a href="teacher_reports.html" class="sidebar-link">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="sidebar-link-text">
+                                <span>Reports</span>
+                                <small>Downloadable PDFs & summaries</small>
+                            </div>
+                        </a>
+                        <a href="teacher_messages.html" class="sidebar-link">
+                            <i class="fas fa-comments"></i>
+                            <div class="sidebar-link-text">
+                                <span>Messages</span>
+                                <small>With parents & colleagues</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Support</div>
+                        <a href="teacher_help.html" class="sidebar-link">
+                            <i class="fas fa-question-circle"></i>
+                            <div class="sidebar-link-text">
+                                <span>Help & Guides</span>
+                                <small>FAQs & feature tours</small>
+                            </div>
+                        </a>
+                        <a href="teacher_settings.html" class="sidebar-link active">
+                            <i class="fas fa-cog"></i>
+                            <div class="sidebar-link-text">
+                                <span>Settings</span>
+                                <small>Account & preferences</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group sidebar-group-footer">
+                        <button class="sidebar-logout-btn" onclick="window.location.href='/api/logout'">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Settings Content -->
+            <section class="dashboard-section" id="settings">
+                <div class="dashboard-heading-row">
+                    <div>
+                        <h1 class="dashboard-title">Settings</h1>
+                        <p class="dashboard-subtitle">
+                            Manage your ObserveQ account, notification preferences, and classroom defaults.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Settings Panels -->
+                <div class="settings-grid">
+                    <!-- Account Info -->
+                    <section class="dashboard-panel">
+                        <header class="dashboard-panel-header">
+                            <div>
+                                <h2>Account</h2>
+                                <p>Update your basic profile & login details.</p>
+                            </div>
+                            <span class="panel-badge">Teacher</span>
+                        </header>
+
+                        <form class="settings-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="teacher-name">Full Name</label>
+                                    <input type="text" id="teacher-name" value="Ananya Sharma">
+                                </div>
+                                <div class="form-group">
+                                    <label for="teacher-email">Email</label>
+                                    <input type="email" id="teacher-email" value="ananya.sharma@greenfieldschool.edu">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="teacher-role">Role</label>
+                                    <input type="text" id="teacher-role" value="Class Teacher · Grade 7">
+                                </div>
+                                <div class="form-group">
+                                    <label for="teacher-subjects">Primary Subjects</label>
+                                    <input type="text" id="teacher-subjects" value="Science, Environmental Studies">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="teacher-password">Change Password</label>
+                                    <input type="password" id="teacher-password" placeholder="New password (optional)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="teacher-password-confirm">Confirm Password</label>
+                                    <input type="password" id="teacher-password-confirm" placeholder="Confirm new password">
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary-outline">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Notification Preferences -->
+                    <section class="dashboard-panel">
+                        <header class="dashboard-panel-header">
+                            <div>
+                                <h2>Notifications</h2>
+                                <p>Choose when ObserveQ should notify you.</p>
+                            </div>
+                        </header>
+
+                        <div class="settings-toggle-list">
+                            <label class="toggle-row">
+                                <div class="toggle-text">
+                                    <span>Weekly class summary</span>
+                                    <small>Behaviour trends and flagged sessions emailed every Friday.</small>
+                                </div>
+                                <input type="checkbox" checked>
+                            </label>
+
+                            <label class="toggle-row">
+                                <div class="toggle-text">
+                                    <span>High-risk behaviour alerts</span>
+                                    <small>Immediate alert when multiple sessions show concerning patterns.</small>
+                                </div>
+                                <input type="checkbox" checked>
+                            </label>
+
+                            <label class="toggle-row">
+                                <div class="toggle-text">
+                                    <span>Parent message notifications</span>
+                                    <small>Get notified when parents reply to your notes.</small>
+                                </div>
+                                <input type="checkbox" checked>
+                            </label>
+
+                            <label class="toggle-row">
+                                <div class="toggle-text">
+                                    <span>New feature updates</span>
+                                    <small>Short emails about new ObserveQ capabilities.</small>
+                                </div>
+                                <input type="checkbox">
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- Classroom Defaults -->
+                    <section class="dashboard-panel">
+                        <header class="dashboard-panel-header">
+                            <div>
+                                <h2>Classroom Defaults</h2>
+                                <p>Set default parameters for new sessions and classes.</p>
+                            </div>
+                        </header>
+
+                        <form class="settings-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="default-class-duration">Default session duration</label>
+                                    <select id="default-class-duration">
+                                        <option>35 minutes</option>
+                                        <option selected>40 minutes</option>
+                                        <option>45 minutes</option>
+                                        <option>60 minutes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="default-focus-threshold">Focus threshold</label>
+                                    <select id="default-focus-threshold">
+                                        <option>Relaxed (60%)</option>
+                                        <option selected>Balanced (70%)</option>
+                                        <option>Strict (80%)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="default-flagging-rule">Flagging rule</label>
+                                    <select id="default-flagging-rule">
+                                        <option selected>3+ low engagement sessions in a week</option>
+                                        <option>2+ low engagement sessions in a week</option>
+                                        <option>Custom (per-class configuration)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="default-view">Default dashboard view</label>
+                                    <select id="default-view">
+                                        <option>Today’s sessions</option>
+                                        <option selected>Weekly overview</option>
+                                        <option>Per-student focus</option>
+                                        <option>Per-class comparison</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary-outline">Reset to Defaults</button>
+                                <button type="submit" class="btn btn-primary">Save Classroom Defaults</button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Danger Zone -->
+                    <section class="dashboard-panel danger-zone">
+                        <header class="dashboard-panel-header">
+                            <div>
+                                <h2>Danger Zone</h2>
+                                <p>Changes here can affect access to your ObserveQ data.</p>
+                            </div>
+                        </header>
+
+                        <div class="danger-zone-content">
+                            <p><strong>Deactivate account</strong></p>
+                            <p>
+                                If you deactivate your account, you will no longer be able to log in to ObserveQ.
+                                Your data will be retained by your institution but your personal access will be removed.
+                            </p>
+                            <button type="button" class="btn btn-danger-outline">
+                                <i class="fas fa-user-slash"></i>
+                                Request Account Deactivation
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Floating toggle button (for small screens) -->
+    <button class="parent-fab-toggle" id="teacher-fab-toggle">
+        <i class="fas fa-layer-group"></i>
+        <span>Toggle Menu</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>ObserveQ. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global scripts -->
+    <script src="../../../home.js"></script>
+    <script>
+        // Sidebar collapse / expand for teacher dashboard (same pattern as parents)
+        (function () {
+            const logoToggle = document.getElementById('teacher-logo-toggle');
+            const sidebar = document.querySelector('.dashboard-sidebar');
+            const layout = document.querySelector('.teacher-dashboard-layout');
+            const fabToggle = document.getElementById('teacher-fab-toggle');
+
+            if (!sidebar || !layout) return;
+
+            function toggleSidebar(e) {
+                if (e) e.preventDefault();
+                sidebar.classList.toggle('collapsed');
+                layout.classList.toggle('sidebar-collapsed');
+            }
+
+            if (logoToggle) {
+                logoToggle.addEventListener('click', toggleSidebar);
+            }
+
+            if (fabToggle) {
+                fabToggle.addEventListener('click', toggleSidebar);
+            }
+        })();
+    </script>
+</body>
+</html>

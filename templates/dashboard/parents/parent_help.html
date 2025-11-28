@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Help & Support</title>
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_help.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   
+</head>
+<body data-theme="light">
+<header class="navbar" id="navbar">
+    <div class="container navbar-content">
+        <a href="parent_dashboard.html" class="logo">
+            <span class="logo-icon"><i class="fas fa-child"></i></span>
+            <div class="logo-text-group">
+                <span class="logo-brand">ObserveQ</span>
+                <span class="child-name-pill">Your Child</span>
+            </div>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../home.html">Home</a>
+            <a href="../../about.html">About</a>
+            <a href="../../features.html">Features</a>
+            <a href="../../how-it-works.html">How It Works</a>
+            <a href="../../story.html">Stories</a>
+            <a href="../../contact.html">Contact</a>
+            <a href="parent_dashboard.html" class="nav-active">Parent Dashboard</a>
+        </nav>
+
+        <div class="nav-right-items">
+            <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+            <button id="theme-toggle-desktop" class="btn btn-icon">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="help-page">
+    <div class="container">
+        <header class="help-header">
+            <h1 class="page-title">Help &amp; Support</h1>
+            <p class="page-subtitle">
+                Need clarity on your child’s behaviour reports, messages, or attendance data?
+                Find quick answers below or reach out to the school’s ObserveQ support team.
+            </p>
+        </header>
+
+        <div class="help-layout">
+            <!-- LEFT: Guides + FAQ -->
+            <section>
+                <div class="status-strip">
+                    <div class="status-icon">
+                        <i class="fas fa-signal"></i>
+                    </div>
+                    <div>
+                        <strong>System status:</strong> All ObserveQ features are working normally.
+                        <span style="display:block;font-size:0.8rem;">Last sync with school data: Today · 4:45 PM</span>
+                    </div>
+                </div>
+
+                <section class="panel-card">
+                    <h2 class="section-heading">Quick help for parents</h2>
+                    <p class="section-subtext">
+                        Start with these short guides based on what you want to understand or do right now.
+                    </p>
+
+                    <div class="help-grid">
+                        <article class="help-card">
+                            <div class="help-card-header">
+                                <div>
+                                    <h3 class="help-card-title">1. Getting started with the dashboard</h3>
+                                </div>
+                                <div class="help-card-icon">
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                            </div>
+                            <p>
+                                Your parent dashboard is built around <strong>one child at a time</strong>.
+                                For this account, you’re viewing: <strong>Aarav Mehta · Grade 7A</strong>.
+                            </p>
+                            <ul>
+                                <li><strong>Overview</strong> gives a summary of recent behaviour.</li>
+                                <li><strong>Child Profile</strong> shows class, section, and strengths.</li>
+                                <li><strong>Behaviour trends</strong> tracks focus &amp; participation over time.</li>
+                                <li><strong>Messages</strong> lets you talk with teachers and counsellors.</li>
+                            </ul>
+                            <a href="parent_dashboard.html">Go back to overview →</a>
+                        </article>
+
+                        <article class="help-card">
+                            <div class="help-card-header">
+                                <div>
+                                    <h3 class="help-card-title">2. Understanding behaviour scores</h3>
+                                </div>
+                                <div class="help-card-icon">
+                                    <i class="fas fa-wave-square"></i>
+                                </div>
+                            </div>
+                            <p>
+                                ObserveQ converts classroom observations into simple indicators:
+                            </p>
+                            <ul>
+                                <li><strong>Green</strong> – on-task, positive participation.</li>
+                                <li><strong>Yellow</strong> – mild distractions or restless moments.</li>
+                                <li><strong>Red</strong> – frequent disruption or strong concern.</li>
+                            </ul>
+                            <p>
+                                Look for <strong>patterns across weeks</strong>, not one single red session.
+                            </p>
+                        </article>
+
+                        <article class="help-card">
+                            <div class="help-card-header">
+                                <div>
+                                    <h3 class="help-card-title">3. How to use this data at home</h3>
+                                </div>
+                                <div class="help-card-icon">
+                                    <i class="fas fa-home-heart"></i>
+                                </div>
+                            </div>
+                            <p>
+                                ObserveQ is meant to support calm, constructive conversations at home:
+                            </p>
+                            <ul>
+                                <li>Start with what your child is <strong>doing well</strong>.</li>
+                                <li>Ask open questions: “What makes this class easier to focus in?”</li>
+                                <li>Agree on <strong>one small habit</strong> to try each week.</li>
+                            </ul>
+                        </article>
+
+                        <article class="help-card">
+                            <div class="help-card-header">
+                                <div>
+                                    <h3 class="help-card-title">4. When to contact a teacher or counsellor</h3>
+                                </div>
+                                <div class="help-card-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                            </div>
+                            <p>
+                                Reach out if you notice:
+                            </p>
+                            <ul>
+                                <li>Red or yellow sessions appearing <strong>frequently</strong> in a subject.</li>
+                                <li>Sudden change in behaviour over a short period.</li>
+                                <li>Differences between home behaviour and classroom behaviour.</li>
+                            </ul>
+                            <a href="parent_messages.html">Open Messages →</a>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="panel-card" style="margin-top:1.3rem;">
+                    <h2 class="section-heading">Frequently asked questions</h2>
+                    <p class="section-subtext">
+                        Quick answers to the most common parent questions about ObserveQ.
+                    </p>
+
+                    <div class="faq-list" id="faq-list">
+                        <!-- FAQ 1 -->
+                        <div class="faq-item open">
+                            <div class="faq-question">
+                                <h3>How often is my child’s data updated?</h3>
+                                <div class="faq-toggle-icon">
+                                    <i class="fas fa-chevron-up"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer" style="max-height: 200px; opacity: 1; padding-bottom:0.6rem;">
+                                <p>
+                                    It depends on your school’s settings, but typically:
+                                    subject teachers update observations after lessons,
+                                    and the dashboard refreshes at least once every day.
+                                    The “Last sync” time at the top of this page shows the most recent update.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Are behaviour scores the same as academic grades?</h3>
+                                <div class="faq-toggle-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    No. Behaviour indicators focus on <strong>attention, participation, and conduct</strong>,
+                                    not marks. They’re meant to help you and teachers understand how your child learns
+                                    in class, independent of test scores or homework marks.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Who can see my child’s information?</h3>
+                                <div class="faq-toggle-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    Access is limited to <strong>authorised staff</strong> at your child’s school
+                                    (such as class teachers, subject teachers, counsellors, and relevant administrators),
+                                    and to the parent/guardian accounts linked to your child in the school system.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What should I do if I think a report is inaccurate?</h3>
+                                <div class="faq-toggle-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    Start by sending a respectful message from the <strong>Messages</strong> section
+                                    to the teacher who created the report. Share what you’re seeing at home,
+                                    and ask for examples from the classroom. Most issues can be resolved through
+                                    a short conversation and a shared action plan.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 5 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can I download a full term report?</h3>
+                                <div class="faq-toggle-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    Yes. Go to the <strong>Reports &amp; Downloads</strong> section in your parent
+                                    dashboard. You can usually export a PDF summary for a selected term, including
+                                    behaviour trends, attendance highlights, and teacher notes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- RIGHT: Contact & resources -->
+            <aside>
+                <section class="panel-card support-card">
+                    <h2 class="section-heading">Contact the school’s ObserveQ support</h2>
+                    <p class="section-subtext">
+                        For questions about your child, always start with the class teacher.
+                        For technical issues, use the contact options below.
+                    </p>
+
+                    <div class="support-line">
+                        <div class="support-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div>
+                            <strong>Dedicated support email</strong><br>
+                            parentsupport@greenfieldschool.edu
+                        </div>
+                    </div>
+
+                    <div class="support-line">
+                        <div class="support-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <strong>School office</strong><br>
+                            +91-98765-43210
+                        </div>
+                    </div>
+
+                    <div class="support-line">
+                        <div class="support-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div>
+                            <strong>In-app messaging</strong><br>
+                            Use the <a href="parent_messages.html">Messages</a> section for non-urgent doubts.
+                        </div>
+                    </div>
+
+                    <div class="support-actions">
+                        <button class="btn-filled-sm" type="button">
+                            <i class="fas fa-paper-plane"></i> Send a support request
+                        </button>
+                        <button class="btn-outline-sm" type="button">
+                            <i class="fas fa-bug"></i> Report an issue
+                        </button>
+                    </div>
+
+                    <div class="office-hours">
+                        <strong>Support hours</strong><br>
+                        Monday – Friday: 9:00 AM to 4:00 PM (school working days)<br>
+                        Responses may be slower during exams or holidays.
+                    </div>
+                </section>
+
+                <section class="panel-card">
+                    <h2 class="section-heading">Helpful resources</h2>
+                    <p class="section-subtext">
+                        Use these resources to get the most out of ObserveQ and to support your child.
+                    </p>
+                    <ul class="resource-list">
+                        <li>
+                            <i class="fas fa-file-alt"></i>
+                            <span>Parent Guide: Understanding Behaviour Colours (PDF)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-video"></i>
+                            <span>3-minute tour of the Parent Dashboard</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-lightbulb"></i>
+                            <span>10 conversation starters for talking about school calmly</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-user-shield"></i>
+                            <span>Privacy &amp; Data Protection Summary</span>
+                        </li>
+                    </ul>
+
+                    <div class="mini-tip">
+                        <strong>Tip:</strong> If you’re seeing repeated red or yellow sessions,
+                        note down specific dates and classes. This makes it easier for teachers and counsellors
+                        to suggest targeted support instead of general advice.
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>ObserveQ. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../../js/home.js"></script>
+<script>
+    // Simple FAQ accordion behaviour
+    document.addEventListener('DOMContentLoaded', () => {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const icon = item.querySelector('.faq-toggle-icon i');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+
+                // close all
+                faqItems.forEach(i => {
+                    i.classList.remove('open');
+                    const a = i.querySelector('.faq-answer');
+                    const ic = i.querySelector('.faq-toggle-icon i');
+                    if (a) {
+                        a.style.maxHeight = null;
+                        a.style.opacity = 0;
+                        a.style.paddingBottom = 0;
+                    }
+                    if (ic) {
+                        ic.classList.remove('fa-chevron-up');
+                        ic.classList.add('fa-chevron-down');
+                    }
+                });
+
+                // open current if it was closed
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.style.opacity = 1;
+                    answer.style.paddingBottom = '0.6rem';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Teacher Dashboard</title>
+
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-theme="light">
+<header class="navbar" id="navbar">
+    <div class="container navbar-content">
+        <a href="#" class="logo teacher-logo-toggle" id="teacher-logo-toggle">
+            <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+            <div class="logo-text-group">
+                <span class="logo-brand">ObserveQ</span>
+                <span class="teacher-name-pill" id="teacher-dashboard-pill">
+                    Your Classes
+                </span>
+            </div>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="story.html">Stories</a>
+            <a href="contact.html">Contact</a>
+            <a href="teacher-dashboard" class="nav-active">Teacher Dashboard</a>
+        </nav>
+
+        <div class="nav-right-items">
+            <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+            <button id="theme-toggle-desktop" class="btn btn-icon">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="dashboard-main">
+    <div class="container teacher-dashboard-layout">
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar teacher-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-label">For Teachers</span>
+                <span class="sidebar-child-name">
+                    Your Classes
+                    <span class="sidebar-child-tag">Grade 7–9 · 4 Sections</span>
+                </span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <!-- Overview -->
+                <div class="sidebar-group">
+                    <div class="sidebar-section-label">Overview</div>
+                    <a href="#overview" class="sidebar-link active">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="sidebar-link-text">
+                            <span>Dashboard</span>
+                            <small>Today’s engagement & alerts</small>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Teaching & Classes -->
+                <div class="sidebar-group">
+                    <div class="sidebar-section-label">Teaching</div>
+
+                    <a href="teachers_classes.html" class="sidebar-link">
+                        <i class="fas fa-chalkboard"></i>
+                        <div class="sidebar-link-text">
+                            <span>My Classes</span>
+                            <small>Timetable & sections</small>
+                        </div>
+                    </a>
+
+                    <a href="teacher_students.html" class="sidebar-link">
+                        <i class="fas fa-user-graduate"></i>
+                        <div class="sidebar-link-text">
+                            <span>Student Insights</span>
+                            <small>Profiles & risk indicators</small>
+                        </div>
+                    </a>
+
+                    <a href="teacher_behaviour.html" class="sidebar-link">
+                        <i class="fas fa-wave-square"></i>
+                        <div class="sidebar-link-text">
+                            <span>Behaviour Trends</span>
+                            <small>Class-wise focus & patterns</small>
+                        </div>
+                    </a>
+
+                    <a href="teacher_sessions.html" class="sidebar-link">
+                        <i class="fas fa-video"></i>
+                        <div class="sidebar-link-text">
+                            <span>Session Uploads</span>
+                            <small>Upload & review analysis</small>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Insights & Reports -->
+                <div class="sidebar-group">
+                    <div class="sidebar-section-label">Insights & Reports</div>
+
+                    <a href="teacher_reports.html" class="sidebar-link">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="sidebar-link-text">
+                            <span>Reports & Downloads</span>
+                            <small>Class & student summaries</small>
+                        </div>
+                    </a>
+
+                    <a href="teacher_messages.html" class="sidebar-link">
+                        <i class="fas fa-comments"></i>
+                        <div class="sidebar-link-text">
+                            <span>Messages</span>
+                            <small>With parents & admins</small>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Support & Settings -->
+                <div class="sidebar-group">
+                    <div class="sidebar-section-label">Support</div>
+
+                    <a href="teacher_help.html" class="sidebar-link">
+                        <i class="fas fa-question-circle"></i>
+                        <div class="sidebar-link-text">
+                            <span>Help & Support</span>
+                            <small>Guides, FAQs & contact</small>
+                        </div>
+                    </a>
+
+                    <a href="teacher_settings.html" class="sidebar-link">
+                        <i class="fas fa-cog"></i>
+                        <div class="sidebar-link-text">
+                            <span>Settings</span>
+                            <small>Account & preferences</small>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Logout -->
+                <div class="sidebar-group sidebar-group-footer">
+                    <button class="sidebar-logout-btn" onclick="window.location.href='/api/logout'">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <section class="dashboard-section dashboard-header" id="overview">
+            <div class="dashboard-heading-row">
+                <div>
+                    <h1 class="dashboard-title">Teacher Dashboard</h1>
+                    <p class="dashboard-subtitle">
+                        See how your classes are engaging in real time. ObserveQ helps you notice patterns, support
+                        quieter students, and plan lessons with data-backed confidence.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Today overview style panel -->
+            <section class="dashboard-panel teacher-overview-panel">
+                <header class="dashboard-panel-header">
+                    <div>
+                        <h2>Today’s snapshot</h2>
+                        <p>Quick view of engagement, attention, and classes that may need extra support.</p>
+                    </div>
+                </header>
+
+                <div class="teacher-overview-grid">
+                    <div class="overview-card">
+                        <div class="overview-card-header">
+                            <span class="overview-label">Today</span>
+                            <i class="fas fa-chalkboard icon-soft"></i>
+                        </div>
+                        <h3>Classes Analysed</h3>
+                        <p>4 sessions analysed · 3 different grades · 1 session flagged for low participation.</p>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="overview-card-header">
+                            <span class="overview-label">Attention</span>
+                            <i class="fas fa-eye icon-soft"></i>
+                        </div>
+                        <h3>Average Attention</h3>
+                        <p>Across all classes: <strong>81%</strong> focused time · strongest in first period Science.</p>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="overview-card-header">
+                            <span class="overview-label">Students</span>
+                            <i class="fas fa-user-graduate icon-soft"></i>
+                        </div>
+                        <h3>Students Needing Check-in</h3>
+                        <p>6 students show a drop in engagement compared to last week · 3 showing steady improvement.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Behaviour trends summary -->
+            <section class="dashboard-panel" id="behaviour-trends">
+                <header class="dashboard-panel-header">
+                    <div>
+                        <h2>Behaviour & engagement trends</h2>
+                        <p>Patterns over the last 2 weeks across your classes.</p>
+                    </div>
+                </header>
+
+                <ul class="highlights-list">
+                    <li>
+                        <strong>Grade 8 · Mathematics</strong>
+                        <p>Engagement peaks during problem-solving segments; short dips during theory-heavy explanations.
+                           Consider alternating explanation with quick practice tasks.</p>
+                    </li>
+                    <li>
+                        <strong>Grade 7 · English</strong>
+                        <p>Participation is strong during group reading but drops in individual written tasks.
+                           4 students frequently appear off-task after 25 minutes.</p>
+                    </li>
+                    <li>
+                        <strong>Grade 9 · Science</strong>
+                        <p>Labs and demos show the highest attention scores. Theory-only lessons show more distraction
+                           after the first 15 minutes.</p>
+                    </li>
+                    <li>
+                        <strong>Time-of-day impact</strong>
+                        <p>Morning periods maintain higher focus compared to post-lunch sessions.
+                           Active learning activities are recommended in the last period.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Recent sessions area -->
+            <section class="dashboard-panel" id="session-uploads">
+                <header class="dashboard-panel-header">
+                    <div>
+                        <h2>Recent sessions</h2>
+                        <p>Review AI-analysed sessions and jump into key behaviour moments.</p>
+                    </div>
+                    <button class="btn btn-primary subtle">
+                        <i class="fas fa-upload"></i>
+                        Upload new session
+                    </button>
+                </header>
+
+                <div class="session-list">
+                    <article class="session-card">
+                        <div class="session-main">
+                            <h3>Grade 8 – Mathematics · Linear Equations</h3>
+                            <p class="session-meta">
+                                Today · 40 min · Attention: 84% · Participation: High
+                            </p>
+                            <p class="session-note">
+                                Students remained most engaged during board examples.
+                                Slight attention dip in the final 10 minutes during recap.
+                            </p>
+                        </div>
+                        <div class="session-actions">
+                            <button class="btn btn-secondary-outline small">
+                                <i class="fas fa-file-alt"></i> View report
+                            </button>
+                            <button class="btn btn-secondary-outline small">
+                                <i class="fas fa-play-circle"></i> Watch highlights
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="session-card">
+                        <div class="session-main">
+                            <h3>Grade 7 – English · Descriptive Writing</h3>
+                            <p class="session-meta">
+                                Yesterday · 38 min · Attention: 76% · Participation: Medium
+                            </p>
+                            <p class="session-note">
+                                Engagement improved during peer review; a small group was repeatedly distracted
+                                during silent writing.
+                            </p>
+                        </div>
+                        <div class="session-actions">
+                            <button class="btn btn-secondary-outline small">
+                                <i class="fas fa-file-alt"></i> View report
+                            </button>
+                            <button class="btn btn-secondary-outline small">
+                                <i class="fas fa-play-circle"></i> Watch highlights
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="session-card">
+                        <div class="session-main">
+                            <h3>Grade 9 – Science · Cell Structure</h3>
+                            <p class="session-meta">
+                                2 days ago · 42 min · Attention: 72% · Participation: Mixed
+                            </p>
+                            <p class="session-note">
+                                Strong focus during diagram-based explanation. Multiple distraction spikes detected
+                                during note copying segments.
+                            </p>
+                        </div>
+                        <div class="session-actions">
+                            <button class="btn btn-secondary-outline small">
+                                <i class="fas fa-file-alt"></i> View report
+                            </button>
+                            <button class="btn btn-secondary-outline small">
+                                <i class="fas fa-play-circle"></i> Watch highlights
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </div>
+</main>
+
+<!-- Floating action button similar to parent -->
+<button class="parent-fab-toggle teacher-fab-toggle" id="teacher-fab-toggle">
+    <i class="fas fa-layer-group"></i>
+    <span>Show Overview</span>
+</button>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>ObserveQ. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../../home.js"></script>
+<script>
+    (function() {
+        const logoToggle = document.getElementById('teacher-logo-toggle');
+        const sidebar = document.querySelector('.teacher-sidebar');
+        const layout = document.querySelector('.teacher-dashboard-layout');
+        const fabToggle = document.getElementById('teacher-fab-toggle');
+
+        if (!sidebar || !layout) return;
+
+        function toggleSidebar(e) {
+            if (e) e.preventDefault();
+            sidebar.classList.toggle('collapsed');
+            layout.classList.toggle('sidebar-collapsed');
+        }
+
+        if (logoToggle) {
+            logoToggle.addEventListener('click', toggleSidebar);
+        }
+
+        if (fabToggle) {
+            fabToggle.addEventListener('click', toggleSidebar);
+        }
+    })();
+</script>
+</body>
+</html>

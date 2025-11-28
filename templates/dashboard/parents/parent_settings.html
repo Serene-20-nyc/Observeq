@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Parent Settings</title>
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+<body data-theme="light">
+<header class="navbar" id="navbar">
+    <div class="container navbar-content">
+        <a href="parent-dashboard" class="logo">
+            <span class="logo-icon"><i class="fas fa-child"></i></span>
+            <div class="logo-text-group">
+                <span class="logo-brand">ObserveQ</span>
+                <span class="child-name-pill">Your Child</span>
+            </div>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../home.html">Home</a>
+            <a href="../../about.html">About</a>
+            <a href="../../features.html">Features</a>
+            <a href="../../how-it-works.html">How It Works</a>
+            <a href="../../story.html">Stories</a>
+            <a href="../../contact.html">Contact</a>
+            <a href="parent_dashboard.html" class="nav-active">Parent Dashboard</a>
+        </nav>
+
+        <div class="nav-right-items">
+            <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+            <button id="theme-toggle-desktop" class="btn btn-icon">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="settings-page">
+    <div class="container">
+        <header class="settings-header">
+            <h1 class="page-title">Settings</h1>
+            <p class="page-subtitle">
+                Manage your profile, notification preferences, privacy controls, and
+                account security for your parent ObserveQ account.
+            </p>
+        </header>
+
+        <div class="settings-layout">
+            <!-- LEFT: mini nav -->
+            <aside class="settings-nav">
+                <div class="panel-card">
+                    <h2 class="settings-section-title">Settings menu</h2>
+                    <p class="settings-section-sub">
+                        Jump directly to the section you want to update.
+                    </p>
+
+                    <ul class="settings-nav-list">
+                        <li class="settings-nav-item">
+                            <button class="settings-nav-link active" data-target="section-profile">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Profile &amp; child info</span>
+                            </button>
+                        </li>
+                        <li class="settings-nav-item">
+                            <button class="settings-nav-link" data-target="section-notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </button>
+                        </li>
+                        <li class="settings-nav-item">
+                            <button class="settings-nav-link" data-target="section-privacy">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Privacy &amp; data</span>
+                            </button>
+                        </li>
+                        <li class="settings-nav-item">
+                            <button class="settings-nav-link" data-target="section-security">
+                                <i class="fas fa-lock"></i>
+                                <span>Security</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- RIGHT: content -->
+            <section>
+                <!-- PROFILE -->
+                <section class="panel-card" id="section-profile">
+                    <h2 class="settings-section-title">Profile &amp; child context</h2>
+                    <p class="settings-section-sub">
+                        Keep your contact details updated so teachers and the school can reach you about
+                        your child’s progress. These details are not shared with other parents.
+                    </p>
+
+                    <div class="settings-grid">
+                        <div class="settings-field">
+                            <label for="parent-name">Parent / Guardian name</label>
+                            <input type="text" id="parent-name" value="Neha Mehta">
+                            <small>This name appears on reports and messages.</small>
+                        </div>
+                        <div class="settings-field">
+                            <label for="relationship">Relationship to child</label>
+                            <select id="relationship">
+                                <option selected>Mother</option>
+                                <option>Father</option>
+                                <option>Guardian</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="settings-field">
+                            <label for="parent-email">Email address</label>
+                            <input type="email" id="parent-email" value="neha.mehta@example.com">
+                            <small>Used for login and notifications from the school.</small>
+                        </div>
+                        <div class="settings-field">
+                            <label for="parent-phone">Mobile number</label>
+                            <input type="tel" id="parent-phone" value="+91-98980-12345">
+                            <small>Optional, but helpful for urgent school contact.</small>
+                        </div>
+                        <div class="settings-field">
+                            <label for="child-name">Linked child</label>
+                            <input type="text" id="child-name" value="Aarav Mehta · Grade 7A" disabled>
+                            <small>Child details are managed by the school office.</small>
+                        </div>
+                        <div class="settings-field">
+                            <label for="language">Preferred language</label>
+                            <select id="language">
+                                <option selected>English</option>
+                                <option>Hindi</option>
+                                <option>English + Hindi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button class="btn-primary-sm" type="button" id="save-profile">
+                            <i class="fas fa-check"></i> Save changes
+                        </button>
+                        <button class="btn-ghost-sm" type="button">
+                            Cancel
+                        </button>
+                        <span class="saved-pill" id="profile-saved" style="display:none;">
+                            <i class="fas fa-check-circle"></i> Saved
+                        </span>
+                    </div>
+                </section>
+
+                <!-- NOTIFICATIONS -->
+                <section class="panel-card" id="section-notifications" style="margin-top:1.4rem;">
+                    <h2 class="settings-section-title">Notifications</h2>
+                    <p class="settings-section-sub">
+                        Choose how you want to be notified about behaviour updates, messages,
+                        and attendance alerts for <strong>Aarav Mehta</strong>.
+                    </p>
+
+                    <div class="badge-soft" style="margin-bottom:0.3rem;">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Some schools limit which alerts can be disabled.</span>
+                    </div>
+
+                    <div class="toggle-row">
+                        <div class="toggle-info">
+                            <h3>Weekly behaviour summary</h3>
+                            <p>
+                                Receive a short email every Friday evening with the week’s key behaviour patterns
+                                and teacher notes.
+                            </p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-row">
+                        <div class="toggle-info">
+                            <h3>Immediate red-flag alerts</h3>
+                            <p>
+                                Notify you by email if a serious behaviour concern is logged for your child.
+                            </p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-row">
+                        <div class="toggle-info">
+                            <h3>New message from teacher</h3>
+                            <p>
+                                Get an email whenever a teacher or counsellor sends a direct message in ObserveQ.
+                            </p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-row">
+                        <div class="toggle-info">
+                            <h3>Attendance alerts</h3>
+                            <p>
+                                Receive a note if your child is marked absent or late for class.
+                            </p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-row">
+                        <div class="toggle-info">
+                            <h3>Product tips &amp; parent guides</h3>
+                            <p>
+                                Occasional emails with tips for using the dashboard or having calm school conversations.
+                            </p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- PRIVACY -->
+                <section class="panel-card" id="section-privacy" style="margin-top:1.4rem;">
+                    <h2 class="settings-section-title">Privacy &amp; data</h2>
+                    <p class="settings-section-sub">
+                        Control how your data is stored and used within your school’s ObserveQ environment.
+                        These settings apply only to this parent account.
+                    </p>
+
+                    <div class="settings-grid">
+                        <div class="settings-field">
+                            <label>Data export</label>
+                            <small>
+                                You can request an export of your parent account activity
+                                (logins, messages sent, report downloads).
+                            </small>
+                        </div>
+                        <div class="settings-field">
+                            <label>&nbsp;</label>
+                            <button class="btn-ghost-sm" type="button">
+                                <i class="fas fa-download"></i> Request data export
+                            </button>
+                            <small>Exports are prepared by the school’s ObserveQ admin.</small>
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Analytics &amp; usage insights</label>
+                            <small>
+                                Allow anonymous usage analytics to help the school understand which features parents use most.
+                            </small>
+                        </div>
+                        <div class="settings-field">
+                            <label>&nbsp;</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <small>You can change this at any time.</small>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:0.4rem;font-size:0.8rem;color:var(--text-muted);">
+                        By using ObserveQ, you also agree to your school’s
+                        <a href="#" target="_blank">Privacy Policy</a> and
+                        <a href="#" target="_blank">Data Protection Statement</a>.
+                    </div>
+                </section>
+
+                <!-- SECURITY -->
+                <section class="panel-card" id="section-security" style="margin-top:1.4rem;">
+                    <h2 class="settings-section-title">Security</h2>
+                    <p class="settings-section-sub">
+                        Keep your parent account safe, especially if you share devices at home.
+                    </p>
+
+                    <div class="security-grid">
+                        <div class="security-card">
+                            <h3>Change password</h3>
+                            <p>
+                                Update the password you use to sign in to ObserveQ. Make sure no one else at home knows it
+                                unless you choose to share it.
+                            </p>
+
+                            <div class="settings-field" style="margin-top:0.55rem;">
+                                <label for="current-password">Current password</label>
+                                <input type="password" id="current-password" placeholder="••••••••">
+                            </div>
+                            <div class="settings-field" style="margin-top:0.45rem;">
+                                <label for="new-password">New password</label>
+                                <input type="password" id="new-password" placeholder="At least 8 characters">
+                                <small>Use a mix of letters and numbers for better security.</small>
+                            </div>
+
+                            <div class="settings-actions" style="margin-top:0.6rem;">
+                                <button class="btn-primary-sm" type="button">
+                                    <i class="fas fa-lock"></i> Update password
+                                </button>
+                            </div>
+
+                            <div class="security-meta">
+                                Last changed: 3 months ago
+                            </div>
+                        </div>
+
+                        <div class="security-card">
+                            <h3>Two-step verification</h3>
+                            <p>
+                                Add an extra layer of security by asking for a one-time code when logging in
+                                from a new device.
+                            </p>
+
+                            <div class="toggle-row" style="padding:0.55rem 0 0.25rem;">
+                                <div class="toggle-info">
+                                    <h3 style="margin-bottom:0.1rem;">Enable OTP for new devices</h3>
+                                    <p>
+                                        Recommend: <strong>On</strong> if you access ObserveQ from shared computers.
+                                    </p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="security-meta">
+                                OTP is sent to your registered email or phone number.
+                                Make sure your contact details are up to date in the profile section.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="danger-zone">
+                        <h3>Danger zone</h3>
+                        <p>
+                            Deactivating your parent account will remove your access to ObserveQ.
+                            Your child’s school will still retain behaviour and academic records
+                            as per their policies. To reactivate later, you may need to contact
+                            the school office.
+                        </p>
+                        <div class="settings-actions" style="margin-top:0.5rem;">
+                            <button class="btn-danger-sm" type="button">
+                                <i class="fas fa-user-slash"></i> Request account deactivation
+                            </button>
+                            <span style="font-size:0.78rem;color:var(--text-muted);">
+                                This request will be reviewed by the school’s admin team.
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>ObserveQ. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../../js/home.js"></script>
+<script>
+    // Settings side-nav scroll + active state
+    document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('.settings-nav-link');
+        const sections = {
+            'section-profile': document.getElementById('section-profile'),
+            'section-notifications': document.getElementById('section-notifications'),
+            'section-privacy': document.getElementById('section-privacy'),
+            'section-security': document.getElementById('section-security'),
+        };
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                const targetId = link.dataset.target;
+                const targetSection = sections[targetId];
+
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Fake "Saved" state for profile save button (front-end demo)
+        const saveBtn = document.getElementById('save-profile');
+        const savedPill = document.getElementById('profile-saved');
+        if (saveBtn && savedPill) {
+            saveBtn.addEventListener('click', () => {
+                savedPill.style.display = 'inline-flex';
+                setTimeout(() => {
+                    savedPill.style.display = 'none';
+                }, 2500);
+            });
+        }
+    });
+</script>
+</body>
+</html>

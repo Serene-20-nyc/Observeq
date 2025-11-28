@@ -1,0 +1,948 @@
+/* ============================================
+   ObserveQ – Teacher Messages
+   File: teacher_messages.css
+============================================ */
+
+/* ---------- Layout shell (reuses dashboard layout) ---------- */
+
+.dashboard-main {
+    background: var(--page-bg, #050816);
+    min-height: 100vh;
+}
+
+.teacher-dashboard-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 2rem;
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+}
+
+.teacher-dashboard-layout.sidebar-collapsed {
+    grid-template-columns: 72px minmax(0, 1fr);
+}
+
+@media (max-width: 960px) {
+    .teacher-dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar base (if not already styled) */
+.teacher-sidebar {
+    position: relative;
+    z-index: 10;
+}
+
+/* ---------- Page heading ---------- */
+
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.dashboard-heading-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.dashboard-title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text-primary, #f9fafb);
+    letter-spacing: 0.01em;
+    margin-bottom: 0.4rem;
+}
+
+.dashboard-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted, #9ca3af);
+    max-width: 38rem;
+}
+
+.dashboard-heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* ---------- Generic panel ---------- */
+
+.dashboard-panel {
+    background: var(--card-bg, rgba(15, 23, 42, 0.92));
+    border-radius: 18px;
+    padding: 1.3rem 1.4rem 1.5rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.dashboard-panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+}
+
+.dashboard-panel-header h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary, #f9fafb);
+    letter-spacing: 0.01em;
+}
+
+.dashboard-panel-header p {
+    font-size: 0.86rem;
+    color: var(--text-muted, #94a3b8);
+}
+
+/* ============================================
+   Messages layout (main card)
+============================================ */
+
+.messages-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 1.1rem;
+    margin-top: 0.4rem;
+    min-height: 420px;
+}
+
+@media (max-width: 1024px) {
+    .messages-layout {
+        grid-template-columns: 290px minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 880px) {
+    .messages-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Left: conversation list ---------- */
+
+.messages-sidebar {
+    border-right: 1px solid rgba(148, 163, 184, 0.25);
+    padding-right: 1.1rem;
+    margin-right: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+@media (max-width: 880px) {
+    .messages-sidebar {
+        border-right: none;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        padding-right: 0;
+        padding-bottom: 1rem;
+        margin-right: 0;
+    }
+}
+
+.messages-sidebar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.messages-sidebar-header h2 {
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--text-primary, #e5e7eb);
+}
+
+.messages-filter-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.input-text,
+.input-select {
+    width: 100%;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.85);
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+    background: rgba(15, 23, 42, 0.95);
+    color: #e5e7eb;
+    outline: none;
+    transition:
+        border-color 0.16s ease-out,
+        box-shadow 0.16s ease-out,
+        background 0.16s ease-out,
+        transform 0.12s ease-out;
+}
+
+.input-text::placeholder {
+    color: rgba(148, 163, 184, 0.75);
+}
+
+.input-select.compact-input {
+    max-width: 110px;
+}
+
+/* Custom select arrow */
+.input-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #9ca3af 50%),
+        linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+    background-position:
+        calc(100% - 16px) calc(50% - 3px),
+        calc(100% - 12px) calc(50% - 3px);
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+}
+
+.input-text:focus,
+.input-select:focus {
+    border-color: rgba(59, 130, 246, 0.95);
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.75);
+    transform: translateY(-1px);
+    background: rgba(15, 23, 42, 1);
+}
+
+/* Thread list */
+
+.messages-thread-list {
+    list-style: none;
+    margin: 0.4rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.messages-thread-item {
+    border-radius: 14px;
+    padding: 0.7rem 0.7rem 0.65rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: radial-gradient(circle at top left,
+        rgba(30, 64, 175, 0.2),
+        rgba(15, 23, 42, 0.95));
+    cursor: pointer;
+    transition:
+        border-color 0.16s ease-out,
+        background 0.18s ease-out,
+        transform 0.12s ease-out,
+        box-shadow 0.12s ease-out;
+}
+
+.messages-thread-item:hover {
+    border-color: rgba(96, 165, 250, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.85);
+}
+
+.messages-thread-item.active {
+    border-color: rgba(59, 130, 246, 1);
+    box-shadow: 0 16px 36px rgba(37, 99, 235, 0.8);
+    background: radial-gradient(circle at top left,
+        rgba(37, 99, 235, 0.32),
+        rgba(15, 23, 42, 0.98));
+}
+
+.thread-main-line,
+.thread-secondary-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.thread-main-line {
+    margin-bottom: 0.15rem;
+}
+
+.thread-secondary-line {
+    margin-bottom: 0.2rem;
+}
+
+.thread-student-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #f9fafb;
+}
+
+.thread-time {
+    font-size: 0.78rem;
+    color: rgba(148, 163, 184, 0.9);
+    white-space: nowrap;
+}
+
+.thread-parent-name,
+.thread-class {
+    font-size: 0.78rem;
+    color: rgba(203, 213, 225, 0.95);
+}
+
+.thread-snippet {
+    margin: 0.25rem 0 0.35rem;
+    font-size: 0.8rem;
+    color: rgba(226, 232, 240, 0.95);
+}
+
+.thread-status-line {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    color: rgba(148, 163, 184, 0.96);
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.85);
+}
+
+.status-unread {
+    background: #facc15;
+}
+
+.status-read {
+    background: #22c55e;
+}
+
+.status-replied {
+    background: #38bdf8;
+}
+
+/* Thread badges */
+
+.thread-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    margin-left: 0.4rem;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.badge-flagged {
+    border-color: rgba(248, 113, 113, 0.9);
+    color: #fecaca;
+    background: rgba(127, 29, 29, 0.7);
+}
+
+.badge-positive {
+    border-color: rgba(52, 211, 153, 0.9);
+    color: #bbf7d0;
+    background: rgba(6, 95, 70, 0.7);
+}
+
+.badge-followup {
+    border-color: rgba(249, 115, 22, 0.95);
+    color: #fed7aa;
+    background: rgba(124, 45, 18, 0.8);
+}
+
+.badge-broadcast {
+    border-color: rgba(59, 130, 246, 0.95);
+    color: #bfdbfe;
+    background: rgba(30, 64, 175, 0.85);
+}
+
+/* ============================================
+   Right: Conversation content
+============================================ */
+
+.messages-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.messages-content-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.messages-recipient-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.messages-student-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary, #f9fafb);
+}
+
+.messages-student-title .highlight {
+    color: #bfdbfe;
+}
+
+.messages-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted, #9ca3af);
+}
+
+.messages-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.compact-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+/* Thread window */
+
+.messages-thread-window {
+    position: relative;
+    padding: 0.9rem 0.3rem 0.4rem;
+    border-radius: 14px;
+    background: radial-gradient(circle at top left,
+        rgba(37, 99, 235, 0.18),
+        rgba(15, 23, 42, 0.98));
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    max-height: 340px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+/* System chip */
+
+.message-chip {
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.76rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(59, 130, 246, 0.8);
+    background: rgba(30, 64, 175, 0.85);
+    color: #e0f2fe;
+}
+
+.message-chip i {
+    font-size: 0.78rem;
+}
+
+/* Message bubbles */
+
+.message-bubble-row {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+}
+
+.message-from-teacher {
+    justify-content: flex-start;
+}
+
+.message-from-parent {
+    justify-content: flex-start;
+}
+
+.message-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #f9fafb;
+    flex-shrink: 0;
+}
+
+.parent-avatar {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.message-bubble {
+    max-width: 75%;
+    background: rgba(15, 23, 42, 0.96);
+    border-radius: 14px;
+    padding: 0.55rem 0.75rem 0.65rem;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.85);
+}
+
+.message-from-teacher .message-bubble {
+    background: radial-gradient(circle at top left,
+        rgba(37, 99, 235, 0.35),
+        rgba(15, 23, 42, 0.98));
+}
+
+.message-from-parent .message-bubble {
+    background: radial-gradient(circle at top right,
+        rgba(34, 197, 94, 0.25),
+        rgba(15, 23, 42, 0.98));
+}
+
+.message-meta-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    margin-bottom: 0.2rem;
+}
+
+.message-sender {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #e5e7eb;
+}
+
+.message-time {
+    font-size: 0.75rem;
+    color: rgba(148, 163, 184, 0.95);
+    white-space: nowrap;
+}
+
+.message-text {
+    font-size: 0.83rem;
+    color: rgba(226, 232, 240, 0.98);
+    margin: 0.2rem 0;
+}
+
+.message-text strong {
+    font-weight: 600;
+    color: #facc15;
+}
+
+.draft-preview {
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Tags */
+
+.message-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.1rem;
+}
+
+.message-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(59, 130, 246, 0.7);
+    color: #bfdbfe;
+    background: rgba(15, 23, 42, 0.9);
+}
+
+/* ============================================
+   Composer
+============================================ */
+
+.messages-composer {
+    margin-top: 0.5rem;
+    border-radius: 14px;
+    padding: 0.85rem 0.9rem 0.9rem;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    background: radial-gradient(circle at top left,
+        rgba(59, 130, 246, 0.24),
+        rgba(15, 23, 42, 0.98));
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.composer-top-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 0.65rem;
+}
+
+@media (max-width: 720px) {
+    .composer-top-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.composer-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.composer-field label,
+.composer-body-row label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(226, 232, 240, 0.96);
+}
+
+.input-textarea {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.85);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.86rem;
+    background: rgba(15, 23, 42, 0.96);
+    color: #e5e7eb;
+    resize: vertical;
+    min-height: 120px;
+    outline: none;
+    transition:
+        border-color 0.16s ease-out,
+        box-shadow 0.16s ease-out,
+        background 0.16s ease-out,
+        transform 0.12s ease-out;
+}
+
+.input-textarea::placeholder {
+    color: rgba(148, 163, 184, 0.8);
+}
+
+.input-textarea:focus {
+    border-color: rgba(59, 130, 246, 0.95);
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.75);
+    background: rgba(15, 23, 42, 1);
+    transform: translateY(-1px);
+}
+
+.composer-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.1rem;
+}
+
+.composer-left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.checkbox-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    color: rgba(226, 232, 240, 0.95);
+}
+
+.checkbox-inline input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(148, 163, 184, 0.9);
+    background: rgba(15, 23, 42, 0.9);
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox-inline input[type="checkbox"]:checked {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-color: #22c55e;
+}
+
+.checkbox-inline input[type="checkbox"]:checked::before {
+    content: "✓";
+    position: absolute;
+    top: 0;
+    left: 2px;
+    font-size: 0.7rem;
+    color: #f9fafb;
+}
+
+.composer-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   Tips panel
+============================================ */
+
+.highlights-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.4rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.highlights-list li strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-primary, #e5e7eb);
+}
+
+.highlights-list li p {
+    margin: 0.15rem 0 0;
+    font-size: 0.82rem;
+    color: var(--text-muted, #9ca3af);
+}
+
+/* ============================================
+   FAB toggle (bottom-right)
+============================================ */
+
+.teacher-fab-toggle {
+    position: fixed;
+    right: 1.75rem;
+    bottom: 1.6rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    background: radial-gradient(circle at top left,
+        rgba(96, 165, 250, 0.2),
+        rgba(15, 23, 42, 0.98));
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.92);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-primary, #e5e7eb);
+    z-index: 60;
+    transition:
+        transform 0.16s ease-out,
+        box-shadow 0.16s ease-out,
+        border-color 0.16s ease-out,
+        background 0.2s ease-out;
+}
+
+.teacher-fab-toggle i {
+    font-size: 0.9rem;
+}
+
+.teacher-fab-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px rgba(15, 23, 42, 0.96);
+    border-color: rgba(59, 130, 246, 0.9);
+}
+
+.teacher-fab-toggle:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+@media (max-width: 480px) {
+    .teacher-fab-toggle span {
+        display: none;
+    }
+
+    .teacher-fab-toggle {
+        padding-inline: 0.7rem;
+    }
+}
+
+/* ============================================
+   Buttons (local safe overrides)
+============================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    border: 1px solid transparent;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background 0.16s ease-out,
+        color 0.16s ease-out,
+        border-color 0.16s ease-out,
+        transform 0.12s ease-out,
+        box-shadow 0.12s ease-out;
+}
+
+.btn i {
+    font-size: 0.85rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #f9fafb;
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.7);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 32px rgba(37, 99, 235, 0.85);
+}
+
+.btn-secondary-outline {
+    background: transparent;
+    color: var(--text-primary, #e5e7eb);
+    border-color: rgba(148, 163, 184, 0.6);
+}
+
+.btn-secondary-outline:hover {
+    background: rgba(148, 163, 184, 0.14);
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   Light Theme Overrides
+============================================ */
+
+body[data-theme="light"] .dashboard-main {
+    --page-bg: #f3f4f6;
+}
+
+body[data-theme="light"] .dashboard-panel {
+    --card-bg: #ffffff;
+    background: #ffffff;
+    border-color: rgba(148, 163, 184, 0.3);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+body[data-theme="light"] .dashboard-title {
+    --text-primary: #111827;
+}
+
+body[data-theme="light"] .dashboard-subtitle,
+body[data-theme="light"] .dashboard-panel-header p {
+    --text-muted: #6b7280;
+    color: #6b7280;
+}
+
+body[data-theme="light"] .messages-sidebar {
+    border-right-color: rgba(209, 213, 219, 0.9);
+}
+
+body[data-theme="light"] .input-text,
+body[data-theme="light"] .input-select,
+body[data-theme="light"] .input-textarea {
+    background: #ffffff;
+    color: #111827;
+    border-color: rgba(148, 163, 184, 0.9);
+}
+
+body[data-theme="light"] .input-text::placeholder,
+body[data-theme="light"] .input-textarea::placeholder {
+    color: rgba(156, 163, 175, 0.95);
+}
+
+body[data-theme="light"] .messages-thread-item {
+    background: #f9fafb;
+    border-color: rgba(209, 213, 219, 0.95);
+}
+
+body[data-theme="light"] .messages-thread-item.active {
+    background: #eff6ff;
+    border-color: rgba(37, 99, 235, 0.95);
+    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.2);
+}
+
+body[data-theme="light"] .thread-student-name {
+    color: #111827;
+}
+
+body[data-theme="light"] .thread-time,
+body[data-theme="light"] .thread-parent-name,
+body[data-theme="light"] .thread-class,
+body[data-theme="light"] .thread-status-line {
+    color: #6b7280;
+}
+
+body[data-theme="light"] .thread-snippet {
+    color: #374151;
+}
+
+body[data-theme="light"] .messages-thread-window {
+    background: #f9fafb;
+    border-color: rgba(209, 213, 219, 0.95);
+}
+
+body[data-theme="light"] .message-bubble {
+    background: #ffffff;
+    border-color: rgba(209, 213, 219, 0.95);
+}
+
+body[data-theme="light"] .message-from-teacher .message-bubble {
+    background: #eff6ff;
+}
+
+body[data-theme="light"] .message-from-parent .message-bubble {
+    background: #ecfdf3;
+}
+
+body[data-theme="light"] .message-text {
+    color: #111827;
+}
+
+body[data-theme="light"] .message-subtitle,
+body[data-theme="light"] .messages-subtitle {
+    color: #6b7280;
+}
+
+body[data-theme="light"] .messages-composer {
+    background: #ffffff;
+    border-color: rgba(209, 213, 219, 0.95);
+}
+
+body[data-theme="light"] .composer-field label,
+body[data-theme="light"] .composer-body-row label,
+body[data-theme="light"] .checkbox-inline {
+    color: #374151;
+}
+
+body[data-theme="light"] .checkbox-inline input[type="checkbox"] {
+    background: #ffffff;
+    border-color: rgba(148, 163, 184, 0.9);
+}
+
+body[data-theme="light"] .highlights-list li strong {
+    color: #111827;
+}
+
+body[data-theme="light"] .highlights-list li p {
+    color: #4b5563;
+}
+
+body[data-theme="light"] .teacher-fab-toggle {
+    background: radial-gradient(circle at top left,
+        rgba(191, 219, 254, 0.95),
+        #ffffff);
+    border-color: rgba(148, 163, 184, 0.9);
+    color: #111827;
+    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.18);
+}
+
+/* Buttons in light mode */
+
+body[data-theme="light"] .btn-secondary-outline {
+    color: #111827;
+    border-color: rgba(148, 163, 184, 0.9);
+}

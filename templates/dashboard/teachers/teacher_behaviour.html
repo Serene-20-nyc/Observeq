@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Behaviour Trends (Teacher)</title>
+
+    <!-- Global + shared dashboard styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+
+    <!-- Teacher-specific dashboard styles -->
+    <link rel="stylesheet" href="../../../css/teacher_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_behaviour.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-theme="light">
+
+    <!-- Top Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <!-- Logo + Teacher toggle (collapses sidebar) -->
+            <a href="#" class="logo parent-logo-toggle" id="teacher-logo-toggle">
+                <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">ObserveQ</span>
+                    <span class="child-name-pill" id="teacher-name-pill">Ms. Sharma · Science</span>
+                </div>
+            </a>
+
+            <!-- Main site nav -->
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../../home.html">Home</a>
+                <a href="../../../about.html">About</a>
+                <a href="../../../features.html">Features</a>
+                <a href="../../../how-it-works.html">How It Works</a>
+                <a href="../../../story.html">Stories</a>
+                <a href="../../../contact.html">Contact</a>
+                <a href="teacher_dashboard.html" class="nav-active">Teacher Dashboard</a>
+            </nav>
+
+            <!-- Right-side controls -->
+            <div class="nav-right-items">
+                <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+                <button id="theme-toggle-desktop" class="btn btn-icon">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-main">
+        <div class="container teacher-dashboard-layout">
+
+            <!-- Sidebar -->
+            <aside class="teacher-sidebar">
+                <div class="sidebar-header">
+                    <span class="sidebar-label">For Teachers</span>
+                    <span class="sidebar-child-name">
+                        Ms. Ananya Sharma
+                        <span class="sidebar-child-tag">Science · Grades 7–9</span>
+                    </span>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Overview</div>
+                        <a href="teacher_dashboard.html" class="sidebar-link">
+                            <i class="fas fa-gauge-high"></i>
+                            <div class="sidebar-link-text">
+                                <span>Dashboard</span>
+                                <small>Today’s behaviour snapshot</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Teaching</div>
+                        <a href="teacher_classes.html" class="sidebar-link">
+                            <i class="fas fa-layer-group"></i>
+                            <div class="sidebar-link-text">
+                                <span>My Classes</span>
+                                <small>Sections you teach</small>
+                            </div>
+                        </a>
+                        <a href="teacher_behaviour.html" class="sidebar-link active">
+                            <i class="fas fa-wave-square"></i>
+                            <div class="sidebar-link-text">
+                                <span>Behaviour Trends</span>
+                                <small>Class-wise patterns</small>
+                            </div>
+                        </a>
+                        <a href="teacher_sessions.html" class="sidebar-link">
+                            <i class="fas fa-video"></i>
+                            <div class="sidebar-link-text">
+                                <span>Recorded Sessions</span>
+                                <small>Upload & review classes</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Insights & Reports</div>
+                        <a href="teacher_reports.html" class="sidebar-link">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="sidebar-link-text">
+                                <span>Reports</span>
+                                <small>Class summaries & PDFs</small>
+                            </div>
+                        </a>
+                        <a href="teacher_messages.html" class="sidebar-link">
+                            <i class="fas fa-comments"></i>
+                            <div class="sidebar-link-text">
+                                <span>Messages</span>
+                                <small>Notes to parents</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Account</div>
+                        <a href="teacher_help.html" class="sidebar-link">
+                            <i class="fas fa-question-circle"></i>
+                            <div class="sidebar-link-text">
+                                <span>Help & Support</span>
+                                <small>Guides & FAQs</small>
+                            </div>
+                        </a>
+                        <a href="teacher_settings.html" class="sidebar-link">
+                            <i class="fas fa-cog"></i>
+                            <div class="sidebar-link-text">
+                                <span>Settings</span>
+                                <small>Profile & preferences</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group sidebar-group-footer">
+                        <button class="sidebar-logout-btn" onclick="window.location.href='/api/logout'">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content: Behaviour Trends -->
+            <section class="dashboard-section dashboard-header">
+                <div class="dashboard-heading-row">
+                    <div>
+                        <h1 class="dashboard-title">Behaviour Trends</h1>
+                        <p class="dashboard-subtitle">
+                            Explore how attention, participation and overall behaviour change over time across your classes.
+                        </p>
+                    </div>
+                    <div class="dashboard-heading-actions">
+                        <select class="input-select">
+                            <option>All Classes</option>
+                            <option>Grade 7 · A – Science</option>
+                            <option>Grade 7 · B – Science</option>
+                            <option>Grade 8 · A – Science</option>
+                            <option>Grade 8 · B – Science</option>
+                            <option>Grade 9 · A – Science</option>
+                        </select>
+                        <select class="input-select">
+                            <option>Last 30 days</option>
+                            <option>Last 7 days</option>
+                            <option>Current term</option>
+                            <option>Academic year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Summary row -->
+                <section class="dashboard-panel teacher-overview-panel">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Summary across your classes</h2>
+                            <p>ObserveQ aggregates behaviour signals to surface where support is needed most.</p>
+                        </div>
+                    </header>
+
+                    <div class="teacher-overview-grid">
+                        <div class="overview-card">
+                            <div class="overview-card-header">
+                                <div class="overview-label">Average Attention</div>
+                                <span class="icon-soft"><i class="fas fa-bullseye"></i></span>
+                            </div>
+                            <h3>76% On-task</h3>
+                            <p>
+                                Most lessons show steady focus. The last 10 minutes of afternoon classes have the
+                                highest off-task spikes.
+                            </p>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-card-header">
+                                <div class="overview-label">Participation</div>
+                                <span class="icon-soft"><i class="fas fa-hand-paper"></i></span>
+                            </div>
+                            <h3>68% Active</h3>
+                            <p>
+                                Question-based lessons show stronger participation. Group work benefits quieter students
+                                in Grade 8 · A.
+                            </p>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-card-header">
+                                <div class="overview-label">Flagged Sessions</div>
+                                <span class="icon-soft"><i class="fas fa-flag"></i></span>
+                            </div>
+                            <h3>12 Sessions</h3>
+                            <p>
+                                Repeated patterns of distraction in Grade 7 · B and Grade 9 · A during theory-heavy topics.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Trend panels -->
+                <section class="dashboard-panel" style="margin-top: 1.4rem;">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Class-wise behaviour trends</h2>
+                            <p>
+                                A narrative view of what ObserveQ is seeing in your classroom over the selected period.
+                            </p>
+                        </div>
+                    </header>
+
+                    <div class="trend-grid">
+                        <!-- Grade 7 A -->
+                        <article class="trend-card">
+                            <header class="trend-card-header">
+                                <div>
+                                    <h3>Grade 7 · A – Science</h3>
+                                    <p class="trend-meta">32 students · Morning · Room 204</p>
+                                </div>
+                                <span class="trend-pill trend-pill-positive">
+                                    Overall: Positive
+                                </span>
+                            </header>
+                            <ul class="trend-points">
+                                <li>
+                                    <strong>Attention:</strong> High during experiments and visual demos, moderate during
+                                    textbook explanations.
+                                </li>
+                                <li>
+                                    <strong>Participation:</strong> 4–5 students consistently lead Q&A; others answer when called.
+                                </li>
+                                <li>
+                                    <strong>Recommendation:</strong> Use quick “think–pair–share” breaks during theory to
+                                    bring more voices into the discussion.
+                                </li>
+                            </ul>
+                            <footer class="trend-footer">
+                                <span><i class="fas fa-calendar-week"></i> 9 lessons analysed · 0 flagged</span>
+                                <button class="btn btn-secondary-outline small">View sessions</button>
+                            </footer>
+                        </article>
+
+                        <!-- Grade 7 B -->
+                        <article class="trend-card">
+                            <header class="trend-card-header">
+                                <div>
+                                    <h3>Grade 7 · B – Science</h3>
+                                    <p class="trend-meta">30 students · After lunch · Room 205</p>
+                                </div>
+                                <span class="trend-pill trend-pill-warning">
+                                    Needs attention
+                                </span>
+                            </header>
+                            <ul class="trend-points">
+                                <li>
+                                    <strong>Attention:</strong> Noticeable dip in the first 15 minutes after lunch,
+                                    with increased side conversations.
+                                </li>
+                                <li>
+                                    <strong>Participation:</strong> Many students wait for prompts; voluntary answers are low.
+                                </li>
+                                <li>
+                                    <strong>Recommendation:</strong> Start lessons with a short, active recap game or
+                                    poll to reset energy and focus.
+                                </li>
+                            </ul>
+                            <footer class="trend-footer">
+                                <span><i class="fas fa-calendar-week"></i> 10 lessons analysed · 4 flagged</span>
+                                <button class="btn btn-secondary-outline small">View flagged lessons</button>
+                            </footer>
+                        </article>
+
+                        <!-- Grade 8 A -->
+                        <article class="trend-card">
+                            <header class="trend-card-header">
+                                <div>
+                                    <h3>Grade 8 · A – Science</h3>
+                                    <p class="trend-meta">34 students · Mid-morning · Lab 1</p>
+                                </div>
+                                <span class="trend-pill trend-pill-positive">
+                                    Steady engagement
+                                </span>
+                            </header>
+                            <ul class="trend-points">
+                                <li>
+                                    <strong>Attention:</strong> Very high during lab activities, with almost no off-task spikes.
+                                </li>
+                                <li>
+                                    <strong>Participation:</strong> Group work balances contributions; quieter students
+                                    participate more in smaller teams.
+                                </li>
+                                <li>
+                                    <strong>Recommendation:</strong> Use brief hands-on demonstrations even in theory
+                                    periods to maintain this pattern.
+                                </li>
+                            </ul>
+                            <footer class="trend-footer">
+                                <span><i class="fas fa-calendar-week"></i> 8 lessons analysed · 1 flagged</span>
+                                <button class="btn btn-secondary-outline small">View class timeline</button>
+                            </footer>
+                        </article>
+
+                        <!-- Grade 8 B -->
+                        <article class="trend-card">
+                            <header class="trend-card-header">
+                                <div>
+                                    <h3>Grade 8 · B – Science</h3>
+                                    <p class="trend-meta">33 students · Last period · Room 210</p>
+                                </div>
+                                <span class="trend-pill trend-pill-neutral">
+                                    Mixed focus
+                                </span>
+                            </header>
+                            <ul class="trend-points">
+                                <li>
+                                    <strong>Attention:</strong> Starts strong but drops in the final 10 minutes of most lessons.
+                                </li>
+                                <li>
+                                    <strong>Participation:</strong> Students engage well during problem-solving segments;
+                                    passive during long explanations.
+                                </li>
+                                <li>
+                                    <strong>Recommendation:</strong> End classes with a “one-minute summary” or quick quiz
+                                    to re-focus before dismissal.
+                                </li>
+                            </ul>
+                            <footer class="trend-footer">
+                                <span><i class="fas fa-calendar-week"></i> 7 lessons analysed · 2 flagged</span>
+                                <button class="btn btn-secondary-outline small">View class timeline</button>
+                            </footer>
+                        </article>
+
+                        <!-- Grade 9 A -->
+                        <article class="trend-card">
+                            <header class="trend-card-header">
+                                <div>
+                                    <h3>Grade 9 · A – Science</h3>
+                                    <p class="trend-meta">28 students · Morning · Lab 2</p>
+                                </div>
+                                <span class="trend-pill trend-pill-warning">
+                                    Theory challenges
+                                </span>
+                            </header>
+                            <ul class="trend-points">
+                                <li>
+                                    <strong>Attention:</strong> ObserveQ flags consistent dips during board-based derivations
+                                    and long note-taking segments.
+                                </li>
+                                <li>
+                                    <strong>Participation:</strong> Questions increase during practical demos and exam-style problems.
+                                </li>
+                                <li>
+                                    <strong>Recommendation:</strong> Break heavy theory into shorter chunks with quick,
+                                    exam-style practice questions in between.
+                                </li>
+                            </ul>
+                            <footer class="trend-footer">
+                                <span><i class="fas fa-calendar-week"></i> 11 lessons analysed · 5 flagged</span>
+                                <button class="btn btn-secondary-outline small">View flagged concepts</button>
+                            </footer>
+                        </article>
+
+                        <!-- Grade 9 B -->
+                        <article class="trend-card">
+                            <header class="trend-card-header">
+                                <div>
+                                    <h3>Grade 9 · B – General Science</h3>
+                                    <p class="trend-meta">29 students · Afternoon · Room 212</p>
+                                </div>
+                                <span class="trend-pill trend-pill-positive">
+                                    Improving trend
+                                </span>
+                            </header>
+                            <ul class="trend-points">
+                                <li>
+                                    <strong>Attention:</strong> Off-task behaviour dropped by 18% after introducing structured
+                                    group tasks.
+                                </li>
+                                <li>
+                                    <strong>Participation:</strong> More balanced, with fewer students dominating discussions.
+                                </li>
+                                <li>
+                                    <strong>Recommendation:</strong> Continue using small, rotating groups; consider assigning
+                                    roles to keep everyone involved.
+                                </li>
+                            </ul>
+                            <footer class="trend-footer">
+                                <span><i class="fas fa-calendar-week"></i> 9 lessons analysed · 2 flagged</span>
+                                <button class="btn btn-secondary-outline small">View timeline</button>
+                            </footer>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- AI Insights -->
+                <section class="dashboard-panel" style="margin-top: 1.4rem;">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>AI-generated coaching tips</h2>
+                            <p>
+                                Simple, practical suggestions based on repeated patterns across your classes.
+                            </p>
+                        </div>
+                    </header>
+
+                    <ul class="highlights-list">
+                        <li>
+                            <strong>Use “first five minutes” to reset focus</strong>
+                            <p>
+                                In classes after lunch or at the end of the day, ObserveQ sees stronger attention in sessions
+                                that begin with a short recap quiz or warm-up question.
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Alternate theory and activity segments</strong>
+                            <p>
+                                Attention dips most often during long, uninterrupted explanations. Breaking these into
+                                smaller chunks with questions, pair work or demonstrations improves engagement.
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Invite quieter students in low-stakes ways</strong>
+                            <p>
+                                Classes with more balanced participation often use quick, low-pressure prompts
+                                (“turn and talk”, “write and share”) instead of only open class discussions.
+                            </p>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <!-- Floating toggle to show/hide sidebar -->
+    <button class="teacher-fab-toggle" id="teacher-fab-toggle">
+        <i class="fas fa-layer-group"></i>
+        <span>Toggle Behaviour Panel</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>ObserveQ. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared JS (theme toggle, navbar, etc.) -->
+    <script src="../../../home.js"></script>
+
+    <!-- Teacher sidebar toggle logic -->
+    <script>
+        (function() {
+            const logoToggle = document.getElementById('teacher-logo-toggle');
+            const sidebar = document.querySelector('.teacher-sidebar');
+            const layout = document.querySelector('.teacher-dashboard-layout');
+            const fabToggle = document.getElementById('teacher-fab-toggle');
+
+            if (!sidebar || !layout) return;
+
+            function toggleSidebar(e) {
+                if (e) e.preventDefault();
+                sidebar.classList.toggle('collapsed');
+                layout.classList.toggle('sidebar-collapsed');
+            }
+
+            if (logoToggle) {
+                logoToggle.addEventListener('click', toggleSidebar);
+            }
+
+            if (fabToggle) {
+                fabToggle.addEventListener('click', toggleSidebar);
+            }
+        })();
+    </script>
+</body>
+</html>

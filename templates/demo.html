@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload & Analysis | ObserveQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/demo.css">
+    
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- Navbar -->
+    <<header
+        class="p-4 border-b border-gray-800/50 backdrop-blur-lg sticky top-0 z-10 transition-colors duration-300"
+        id="demo-navbar">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold logo-text">ObserveQ</h1>
+
+            <div class="flex items-center gap-3">
+                <!-- Theme toggle button -->
+                <button id="demo-theme-toggle"
+                    class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-sm transition hover:scale-105 hover:border-white/40"
+                    aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="demo-theme-icon"></i>
+                </button>
+
+                <a href="home.html"
+                    class="text-sm px-5 py-2.5 gradient-btn rounded-full font-semibold transition duration-200">
+                    Back to Home
+                </a>
+                   </div>
+        </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="flex-grow flex items-center justify-center p-6 md:p-12">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl">
+
+            <!-- Left Column: Upload and Features -->
+            <div class="space-y-10">
+                <header class="text-center lg:text-left">
+                    <h2 class="text-5xl font-extrabold mb-4 leading-tight">
+                        Upload a class video. <span class="gradient-text">We'll handle the behaviour analysis.</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Drop your classroom footage below and let our AI provide objective, time-stamped reports in
+                        minutes.
+                    </p>
+                </header>
+
+                <!-- Drag-and-drop Upload Card -->
+                <div id="upload-card"
+                    class="upload-card border-4 border-dashed border-gray-700 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-12 text-center transition duration-300">
+                    <i class="fas fa-cloud-upload-alt gradient-text text-6xl mb-4"></i>
+                    <p class="text-xl font-semibold mb-2">Drag & drop your video here</p>
+                    <p class="text-gray-400 mb-6">Supported formats: .mp4, .mov, .avi (Max 1GB)</p>
+
+                    <input type="file" id="file-input" class="hidden" accept=".mp4,.mov,.avi">
+                    <label for="file-input"
+                        class="inline-block px-8 py-3 gradient-btn rounded-full font-bold cursor-pointer transition duration-200">
+                        Or click to browse files
+                    </label>
+
+                    <!-- Progress Bar UI -->
+                    <div id="progress-container" class="mt-8 hidden">
+                        <p id="file-name" class="text-sm font-medium mb-2 gradient-text"></p>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div id="progress-bar-fill" class="progress-bar-fill h-3 rounded-full"
+                                style="width: 0%"></div>
+                        </div>
+                        <p id="progress-status" class="text-sm mt-2 text-gray-400">Processing: 0%</p>
+                    </div>
+
+                    <p id="upload-success" class="mt-8 text-lg font-bold text-green-400 hidden">
+                        <i class="fas fa-check-circle mr-2"></i> Analysis Complete! View Report.
+                    </p>
+                </div>
+
+                <!-- Analysis Features List -->
+                <div class="p-8 bg-gray-800/50 backdrop-blur-sm rounded-2xl space-y-4 border border-gray-700/50">
+                    <h3 class="text-2xl font-bold gradient-text">What We Analyze</h3>
+                    <ul class="text-gray-300 space-y-4">
+                        <li class="flex items-start group transition-transform hover:translate-x-2">
+                            <i class="fas fa-chart-line mt-1 mr-3 text-xl gradient-text"></i>
+                            <span>Detailed Attention/Engagement Scores over time.</span>
+                        </li>
+                        <li class="flex items-start group transition-transform hover:translate-x-2">
+                            <i class="fas fa-exclamation-triangle mt-1 mr-3 text-xl gradient-text"></i>
+                            <span>Detection of Distraction Events (e.g., phone use, idle moments).</span>
+                        </li>
+                        <li class="flex items-start group transition-transform hover:translate-x-2">
+                            <i class="fas fa-comments mt-1 mr-3 text-xl gradient-text"></i>
+                            <span>Collaboration and Peer Interaction metrics.</span>
+                        </li>
+                        <li class="flex items-start group transition-transform hover:translate-x-2">
+                            <i class="fas fa-user-circle mt-1 mr-3 text-xl gradient-text"></i>
+                            <span>Identification of Quiet Students who may need follow-up support.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: Mock Analytics Dashboard Preview -->
+            <div class="lg:sticky lg:top-24 h-full">
+                <div
+                    class="mock-dashboard-glow bg-gray-800/70 backdrop-blur-sm p-8 rounded-2xl shadow-2xl space-y-6">
+                    <h3 class="text-2xl font-bold gradient-text border-b border-gray-700/50 pb-3">Sample Analytics
+                        Dashboard</h3>
+
+                    <!-- Key Scores -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 bg-gray-700/50 rounded-xl backdrop-blur-sm border border-gray-600/30 transition-transform hover:scale-105">
+                            <p class="text-sm text-gray-400 mb-2">Average Engagement Score</p>
+                            <p class="text-5xl font-extrabold text-green-400">78<span class="text-2xl">%</span></p>
+                        </div>
+                        <div class="p-6 bg-gray-700/50 rounded-xl backdrop-blur-sm border border-gray-600/30 transition-transform hover:scale-105">
+                            <p class="text-sm text-gray-400 mb-2">Distraction Index</p>
+                            <p class="text-5xl font-extrabold text-red-400">22<span class="text-2xl">%</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Attention Heatmap Mock -->
+                    <div class="p-6 bg-gray-700/50 rounded-xl backdrop-blur-sm border border-gray-600/30">
+                        <p class="text-sm font-semibold text-gray-400 mb-4">Student Attention Heatmap (Mock)</p>
+                        <div class="h-40 bg-gray-900/70 rounded-lg relative overflow-hidden border border-gray-800">
+                            <div class="absolute inset-0 flex items-end justify-between p-2 gap-1">
+                                <div class="flex-1 h-[80%] bg-gradient-to-t from-green-500 to-green-400 rounded-sm transition-transform hover:scale-105"></div>
+                                <div class="flex-1 h-[90%] bg-gradient-to-t from-green-500 to-green-400 rounded-sm transition-transform hover:scale-105"></div>
+                                <div class="flex-1 h-[40%] bg-gradient-to-t from-yellow-500 to-yellow-400 rounded-sm transition-transform hover:scale-105"></div>
+                                <div class="flex-1 h-[20%] bg-gradient-to-t from-red-500 to-red-400 rounded-sm transition-transform hover:scale-105"></div>
+                                <div class="flex-1 h-[65%] bg-gradient-to-t from-yellow-500 to-yellow-400 rounded-sm transition-transform hover:scale-105"></div>
+                                <div class="flex-1 h-[85%] bg-gradient-to-t from-green-500 to-green-400 rounded-sm transition-transform hover:scale-105"></div>
+                                <div class="flex-1 h-[10%] bg-gradient-to-t from-red-500 to-red-400 rounded-sm transition-transform hover:scale-105"></div>
+                                <div class="flex-1 h-[70%] bg-gradient-to-t from-green-500 to-green-400 rounded-sm transition-transform hover:scale-105"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-3">Time Segment (0-100%)</p>
+                    </div>
+
+                    <!-- Privacy Note -->
+                    <div class="bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500 text-sm backdrop-blur-sm">
+                        <p class="font-bold gradient-text mb-2"><i class="fas fa-shield-alt mr-2"></i> Privacy-First
+                            Analysis</p>
+                        <p class="text-gray-400 leading-relaxed">
+                            We ensure secure storage, face blurring, and strictly no identity tracking. Your data is
+                            used solely for behavioral analytics and report generation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for Drag/Drop and Progress Simulation -->
+    <script src="../js/demo.js"></script>
+</body>
+
+</html>

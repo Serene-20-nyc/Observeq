@@ -1,0 +1,440 @@
+/* ============================================
+   Teacher Dashboard – Layout & Sidebar
+   ============================================ */
+
+.teacher-dashboard-layout {
+    margin-top: 5.5rem; /* clear fixed navbar */
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+@media (max-width: 960px) {
+    .teacher-dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar base */
+.teacher-sidebar {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    padding: 1.25rem 1rem;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+    position: relative;
+    transition: transform 0.28s ease, opacity 0.24s ease, max-height 0.28s ease;
+}
+
+body[data-theme="dark"] .teacher-sidebar {
+    background: rgba(15, 23, 42, 0.92);
+}
+
+/* Collapsed state (when toggled via logo/FAB) */
+.teacher-sidebar.collapsed {
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    max-height: 0;
+}
+
+/* Layout adjustment when sidebar collapsed */
+.teacher-dashboard-layout.sidebar-collapsed {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* Sidebar header text */
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+}
+
+.sidebar-child-name {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-child-tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Sidebar link groups */
+.sidebar-group {
+    margin-bottom: 1.25rem;
+}
+
+.sidebar-group-footer {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed rgba(148, 163, 184, 0.5);
+}
+
+.sidebar-section-label {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+}
+
+/* Sidebar links */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.55rem 0.65rem;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.16s ease, box-shadow 0.18s ease;
+}
+
+.sidebar-link i {
+    font-size: 0.95rem;
+    margin-top: 0.15rem;
+    opacity: 0.8;
+}
+
+.sidebar-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+}
+
+.sidebar-link-text span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.sidebar-link-text small {
+    font-size: 0.72rem;
+    opacity: 0.9;
+}
+
+/* Light mode link colors */
+body[data-theme="light"] .sidebar-link {
+    color: #0f172a;
+}
+
+body[data-theme="light"] .sidebar-link:hover {
+    background: rgba(37, 99, 235, 0.06);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+body[data-theme="light"] .sidebar-link.active {
+    background: rgba(37, 99, 235, 0.12);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.28);
+}
+
+/* Dark mode link colors */
+body[data-theme="dark"] .sidebar-link {
+    color: #e5e7eb;
+}
+
+body[data-theme="dark"] .sidebar-link:hover {
+    background: rgba(148, 163, 184, 0.16);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+}
+
+body[data-theme="dark"] .sidebar-link.active {
+    background: rgba(59, 130, 246, 0.35);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+}
+
+/* Sidebar logout button */
+.sidebar-logout-btn {
+    width: 100%;
+    border-radius: 999px;
+    border: 1px solid rgba(248, 113, 113, 0.75);
+    background: rgba(248, 113, 113, 0.06);
+    color: #b91c1c;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.16s ease;
+}
+
+.sidebar-logout-btn i {
+    font-size: 0.9rem;
+}
+
+.sidebar-logout-btn:hover {
+    background: rgba(248, 113, 113, 0.12);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(248, 113, 113, 0.3);
+}
+
+/* ============================================
+   Teacher Header & Hero Text
+   ============================================ */
+
+.dashboard-header {
+    margin-top: 1rem;
+}
+
+.dashboard-header .dashboard-title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.dashboard-header .dashboard-subtitle {
+    max-width: 720px;
+    font-size: 0.96rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   Teacher Overview Panel
+   ============================================ */
+
+.teacher-overview-panel {
+    margin-top: 1.5rem;
+}
+
+.teacher-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 960px) {
+    .teacher-overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.overview-card {
+    border-radius: 18px;
+    padding: 1rem 1.1rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+    transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.18s ease;
+}
+
+.overview-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.overview-card p {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+
+body[data-theme="dark"] .overview-card {
+    background: rgba(15, 23, 42, 0.92);
+}
+
+.overview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.14);
+}
+
+.overview-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.1rem;
+}
+
+.overview-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    opacity: 0.8;
+}
+
+.icon-soft {
+    padding: 0.6rem;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.08);
+    font-size: 0.95rem;
+}
+
+body[data-theme="dark"] .icon-soft {
+    background: rgba(59, 130, 246, 0.22);
+}
+
+/* ============================================
+   Highlights & Panels
+   ============================================ */
+
+.dashboard-panel {
+    border-radius: 18px;
+    padding: 1.25rem 1.25rem 1.3rem;
+    margin-top: 1.2rem;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+body[data-theme="dark"] .dashboard-panel {
+    background: rgba(15, 23, 42, 0.96);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.dashboard-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dashboard-panel-header h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.dashboard-panel-header p {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+}
+
+/* Highlights list (behaviour trends) */
+.highlights-list {
+    margin-top: 0.9rem;
+    padding-left: 1.1rem;
+}
+
+.highlights-list li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.3rem;
+}
+
+.highlights-list strong {
+    font-size: 0.9rem;
+}
+
+.highlights-list p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   Recent Sessions List
+   ============================================ */
+
+.session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-top: 0.9rem;
+}
+
+.session-card {
+    border-radius: 14px;
+    padding: 0.85rem 0.9rem;
+    background: rgba(248, 250, 252, 0.95);
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: flex-start;
+    transition: background 0.18s ease, transform 0.16s ease, box-shadow 0.18s ease;
+}
+
+body[data-theme="dark"] .session-card {
+    background: rgba(30, 41, 59, 0.9);
+}
+
+.session-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.16);
+}
+
+.session-main h3 {
+    font-size: 0.96rem;
+    margin-bottom: 0.25rem;
+}
+
+.session-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.session-note {
+    font-size: 0.83rem;
+    color: var(--text-primary);
+}
+
+.session-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.btn.small {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.6rem;
+}
+
+/* Subtle style for primary button inside panel header */
+.btn.subtle {
+    font-size: 0.82rem;
+    padding-inline: 0.75rem;
+}
+
+/* ============================================
+   Teacher Floating Action Button
+   ============================================ */
+
+.teacher-fab-toggle {
+    position: fixed;
+    bottom: 1.75rem;
+    right: 1.75rem;
+    z-index: 40;
+    border-radius: 999px;
+    padding: 0.55rem 0.95rem;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2563eb, #22c55e);
+    color: #f9fafb;
+    font-size: 0.84rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.5);
+    transition: transform 0.16s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.teacher-fab-toggle i {
+    font-size: 0.9rem;
+}
+
+.teacher-fab-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.6);
+}
+
+/* Make sure FAB is visible on both light/dark */
+body[data-theme="dark"] .teacher-fab-toggle {
+    color: #f9fafb;
+}

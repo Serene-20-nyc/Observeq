@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Messages</title>
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_messages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   
+</head>
+<body data-theme="light">
+<header class="navbar" id="navbar">
+    <div class="container navbar-content">
+        <a href="parent-dashboard" class="logo">
+            <span class="logo-icon"><i class="fas fa-child"></i></span>
+            <div class="logo-text-group">
+                <span class="logo-brand">ObserveQ</span>
+                <span class="child-name-pill">Your Child</span>
+            </div>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../home.html">Home</a>
+            <a href="../../about.html">About</a>
+            <a href="../../features.html">Features</a>
+            <a href="../../how-it-works.html">How It Works</a>
+            <a href="../../story.html">Stories</a>
+            <a href="../../contact.html">Contact</a>
+            <a href="parent_dashboard.html" class="nav-active">Parent Dashboard</a>
+        </nav>
+
+        <div class="nav-right-items">
+            <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+            <button id="theme-toggle-desktop" class="btn btn-icon">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="messages-page">
+    <div class="container">
+        <header class="messages-header">
+            <h1 class="page-title">Messages</h1>
+            <p class="page-subtitle">
+                Stay in touch with teachers and counsellors about <strong>Aarav Mehta</strong> (Grade 7A).
+                Ask follow-up questions, clarify behaviour reports, and document action plans in one place.
+            </p>
+        </header>
+
+        <div class="messages-layout">
+            <!-- LEFT: Conversation list -->
+            <section class="panel-card">
+                <h2 class="section-heading">Inbox</h2>
+                <p class="section-subtext">
+                    All school conversations related to your child, organised by teacher and support staff.
+                </p>
+
+                <div class="conversation-list-header">
+                    <div class="messages-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search by teacher, subject, or keyword">
+                    </div>
+                </div>
+
+                <div class="filter-chip-row">
+                    <button class="filter-chip active" type="button">All</button>
+                    <button class="filter-chip" type="button">Unread</button>
+                    <button class="filter-chip" type="button">This week</button>
+                    <button class="filter-chip" type="button">Behaviour alerts</button>
+                </div>
+
+                <div class="conversation-list">
+                    <!-- Teacher 1 -->
+                    <div class="conversation-item active">
+                        <div class="conversation-avatar">
+                            AM
+                        </div>
+                        <div>
+                            <div class="conv-main-line">
+                                <span class="conv-name">Ms. Anjali Menon</span>
+                                <span class="conv-role">Class Teacher · 7A</span>
+                            </div>
+                            <div class="conv-preview">
+                                “Quick update on Aarav’s group activity progress in Science...”
+                            </div>
+                        </div>
+                        <div class="conv-badges">
+                            <span class="conv-time">Today · 5:10 PM</span>
+                            <span class="unread-dot"></span>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 2 -->
+                    <div class="conversation-item">
+                        <div class="conversation-avatar">
+                            RS
+                        </div>
+                        <div>
+                            <div class="conv-main-line">
+                                <span class="conv-name">Mr. Rahul Shah</span>
+                                <span class="conv-role">Maths Teacher</span>
+                            </div>
+                            <div class="conv-preview">
+                                “Thank you for supporting the new homework routine…”
+                            </div>
+                        </div>
+                        <div class="conv-badges">
+                            <span class="conv-time">Yesterday</span>
+                        </div>
+                    </div>
+
+                    <!-- Counsellor -->
+                    <div class="conversation-item">
+                        <div class="conversation-avatar">
+                            SK
+                        </div>
+                        <div>
+                            <div class="conv-main-line">
+                                <span class="conv-name">Ms. Shreya Kapoor</span>
+                                <span class="conv-role">School Counsellor</span>
+                            </div>
+                            <div class="conv-preview">
+                                “Sharing a few strategies you can try at home to support focus…”
+                            </div>
+                        </div>
+                        <div class="conv-badges">
+                            <span class="conv-time">Mon · 3:25 PM</span>
+                            <span class="priority-tag"><i class="fas fa-flag"></i> Follow-up</span>
+                        </div>
+                    </div>
+
+                    <!-- Principal -->
+                    <div class="conversation-item">
+                        <div class="conversation-avatar">
+                            VP
+                        </div>
+                        <div>
+                            <div class="conv-main-line">
+                                <span class="conv-name">Vice Principal</span>
+                                <span class="conv-role">Academic Office</span>
+                            </div>
+                            <div class="conv-preview">
+                                “Term-wise behaviour summary for 7A has been generated…”
+                            </div>
+                        </div>
+                        <div class="conv-badges">
+                            <span class="conv-time">Last week</span>
+                        </div>
+                    </div>
+
+                    <!-- System message -->
+                    <div class="conversation-item">
+                        <div class="conversation-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <div class="conv-main-line">
+                                <span class="conv-name">ObserveQ Alerts</span>
+                                <span class="conv-role">System</span>
+                            </div>
+                            <div class="conv-preview">
+                                “New behaviour report for English storytelling session is ready.”
+                            </div>
+                        </div>
+                        <div class="conv-badges">
+                            <span class="conv-time">2 weeks ago</span>
+                        </div>
+                    </div>
+
+                    <div class="empty-state">
+                        Older conversations are archived after one term. Ask the school if you need access.
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT: Conversation view -->
+            <section class="panel-card">
+                <div class="conversation-header">
+                    <div class="conv-header-main">
+                        <div class="conv-header-avatar">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="conv-header-text">
+                            <h2>Chat with Ms. Anjali Menon</h2>
+                            <small>Class Teacher · 7A · Science &amp; Class Hour</small>
+                        </div>
+                    </div>
+                    <div class="conv-header-actions">
+                        <button class="btn-ghost" type="button">
+                            <i class="fas fa-bell-slash"></i> Mute
+                        </button>
+                        <button class="btn-ghost" type="button">
+                            <i class="fas fa-file-alt"></i> View related report
+                        </button>
+                    </div>
+                </div>
+
+                <div class="conversation-body">
+                    <div class="day-divider"><span>Today</span></div>
+
+                    <div class="message-group from-teacher">
+                        <div class="message-meta">
+                            Ms. Anjali · 4:55 PM
+                        </div>
+                        <div class="message-bubble">
+                            Hello! Quick update about Aarav’s behaviour in today’s Science group activity.
+                            He was <strong>highly engaged</strong>, volunteered to take notes, and helped his team stay on task.
+                            I’ve marked today as a “green” session in ObserveQ.
+                        </div>
+                        <div class="message-tag">
+                            <i class="fas fa-check-circle"></i> Positive reinforcement
+                        </div>
+                    </div>
+
+                    <div class="message-group from-parent">
+                        <div class="message-meta">
+                            You · 5:02 PM
+                        </div>
+                        <div class="message-bubble">
+                            That’s wonderful to hear, thank you for the update 🙏
+                            Is there anything we should continue doing at home that seems to be helping?
+                        </div>
+                    </div>
+
+                    <div class="message-group from-teacher">
+                        <div class="message-meta">
+                            Ms. Anjali · 5:10 PM
+                        </div>
+                        <div class="message-bubble">
+                            Whatever you’re doing with his **quiet reading time** before homework is working really well.
+                            He settles into tasks faster now. If possible, keep that routine stable on weekdays.
+                        </div>
+                        <div class="message-tag">
+                            <i class="fas fa-lightbulb"></i> Home strategy suggestion
+                        </div>
+                    </div>
+
+                    <div class="day-divider"><span>Yesterday</span></div>
+
+                    <div class="message-group from-teacher">
+                        <div class="message-meta">
+                            Ms. Anjali · 3:35 PM
+                        </div>
+                        <div class="message-bubble">
+                            Sharing a quick note from yesterday’s class:
+                            Aarav got a bit distracted during the last 10 minutes when the class became noisy.
+                            Not a major concern, but I’ve tagged it as a “mild distraction” so we can track patterns.
+                        </div>
+                    </div>
+
+                    <div class="message-group from-parent">
+                        <div class="message-meta">
+                            You · 7:20 PM
+                        </div>
+                        <div class="message-bubble">
+                            Thank you for letting us know. We’ll talk to him calmly about staying focused
+                            even when friends are chatty. Please keep us posted if this repeats often.
+                        </div>
+                    </div>
+                </div>
+
+                <form class="composer">
+                    <textarea
+                        placeholder="Write a message to Ms. Anjali about Aarav’s behaviour, homework, or any concern…"></textarea>
+                    <div class="composer-actions">
+                        <div class="composer-toolbar">
+                            <button class="icon-button" type="button" title="Attach file">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button class="icon-button" type="button" title="Insert emoji">
+                                <i class="far fa-smile"></i>
+                            </button>
+                        </div>
+                        <button class="btn-send" type="button">
+                            <span>Send</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <p class="composer-helper">
+                    Messages are shared only with the selected teacher or staff member.
+                    For emergencies, please contact the school office directly.
+                </p>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>ObserveQ. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../../js/home.js"></script>
+</body>
+</html>

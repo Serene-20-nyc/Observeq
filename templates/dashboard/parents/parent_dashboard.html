@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Parent Dashboard</title>
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-theme="light">
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo parent-logo-toggle" id="parent-logo-toggle">
+                <span class="logo-icon"><i class="fas fa-child"></i></span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">ObserveQ</span>
+                    <span class="child-name-pill" id="parent-child-logo">Your Child</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../home.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../how-it-works.html">How It Works</a>
+                <a href="../../story.html">Stories</a>
+                <a href="../../contact.html">Contact</a>
+                <a href="parent_dashboard.html" class="nav-active">Parent Dashboard</a>
+            </nav>
+
+            <div class="nav-right-items">
+                <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+                <button id="theme-toggle-desktop" class="btn btn-icon">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="container parent-dashboard-layout">
+            <aside class="dashboard-sidebar">
+    <div class="sidebar-header">
+        <span class="sidebar-label">For Parents</span>
+        <span class="sidebar-child-name">
+            Your Child
+            <span class="sidebar-child-tag">Class 7 · Section A</span>
+        </span>
+    </div>
+
+    <nav class="sidebar-nav">
+        <div class="sidebar-group">
+            <div class="sidebar-section-label">Overview</div>
+            <a href="#overview" class="sidebar-link active">
+                <i class="fas fa-chart-pie"></i>
+                <div class="sidebar-link-text">
+                    <span>Dashboard</span>
+                    <small>Today’s overall behaviour snapshot</small>
+                </div>
+            </a>
+        </div>
+
+        <div class="sidebar-group">
+            <div class="sidebar-section-label">Your Child</div>
+            <a href="child-profile.html" class="sidebar-link">
+                <i class="fas fa-user"></i>
+                <div class="sidebar-link-text">
+                    <span>Child Profile</span>
+                    <small>Basic details & class info</small>
+                </div>
+            </a>
+            <a href="parents_behaviour.html" class="sidebar-link">
+                <i class="fas fa-wave-square"></i>
+                <div class="sidebar-link-text">
+                    <span>Behaviour Trends</span>
+                    <small>Focus, participation & engagement</small>
+                </div>
+            </a>
+            <a href="parent_attendance.html" class="sidebar-link">
+                <i class="fas fa-calendar-check"></i>
+                <div class="sidebar-link-text">
+                    <span>Attendance</span>
+                    <small>Presence, punctuality, patterns</small>
+                </div>
+            </a>
+        </div>
+
+        <div class="sidebar-group">
+            <div class="sidebar-section-label">Insights & Reports</div>
+            <a href="parent_report.html" class="sidebar-link">
+                <i class="fas fa-file-alt"></i>
+                <div class="sidebar-link-text">
+                    <span>Reports & Downloads</span>
+                    <small>Session summaries & PDFs</small>
+                </div>
+            </a>
+            <a href="parents_messages.html" class="sidebar-link">
+                <i class="fas fa-comments"></i>
+                <div class="sidebar-link-text">
+                    <span>Messages</span>
+                    <small>Notes from teachers</small>
+                </div>
+            </a>
+        </div>
+
+        <div class="sidebar-group">
+            <div class="sidebar-section-label">Support</div>
+            <a href="parent_help.html" class="sidebar-link">
+                <i class="fas fa-question-circle"></i>
+                <div class="sidebar-link-text">
+                    <span>Help & Support</span>
+                    <small>Guidance, FAQs & contact</small>
+                </div>
+            </a>
+            <a href="parent_settings.html" class="sidebar-link">
+                <i class="fas fa-cog"></i>
+                <div class="sidebar-link-text">
+                    <span>Settings</span>
+                    <small>Account & notifications</small>
+                </div>
+            </a>
+        </div>
+
+        <div class="sidebar-group sidebar-group-footer">
+            <button class="sidebar-logout-btn" onclick="window.location.href='/api/logout'">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </nav>
+</aside>
+
+
+            <section class="dashboard-section dashboard-header" id="overview">
+                <div class="dashboard-heading-row">
+                    <div>
+                        <h1 class="dashboard-title">Parent Dashboard</h1>
+                        <p class="dashboard-subtitle">
+                            Monitor your child's classroom behaviour and engagement with clear, objective insights.
+                        </p>
+                    </div>
+                </div>
+
+                <section class="dashboard-panel" id="behaviour-trends">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Monitor, understand, take action</h2>
+                            <p>ObserveQ turns class data into a parent-friendly view.</p>
+                        </div>
+                    </header>
+
+                    <ul class="highlights-list">
+                        <li>
+                            <strong>Class-wise and student-wise analytics</strong>
+                            <p>See how your child behaves and engages across different subjects and classes.</p>
+                        </li>
+                        <li>
+                            <strong>Attention, participation, and engagement trends</strong>
+                            <p>Track whether focus and participation are improving, stable, or need attention.</p>
+                        </li>
+                        <li>
+                            <strong>AI-generated insights and flagged sessions</strong>
+                            <p>Review sessions where behaviour patterns stand out, so you can discuss them calmly at home.</p>
+                        </li>
+                        <li>
+                            <strong>Downloadable reports for meetings</strong>
+                            <p>Export clean summaries you can bring to parent–teacher meetings to plan next steps together.</p>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+    </main>
+
+      <button class="parent-fab-toggle" id="parent-fab-toggle">
+        <i class="fas fa-layer-group"></i>
+        <span>Show Insights</span>
+    </button>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>ObserveQ. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../home.js"></script>
+    <script>
+    (function() {
+        const logoToggle = document.getElementById('parent-logo-toggle');
+        const sidebar = document.querySelector('.dashboard-sidebar');
+        const layout = document.querySelector('.parent-dashboard-layout');
+        const fabToggle = document.getElementById('parent-fab-toggle');
+
+        if (!sidebar || !layout) return;
+
+        function toggleSidebar(e) {
+            if (e) e.preventDefault();
+            sidebar.classList.toggle('collapsed');
+            layout.classList.toggle('sidebar-collapsed');
+        }
+
+        if (logoToggle) {
+            logoToggle.addEventListener('click', toggleSidebar);
+        }
+
+        if (fabToggle) {
+            fabToggle.addEventListener('click', toggleSidebar);
+        }
+    })();
+</script>
+
+
+</body>
+</html>

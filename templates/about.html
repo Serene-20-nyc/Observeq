@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Why ObserveQ?</title>
+
+    <!-- Poppins + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body data-theme="dark">
+<header class="navbar" id="navbar">
+    <div class="container navbar-content">
+        <a href="home.html" class="logo">
+            <span class="logo-icon"><i class="fas fa-eye"></i></span>
+            <span>ObserveQ</span>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="home.html">Home</a>
+            <a href="about.html" class="nav-active">About</a>
+            <a href="features.html">Features</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="story.html">Stories</a>
+            <a href="demo.html">Demo</a>
+            <a href="contact.html">Contact</a>
+            
+            <!-- Desktop actions -->
+            <a href="auth.html" class="btn btn-link">Login</a>
+            <a href="auth.html" class="btn btn-secondary-outline">Sign Up</a>
+            <a href="dashboard.html" class="btn btn-primary desktop-cta">Dashboard</a>
+            <button class="btn btn-icon" id="theme-toggle-desktop">
+                <i class="fas fa-moon"></i>
+            </button>
+            
+            <!-- Mobile menu toggle -->
+            <button class="btn btn-icon hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<section id="about" class="section about-section">
+    <div class="container two-column">
+        <div class="section-text">
+            <span class="eyebrow">For teachers &amp; edtech teams</span>
+            <h2>Why ObserveQ?</h2>
+            <p>
+                Classroom behaviour is complex, and manual observation is often biased, inconsistent, or simply
+                not possible in large classes. ObserveQ uses privacy-aware AI to help teachers understand
+                how students engage – without adding to their workload.
+            </p>
+            <ul class="checklist">
+                <li><i class="fas fa-check-circle"></i>Real-time attention and engagement analytics</li>
+                <li><i class="fas fa-check-circle"></i>Behaviour patterns across days, subjects, and teachers</li>
+                <li><i class="fas fa-check-circle"></i>Early alerts for disengaged or at-risk students</li>
+            </ul>
+            <p class="section-links">
+                Learn more about our <a href="features.html">features</a> or 
+                see <a href="how-it-works.html">how it works</a>. 
+                Ready to try? <a href="demo.html">Request a demo</a> or 
+                <a href="contact.html">contact us</a>.
+            </p>
+        </div>
+
+        <div class="section-highlight">
+            <div class="highlight-card">
+                <h3>Built for Educators</h3>
+                <p>
+                    Simple dashboards, actionable insights, and no AI jargon. ObserveQ is designed for teachers,
+                    not data scientists.
+                </p>
+                <div class="pill-row">
+                    <span class="pill">K-12</span>
+                    <span class="pill pill-active">Universities</span>
+                    <span class="pill">Coaching Centres</span>
+                    <span class="pill">EdTech Platforms</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>© <span id="year"></span> ObserveQ. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="home.html">Back to top</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/home.js"></script>
+<script>
+    // simple year stub
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

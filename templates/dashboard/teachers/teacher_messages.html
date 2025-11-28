@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Messages (Teacher)</title>
+
+    <!-- Global + shared dashboard styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_messages.css">
+
+    <!-- Teacher-specific dashboard styles -->
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-theme="light">
+
+    <!-- Top Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <!-- Logo + Teacher toggle (collapses sidebar) -->
+            <a href="#" class="logo parent-logo-toggle" id="teacher-logo-toggle">
+                <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">ObserveQ</span>
+                    <span class="child-name-pill" id="teacher-name-pill">Ms. Sharma · Science</span>
+                </div>
+            </a>
+
+            <!-- Main site nav -->
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../../home.html">Home</a>
+                <a href="../../../about.html">About</a>
+                <a href="../../../features.html">Features</a>
+                <a href="../../../how-it-works.html">How It Works</a>
+                <a href="../../../story.html">Stories</a>
+                <a href="../../../contact.html">Contact</a>
+                <a href="teacher_dashboard.html" class="nav-active">Teacher Dashboard</a>
+            </nav>
+
+            <!-- Right-side controls -->
+            <div class="nav-right-items">
+                <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+                <button id="theme-toggle-desktop" class="btn btn-icon">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-main">
+        <div class="container teacher-dashboard-layout">
+
+            <!-- Sidebar -->
+            <aside class="teacher-sidebar">
+                <div class="sidebar-header">
+                    <span class="sidebar-label">For Teachers</span>
+                    <span class="sidebar-child-name">
+                        Ms. Ananya Sharma
+                        <span class="sidebar-child-tag">Science · Grades 7–9</span>
+                    </span>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Overview</div>
+                        <a href="teacher_dashboard.html" class="sidebar-link">
+                            <i class="fas fa-gauge-high"></i>
+                            <div class="sidebar-link-text">
+                                <span>Dashboard</span>
+                                <small>Today’s behaviour snapshot</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Teaching</div>
+                        <a href="teacher_classes.html" class="sidebar-link">
+                            <i class="fas fa-layer-group"></i>
+                            <div class="sidebar-link-text">
+                                <span>My Classes</span>
+                                <small>Sections you teach</small>
+                            </div>
+                        </a>
+                        <a href="teacher_behaviour.html" class="sidebar-link">
+                            <i class="fas fa-wave-square"></i>
+                            <div class="sidebar-link-text">
+                                <span>Behaviour Trends</span>
+                                <small>Class-wise patterns</small>
+                            </div>
+                        </a>
+                        <a href="teacher_sessions.html" class="sidebar-link">
+                            <i class="fas fa-video"></i>
+                            <div class="sidebar-link-text">
+                                <span>Recorded Sessions</span>
+                                <small>Upload & review classes</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Insights & Reports</div>
+                        <a href="teacher_reports.html" class="sidebar-link">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="sidebar-link-text">
+                                <span>Reports</span>
+                                <small>Class summaries & PDFs</small>
+                            </div>
+                        </a>
+                        <a href="teacher_messages.html" class="sidebar-link active">
+                            <i class="fas fa-comments"></i>
+                            <div class="sidebar-link-text">
+                                <span>Messages</span>
+                                <small>Notes to parents</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Account</div>
+                        <a href="teacher_help.html" class="sidebar-link">
+                            <i class="fas fa-question-circle"></i>
+                            <div class="sidebar-link-text">
+                                <span>Help & Support</span>
+                                <small>Guides & FAQs</small>
+                            </div>
+                        </a>
+                        <a href="teacher_settings.html" class="sidebar-link">
+                            <i class="fas fa-cog"></i>
+                            <div class="sidebar-link-text">
+                                <span>Settings</span>
+                                <small>Profile & preferences</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group sidebar-group-footer">
+                        <button class="sidebar-logout-btn" onclick="window.location.href='/api/logout'">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content: Messages -->
+            <section class="dashboard-section dashboard-header">
+                <div class="dashboard-heading-row">
+                    <div>
+                        <h1 class="dashboard-title">Messages & Notes</h1>
+                        <p class="dashboard-subtitle">
+                            Send clear, calm updates to parents based on behaviour insights — and keep all your conversations in one place.
+                        </p>
+                    </div>
+
+                    <div class="dashboard-heading-actions">
+                        <button class="btn btn-secondary-outline">
+                            <i class="fas fa-envelope-open-text"></i>
+                            View all unread (7)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Two-column layout: left (threads list) / right (message detail + composer) -->
+                <section class="dashboard-panel messages-layout">
+                    <!-- Left: Conversation list -->
+                    <aside class="messages-sidebar">
+                        <div class="messages-sidebar-header">
+                            <h2>Conversations</h2>
+                            <div class="messages-filter-row">
+                                <input type="text" class="input-text" placeholder="Search by student or parent…">
+                                <select class="input-select compact-input">
+                                    <option>All</option>
+                                    <option>Unread</option>
+                                    <option>Flagged</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <ul class="messages-thread-list">
+                            <!-- Thread 1 -->
+                            <li class="messages-thread-item active">
+                                <div class="thread-main-line">
+                                    <div>
+                                        <span class="thread-student-name">Aarav Mehta</span>
+                                        <span class="thread-badge badge-flagged">Flagged behaviour</span>
+                                    </div>
+                                    <span class="thread-time">Today · 08:45 AM</span>
+                                </div>
+                                <div class="thread-secondary-line">
+                                    <span class="thread-parent-name">To: Mrs. Mehta</span>
+                                    <span class="thread-class">Grade 7 · B – Science</span>
+                                </div>
+                                <p class="thread-snippet">
+                                    “I noticed Aarav was more engaged in the last two sessions. Sharing a quick update and a suggestion…”
+                                </p>
+                                <div class="thread-status-line">
+                                    <span class="status-dot status-unread"></span>
+                                    <span class="status-label">Unread reply</span>
+                                </div>
+                            </li>
+
+                            <!-- Thread 2 -->
+                            <li class="messages-thread-item">
+                                <div class="thread-main-line">
+                                    <div>
+                                        <span class="thread-student-name">Sneha Iyer</span>
+                                        <span class="thread-badge badge-positive">Positive note</span>
+                                    </div>
+                                    <span class="thread-time">Yesterday · 04:12 PM</span>
+                                </div>
+                                <div class="thread-secondary-line">
+                                    <span class="thread-parent-name">To: Mr. & Mrs. Iyer</span>
+                                    <span class="thread-class">Grade 8 · A – Science</span>
+                                </div>
+                                <p class="thread-snippet">
+                                    “Sneha showed excellent focus during the lab experiment today. I wanted to appreciate her effort…”
+                                </p>
+                                <div class="thread-status-line">
+                                    <span class="status-dot status-read"></span>
+                                    <span class="status-label">Seen · No reply needed</span>
+                                </div>
+                            </li>
+
+                            <!-- Thread 3 -->
+                            <li class="messages-thread-item">
+                                <div class="thread-main-line">
+                                    <div>
+                                        <span class="thread-student-name">Rahul Verma</span>
+                                        <span class="thread-badge badge-followup">Follow-up</span>
+                                    </div>
+                                    <span class="thread-time">Tue · 02:05 PM</span>
+                                </div>
+                                <div class="thread-secondary-line">
+                                    <span class="thread-parent-name">To: Mr. Verma</span>
+                                    <span class="thread-class">Grade 7 · A – Science</span>
+                                </div>
+                                <p class="thread-snippet">
+                                    “Sharing this week’s participation summary for Rahul, along with some small changes we can try…”
+                                </p>
+                                <div class="thread-status-line">
+                                    <span class="status-dot status-replied"></span>
+                                    <span class="status-label">Parent replied · Awaiting meeting</span>
+                                </div>
+                            </li>
+
+                            <!-- Thread 4 -->
+                            <li class="messages-thread-item">
+                                <div class="thread-main-line">
+                                    <div>
+                                        <span class="thread-student-name">Class 8A – General note</span>
+                                        <span class="thread-badge badge-broadcast">Broadcast</span>
+                                    </div>
+                                    <span class="thread-time">Mon · 09:30 AM</span>
+                                </div>
+                                <div class="thread-secondary-line">
+                                    <span class="thread-parent-name">To: All parents (8A)</span>
+                                    <span class="thread-class">Grade 8 · A – Science</span>
+                                </div>
+                                <p class="thread-snippet">
+                                    “This week we will be focusing on lab safety and group work expectations. Please remind students…”
+                                </p>
+                                <div class="thread-status-line">
+                                    <span class="status-dot status-read"></span>
+                                    <span class="status-label">Sent to 28 parents</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <!-- Right: Message thread + composer -->
+                    <section class="messages-content">
+                        <header class="messages-content-header">
+                            <div class="messages-recipient-info">
+                                <h2 class="messages-student-title">
+                                    Conversation: <span class="highlight">Aarav Mehta · Grade 7B – Science</span>
+                                </h2>
+                                <p class="messages-subtitle">
+                                    Behaviour focus: <strong>Attention & on-task behaviour</strong> · Last 3 weeks
+                                </p>
+                            </div>
+                            <div class="messages-header-actions">
+                                <button class="btn btn-secondary-outline compact-btn">
+                                    <i class="fas fa-user-circle"></i>
+                                    View profile
+                                </button>
+                                <button class="btn btn-secondary-outline compact-btn">
+                                    <i class="fas fa-file-alt"></i>
+                                    Open report
+                                </button>
+                            </div>
+                        </header>
+
+                        <div class="messages-thread-window">
+                            <!-- System context message -->
+                            <div class="message-chip system-chip">
+                                <i class="fas fa-wave-square"></i>
+                                <span>Based on ObserveQ analysis from 3 sessions (12–20 Nov 2025)</span>
+                            </div>
+
+                            <!-- Teacher message -->
+                            <div class="message-bubble-row message-from-teacher">
+                                <div class="message-avatar">
+                                    <span>AS</span>
+                                </div>
+                                <div class="message-bubble">
+                                    <div class="message-meta-line">
+                                        <span class="message-sender">You · Ms. Sharma</span>
+                                        <span class="message-time">Today · 08:45 AM</span>
+                                    </div>
+                                    <p class="message-text">
+                                        Dear Mrs. Mehta, <br><br>
+                                        Over the last three Science sessions, Aarav has shown a noticeable improvement in
+                                        staying focused, especially during explanation time. His average attention score
+                                        has gone up from <strong>54%</strong> to <strong>69%</strong>.
+                                    </p>
+                                    <p class="message-text">
+                                        One small suggestion is to help him arrive a few minutes earlier to settle in,
+                                        as he tends to take time to adjust when he comes in just on the bell.
+                                    </p>
+                                    <div class="message-tags">
+                                        <span class="message-tag">Positive progress</span>
+                                        <span class="message-tag">Attention</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Parent reply -->
+                            <div class="message-bubble-row message-from-parent">
+                                <div class="message-avatar parent-avatar">
+                                    <span>RM</span>
+                                </div>
+                                <div class="message-bubble">
+                                    <div class="message-meta-line">
+                                        <span class="message-sender">Parent · Mrs. Mehta</span>
+                                        <span class="message-time">Today · 09:02 AM</span>
+                                    </div>
+                                    <p class="message-text">
+                                        Thank you for the detailed update, ma’am. We will make sure Aarav reaches
+                                        class a bit earlier. Please let us know if there are any specific activities
+                                        we can do at home to support his focus.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Teacher follow-up -->
+                            <div class="message-bubble-row message-from-teacher">
+                                <div class="message-avatar">
+                                    <span>AS</span>
+                                </div>
+                                <div class="message-bubble">
+                                    <div class="message-meta-line">
+                                        <span class="message-sender">You · Ms. Sharma</span>
+                                        <span class="message-time">Typing draft…</span>
+                                    </div>
+                                    <p class="message-text draft-preview">
+                                        I’ll share 2–3 quick attention-building routines you can try at home…
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Composer -->
+                        <form class="messages-composer">
+                            <div class="composer-top-row">
+                                <div class="composer-field">
+                                    <label for="composer-recipient">To</label>
+                                    <input id="composer-recipient" type="text" class="input-text" value="Mrs. Mehta (Aarav – 7B)" readonly>
+                                </div>
+                                <div class="composer-field">
+                                    <label for="composer-template">Template</label>
+                                    <select id="composer-template" class="input-select">
+                                        <option>Start from blank</option>
+                                        <option>Positive progress update</option>
+                                        <option>Request for meeting</option>
+                                        <option>Support plan suggestion</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="composer-body-row">
+                                <label for="composer-message">Message</label>
+                                <textarea id="composer-message" class="input-textarea" rows="5"
+                                    placeholder="Write in clear, calm language. You can mention 1–2 key insights from ObserveQ instead of sharing the full report."></textarea>
+                            </div>
+
+                            <div class="composer-footer-row">
+                                <div class="composer-left">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" checked>
+                                        <span>Attach latest behaviour summary (PDF link)</span>
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox">
+                                        <span>Send copy to class teacher</span>
+                                    </label>
+                                </div>
+                                <div class="composer-right">
+                                    <button type="button" class="btn btn-secondary-outline compact-btn">
+                                        <i class="fas fa-eye"></i>
+                                        Preview
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Send message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </section>
+
+                <!-- Tips Panel -->
+                <section class="dashboard-panel" style="margin-top: 1.4rem;">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Tips for calm, clear communication</h2>
+                            <p>Use messages to build partnership with parents, not just to report issues.</p>
+                        </div>
+                    </header>
+
+                    <ul class="highlights-list">
+                        <li>
+                            <strong>Start with one positive</strong>
+                            <p>
+                                Even when you need to highlight a concern, begin with something the student is doing well.
+                                It helps parents stay open to suggestions.
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Refer to concrete observations</strong>
+                            <p>
+                                Instead of saying “often distracted”, refer to patterns like “during group work”
+                                or “in the last 15 minutes of class”. ObserveQ insights help make this specific.
+                            </p>
+                        </li>
+                        <li>
+                            <strong>End with a small next step</strong>
+                            <p>
+                                Suggest one simple action for home or school. Over time, small consistent actions
+                                lead to meaningful behaviour change.
+                            </p>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <!-- Floating toggle to show/hide sidebar -->
+    <button class="teacher-fab-toggle" id="teacher-fab-toggle">
+        <i class="fas fa-layer-group"></i>
+        <span>Toggle Messages Panel</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>ObserveQ. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared JS (theme toggle, navbar, etc.) -->
+    <script src="../../../home.js"></script>
+
+    <!-- Teacher sidebar toggle JS -->
+    <script>
+        (function() {
+            const logoToggle = document.getElementById('teacher-logo-toggle');
+            const sidebar = document.querySelector('.teacher-sidebar');
+            const layout = document.querySelector('.teacher-dashboard-layout');
+            const fabToggle = document.getElementById('teacher-fab-toggle');
+
+            if (!sidebar || !layout) return;
+
+            function toggleSidebar(e) {
+                if (e) e.preventDefault();
+                sidebar.classList.toggle('collapsed');
+                layout.classList.toggle('sidebar-collapsed');
+            }
+
+            if (logoToggle) {
+                logoToggle.addEventListener('click', toggleSidebar);
+            }
+
+            if (fabToggle) {
+                fabToggle.addEventListener('click', toggleSidebar);
+            }
+        })();
+    </script>
+</body>
+</html>

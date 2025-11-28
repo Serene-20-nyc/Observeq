@@ -1,0 +1,543 @@
+/* =========================================================
+   TEACHER – BEHAVIOUR TRENDS PAGE
+   Works with: teacher_behaviour.html
+   Shares base styles with teacher_classes.html
+========================================================= */
+
+/* --- Layout (reuse from classes page) --- */
+
+.teacher-dashboard-layout {
+    margin-top: 5.5rem; /* clear navbar */
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+@media (max-width: 960px) {
+    .teacher-dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Sidebar (same as classes page) --- */
+
+.teacher-sidebar {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 1.25rem 1rem;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100vh - 6.5rem);
+    overflow-y: auto;
+    transition: all 0.25s ease;
+}
+
+body[data-theme="dark"] .teacher-sidebar {
+    background: rgba(15, 23, 42, 0.96);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* Collapsed sidebar (desktop) */
+.teacher-sidebar.collapsed {
+    width: 68px;
+    min-width: 68px;
+    padding-inline: 0.75rem;
+}
+
+.teacher-dashboard-layout.sidebar-collapsed {
+    grid-template-columns: 80px minmax(0, 1fr);
+}
+
+/* Mobile behaviour: slide down */
+@media (max-width: 960px) {
+    .teacher-sidebar {
+        position: fixed;
+        inset: 5rem 0 auto 0;
+        max-height: calc(100vh - 5rem);
+        border-radius: 0 0 18px 18px;
+        transform: translateY(-130%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .teacher-sidebar.collapsed {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .teacher-dashboard-layout,
+    .teacher-dashboard-layout.sidebar-collapsed {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar header */
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 1.1rem;
+}
+
+.sidebar-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--text-muted);
+}
+
+.sidebar-child-name {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.sidebar-child-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.1rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--color-accent-primary, #16a34a);
+}
+
+/* Sidebar nav groups */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.sidebar-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.sidebar-group-footer {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed rgba(148, 163, 184, 0.4);
+}
+
+.sidebar-section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin-bottom: 0.1rem;
+}
+
+/* Collapsed: only icons visible */
+
+.teacher-sidebar.collapsed .sidebar-section-label,
+.teacher-sidebar.collapsed .sidebar-link-text span,
+.teacher-sidebar.collapsed .sidebar-link-text small,
+.teacher-sidebar.collapsed .sidebar-child-name,
+.teacher-sidebar.collapsed .sidebar-child-tag,
+.teacher-sidebar.collapsed .sidebar-logout-btn span {
+    display: none;
+}
+
+.teacher-sidebar.collapsed .sidebar-link {
+    justify-content: center;
+}
+
+.teacher-sidebar.collapsed .sidebar-link i {
+    margin-right: 0;
+}
+
+/* Sidebar links */
+
+.sidebar-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.55rem 0.6rem;
+    border-radius: 0.9rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.sidebar-link i {
+    margin-top: 0.05rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.sidebar-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.sidebar-link-text span {
+    font-weight: 500;
+}
+
+.sidebar-link-text small {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+
+.sidebar-link:hover {
+    background: rgba(56, 189, 248, 0.08);
+    transform: translateX(2px);
+}
+
+.sidebar-link.active {
+    background: linear-gradient(
+        135deg,
+        rgba(34, 197, 94, 0.16),
+        rgba(59, 130, 246, 0.16)
+    );
+    color: var(--color-accent-primary, #16a34a);
+}
+
+body[data-theme="dark"] .sidebar-link.active {
+    background: linear-gradient(
+        135deg,
+        rgba(34, 197, 94, 0.22),
+        rgba(59, 130, 246, 0.22)
+    );
+}
+
+/* Logout button */
+
+.sidebar-logout-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(248, 113, 113, 0.6);
+    background: transparent;
+    font-size: 0.86rem;
+    cursor: pointer;
+    color: rgb(248, 113, 113);
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.sidebar-logout-btn i {
+    font-size: 0.9rem;
+}
+
+.sidebar-logout-btn:hover {
+    background: rgba(248, 113, 113, 0.08);
+    transform: translateY(-1px);
+}
+
+/* --- Header area --- */
+
+.dashboard-header .dashboard-title {
+    font-size: 1.7rem;
+}
+
+.dashboard-header .dashboard-subtitle {
+    max-width: 720px;
+    font-size: 0.95rem;
+}
+
+/* Heading actions (filters at top-right) */
+
+.dashboard-heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.input-select {
+    min-width: 180px;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.75);
+    background: rgba(255, 255, 255, 0.95);
+    font-size: 0.86rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.input-select:focus {
+    border-color: rgba(59, 130, 246, 0.85);
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4);
+}
+
+body[data-theme="dark"] .input-select {
+    background: rgba(15, 23, 42, 0.96);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+/* --- Overview (summary cards) --- */
+
+.teacher-overview-panel {
+    margin-top: 1.2rem;
+}
+
+.teacher-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 900px) {
+    .teacher-overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.overview-card {
+    border-radius: 1.1rem;
+    padding: 1rem 1.1rem;
+    background: rgba(248, 250, 252, 0.95);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+body[data-theme="dark"] .overview-card {
+    background: rgba(15, 23, 42, 0.96);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+.overview-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overview-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--text-muted);
+}
+
+.overview-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.overview-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.icon-soft {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    font-size: 0.98rem;
+}
+
+/* --- Trend grid (behaviour narrative cards) --- */
+
+.trend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 0.8rem;
+}
+
+@media (max-width: 900px) {
+    .trend-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.trend-card {
+    border-radius: 1.1rem;
+    padding: 1rem 1.05rem;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    background: rgba(255, 255, 255, 0.96);
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    transition: box-shadow 0.18s ease, transform 0.12s ease, border-color 0.18s ease;
+}
+
+body[data-theme="dark"] .trend-card {
+    background: rgba(15, 23, 42, 0.96);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+.trend-card:hover {
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+    transform: translateY(-1px);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.trend-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.trend-card-header h3 {
+    font-size: 1rem;
+    margin-bottom: 0.12rem;
+}
+
+.trend-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Trend pills (status labels) */
+
+.trend-pill {
+    font-size: 0.78rem;
+    padding: 0.18rem 0.65rem;
+    border-radius: 999px;
+    border-width: 1px;
+    border-style: solid;
+    white-space: nowrap;
+}
+
+.trend-pill-positive {
+    background: rgba(22, 163, 74, 0.08);
+    border-color: rgba(22, 163, 74, 0.6);
+    color: rgb(22, 163, 74);
+}
+
+.trend-pill-warning {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.7);
+    color: rgb(239, 68, 68);
+}
+
+.trend-pill-neutral {
+    background: rgba(148, 163, 184, 0.1);
+    border-color: rgba(148, 163, 184, 0.7);
+    color: rgb(148, 163, 184);
+}
+
+/* Trend points list */
+
+.trend-points {
+    list-style: none;
+    padding: 0;
+    margin: 0.35rem 0 0.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+
+.trend-points li strong {
+    font-weight: 600;
+}
+
+/* Trend footer */
+
+.trend-footer {
+    margin-top: 0.25rem;
+    padding-top: 0.45rem;
+    border-top: 1px dashed rgba(148, 163, 184, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.trend-footer i {
+    margin-right: 0.25rem;
+}
+
+.trend-footer .btn.small {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.7rem;
+}
+
+@media (max-width: 600px) {
+    .trend-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* --- Highlights list (AI coaching tips) --- */
+
+.highlights-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.highlights-list li strong {
+    display: block;
+    font-size: 0.92rem;
+    margin-bottom: 0.1rem;
+}
+
+.highlights-list li p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+
+/* --- Buttons / utilities --- */
+
+.btn.small {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+}
+
+/* --- Floating FAB toggle (same as classes page) --- */
+
+.teacher-fab-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.25rem;
+    z-index: 40;
+    border-radius: 999px;
+    border: none;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.82rem;
+    display: none;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    background: linear-gradient(
+        135deg,
+        rgba(34, 197, 94, 1),
+        rgba(59, 130, 246, 1)
+    );
+    color: #ffffff;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.45);
+}
+
+.teacher-fab-toggle i {
+    font-size: 0.95rem;
+}
+
+@media (max-width: 960px) {
+    .teacher-fab-toggle {
+        display: inline-flex;
+    }
+}

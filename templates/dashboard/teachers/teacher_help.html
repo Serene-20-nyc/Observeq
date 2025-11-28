@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Help & Support (Teacher)</title>
+
+    <!-- Global + shared dashboard styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_help.css">
+    <!-- Teacher-specific dashboard styles -->
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
+    <!-- Optional page-specific CSS if you create it: -->
+    <!-- <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_help.css"> -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-theme="light">
+
+    <!-- Top Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <!-- Logo + Teacher toggle (collapses sidebar) -->
+            <a href="#" class="logo parent-logo-toggle" id="teacher-logo-toggle">
+                <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">ObserveQ</span>
+                    <span class="child-name-pill" id="teacher-name-pill">Ms. Sharma · Science</span>
+                </div>
+            </a>
+
+            <!-- Main site nav -->
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../../home.html">Home</a>
+                <a href="../../../about.html">About</a>
+                <a href="../../../features.html">Features</a>
+                <a href="../../../how-it-works.html">How It Works</a>
+                <a href="../../../story.html">Stories</a>
+                <a href="../../../contact.html">Contact</a>
+                <a href="teacher_dashboard.html" class="nav-active">Teacher Dashboard</a>
+            </nav>
+
+            <!-- Right-side controls -->
+            <div class="nav-right-items">
+                <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+                <button id="theme-toggle-desktop" class="btn btn-icon">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-main">
+        <div class="container teacher-dashboard-layout">
+
+            <!-- Sidebar (same structure as other teacher pages) -->
+            <aside class="teacher-sidebar">
+                <div class="sidebar-header">
+                    <span class="sidebar-label">For Teachers</span>
+                    <span class="sidebar-child-name">
+                        Ms. Ananya Sharma
+                        <span class="sidebar-child-tag">Science · Grades 7–9</span>
+                    </span>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Overview</div>
+                        <a href="teacher_dashboard.html" class="sidebar-link">
+                            <i class="fas fa-gauge-high"></i>
+                            <div class="sidebar-link-text">
+                                <span>Dashboard</span>
+                                <small>Today’s behaviour snapshot</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Teaching</div>
+                        <a href="teacher_classes.html" class="sidebar-link">
+                            <i class="fas fa-layer-group"></i>
+                            <div class="sidebar-link-text">
+                                <span>My Classes</span>
+                                <small>Sections you teach</small>
+                            </div>
+                        </a>
+                        <a href="teacher_behaviour.html" class="sidebar-link">
+                            <i class="fas fa-wave-square"></i>
+                            <div class="sidebar-link-text">
+                                <span>Behaviour Trends</span>
+                                <small>Class-wise patterns</small>
+                            </div>
+                        </a>
+                        <a href="teacher_sessions.html" class="sidebar-link">
+                            <i class="fas fa-video"></i>
+                            <div class="sidebar-link-text">
+                                <span>Recorded Sessions</span>
+                                <small>Upload & review classes</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Insights & Reports</div>
+                        <a href="teacher_reports.html" class="sidebar-link">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="sidebar-link-text">
+                                <span>Reports</span>
+                                <small>Class summaries & PDFs</small>
+                            </div>
+                        </a>
+                        <a href="teacher_messages.html" class="sidebar-link">
+                            <i class="fas fa-comments"></i>
+                            <div class="sidebar-link-text">
+                                <span>Messages</span>
+                                <small>Notes to parents</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <div class="sidebar-section-label">Account</div>
+                        <a href="teacher_help.html" class="sidebar-link active">
+                            <i class="fas fa-question-circle"></i>
+                            <div class="sidebar-link-text">
+                                <span>Help & Support</span>
+                                <small>Guides & FAQs</small>
+                            </div>
+                        </a>
+                        <a href="teacher_settings.html" class="sidebar-link">
+                            <i class="fas fa-cog"></i>
+                            <div class="sidebar-link-text">
+                                <span>Settings</span>
+                                <small>Profile & preferences</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-group sidebar-group-footer">
+                        <button class="sidebar-logout-btn" onclick="window.location.href='/api/logout'">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Content: Help & Support -->
+            <section class="dashboard-section dashboard-header">
+                <!-- Page header -->
+                <div class="dashboard-heading-row">
+                    <div>
+                        <h1 class="dashboard-title">Help & Support</h1>
+                        <p class="dashboard-subtitle">
+                            Stuck somewhere? Quickly walkthrough how to use ObserveQ in your classroom, or reach our support team.
+                        </p>
+                    </div>
+                    <div class="dashboard-heading-actions">
+                        <button class="btn btn-secondary-outline">
+                            <i class="fas fa-book-open"></i>
+                            Teacher quick start
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 1. Quick Actions Panel -->
+                <section class="dashboard-panel">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Quick help</h2>
+                            <p>Common actions teachers ask about, in one place.</p>
+                        </div>
+                    </header>
+
+                    <div class="quick-help-grid">
+                        <button class="quick-help-card">
+                            <div class="quick-help-icon-wrapper">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="quick-help-text">
+                                <h3>How to upload a session?</h3>
+                                <p>Step-by-step guide for uploading and tagging your class recordings.</p>
+                            </div>
+                        </button>
+
+                        <button class="quick-help-card">
+                            <div class="quick-help-icon-wrapper">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="quick-help-text">
+                                <h3>Understanding behaviour scores</h3>
+                                <p>What attention %, participation % and flags actually mean.</p>
+                            </div>
+                        </button>
+
+                        <button class="quick-help-card">
+                            <div class="quick-help-icon-wrapper">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="quick-help-text">
+                                <h3>Privacy & consent</h3>
+                                <p>How ObserveQ handles student data and recordings.</p>
+                            </div>
+                        </button>
+
+                        <button class="quick-help-card">
+                            <div class="quick-help-icon-wrapper">
+                                <i class="fas fa-file-download"></i>
+                            </div>
+                            <div class="quick-help-text">
+                                <h3>Download class reports</h3>
+                                <p>Export PDF summaries to share with coordinators or parents.</p>
+                            </div>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 2. FAQ Accordion Panel -->
+                <section class="dashboard-panel" style="margin-top: 1.4rem;">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Frequently asked questions</h2>
+                            <p>Answers to common questions from teachers using ObserveQ.</p>
+                        </div>
+                        <div class="dashboard-heading-actions">
+                            <button class="btn btn-secondary-outline small" id="expand-all-faq">
+                                <i class="fas fa-plus-square"></i>
+                                Expand all
+                            </button>
+                        </div>
+                    </header>
+
+                    <div class="faq-list" id="faq-list">
+                        <article class="faq-item">
+                            <button class="faq-question">
+                                <span>Do I have to record every class?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    No. Most schools start by recording 1–2 classes per section each week. This gives you enough
+                                    behaviour data to spot patterns without increasing your workload.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="faq-item">
+                            <button class="faq-question">
+                                <span>How long does it take to analyse a recording?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Typically, a 40-minute recording is analysed within a few minutes after upload. You’ll see the
+                                    updated attention and participation metrics in your dashboard once processing is complete.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="faq-item">
+                            <button class="faq-question">
+                                <span>Who can view my classroom recordings?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Access is controlled by your institution. By default, recordings are visible only to authorised
+                                    staff (you, assigned admins, and coordinators) as per your school’s policy.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I share reports with parents?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Yes. You can download PDF summaries from the <strong>Reports</strong> area and share them
+                                    during PTMs or via your school’s communication channels.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="faq-item">
+                            <button class="faq-question">
+                                <span>What if the camera coverage is not perfect?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    ObserveQ is designed to work even with partial classroom views. It focuses on visible students
+                                    and trends over time rather than one-off frames.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- 3. Contact & Support Panel -->
+                <section class="dashboard-panel" style="margin-top: 1.4rem;">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Still need help?</h2>
+                            <p>Raise a ticket, email us, or contact your school admin.</p>
+                        </div>
+                    </header>
+
+                    <div class="support-layout">
+                        <!-- Contact options -->
+                        <div class="support-options">
+                            <div class="support-option">
+                                <div class="support-icon-badge">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                </div>
+                                <div class="support-text">
+                                    <h3>Email our support team</h3>
+                                    <p>Share detailed questions or screenshots for quick assistance.</p>
+                                    <p class="support-highlight">support@observeq.school</p>
+                                </div>
+                            </div>
+
+                            <div class="support-option">
+                                <div class="support-icon-badge">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div class="support-text">
+                                    <h3>Talk to your school coordinator</h3>
+                                    <p>Your academic coordinator can help you decide how to best use behaviour insights in class.</p>
+                                </div>
+                            </div>
+
+                            <div class="support-option">
+                                <div class="support-icon-badge">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="support-text">
+                                    <h3>Privacy & data queries</h3>
+                                    <p>For any questions about student privacy, please loop in your school’s IT / compliance team.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Simple "Contact us" form (front-end only) -->
+                        <form class="support-form">
+                            <h3>Send a quick message</h3>
+                            <p class="support-form-subtitle">
+                                This is a sample form template. Connect it to your backend or ticketing system.
+                            </p>
+
+                            <div class="support-form-grid">
+                                <div class="support-field">
+                                    <label for="help-subject">Subject</label>
+                                    <input type="text" id="help-subject" class="input-text" placeholder="e.g., Trouble viewing a report">
+                                </div>
+                                <div class="support-field">
+                                    <label for="help-category">Category</label>
+                                    <select id="help-category" class="input-select">
+                                        <option selected>General question</option>
+                                        <option>Technical issue</option>
+                                        <option>Recording & uploads</option>
+                                        <option>Reports & analytics</option>
+                                        <option>Privacy & data</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="support-field">
+                                <label for="help-message">Describe your issue</label>
+                                <textarea id="help-message" rows="4" class="input-text" placeholder="Share what you were trying to do, what went wrong, and any error messages you saw."></textarea>
+                            </div>
+
+                            <div class="support-actions">
+                                <button type="button" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send message
+                                </button>
+                                <p class="support-note">
+                                    Your school’s ObserveQ administrator will typically respond via email or your internal helpdesk.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <!-- Floating toggle to show/hide sidebar -->
+    <button class="teacher-fab-toggle" id="teacher-fab-toggle">
+        <i class="fas fa-layer-group"></i>
+        <span>Toggle Help Panel</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>ObserveQ. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared JS (theme toggle, navbar, etc.) -->
+    <script src="../../../home.js"></script>
+
+    <!-- Teacher sidebar + FAQ interactions -->
+    <script>
+        // Sidebar collapse (same pattern as other teacher pages)
+        (function() {
+            const logoToggle = document.getElementById('teacher-logo-toggle');
+            const sidebar = document.querySelector('.teacher-sidebar');
+            const layout = document.querySelector('.teacher-dashboard-layout');
+            const fabToggle = document.getElementById('teacher-fab-toggle');
+
+            if (!sidebar || !layout) return;
+
+            function toggleSidebar(e) {
+                if (e) e.preventDefault();
+                sidebar.classList.toggle('collapsed');
+                layout.classList.toggle('sidebar-collapsed');
+            }
+
+            if (logoToggle) {
+                logoToggle.addEventListener('click', toggleSidebar);
+            }
+
+            if (fabToggle) {
+                fabToggle.addEventListener('click', toggleSidebar);
+            }
+        })();
+
+        // FAQ accordion behaviour
+        (function() {
+            const faqList = document.getElementById('faq-list');
+            if (!faqList) return;
+
+            const items = faqList.querySelectorAll('.faq-item');
+            const expandAllBtn = document.getElementById('expand-all-faq');
+
+            items.forEach(item => {
+                const questionBtn = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+
+                questionBtn.addEventListener('click', function() {
+                    const isOpen = item.classList.contains('open');
+                    // Close all others
+                    items.forEach(i => {
+                        i.classList.remove('open');
+                        const ans = i.querySelector('.faq-answer');
+                        if (ans) ans.style.maxHeight = null;
+                    });
+
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        if (answer) {
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                        }
+                    }
+                });
+            });
+
+            if (expandAllBtn) {
+                let allExpanded = false;
+                expandAllBtn.addEventListener('click', function() {
+                    allExpanded = !allExpanded;
+                    items.forEach(item => {
+                        const answer = item.querySelector('.faq-answer');
+                        if (allExpanded) {
+                            item.classList.add('open');
+                            if (answer) {
+                                answer.style.maxHeight = answer.scrollHeight + 'px';
+                            }
+                        } else {
+                            item.classList.remove('open');
+                            if (answer) answer.style.maxHeight = null;
+                        }
+                    });
+                    expandAllBtn.innerHTML = allExpanded
+                        ? '<i class="fas fa-minus-square"></i> Collapse all'
+                        : '<i class="fas fa-plus-square"></i> Expand all';
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

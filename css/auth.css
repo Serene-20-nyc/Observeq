@@ -1,0 +1,574 @@
+/* ============================
+   Auth Page Theme + Layout
+   Works with body[data-theme="light" | "dark"]
+============================ */
+
+/* ---------- Theme tokens (light default) ---------- */
+
+body {
+    --auth-bg: radial-gradient(circle at top, #eff6ff 0, #f9fafb 35%, #ffffff 100%);
+    --auth-card-bg: #ffffff;
+    --auth-card-border: rgba(148, 163, 184, 0.35);
+    --auth-text-primary: #0f172a;
+    --auth-text-muted: #6b7280;
+    --auth-input-bg: #f9fafb;
+    --auth-input-border: rgba(148, 163, 184, 0.6);
+    --auth-input-border-focus: #2563eb;
+    --auth-shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.10);
+    --auth-accent: #2563eb;
+    --auth-accent-soft: rgba(37, 99, 235, 0.06);
+}
+
+/* Dark theme overrides */
+body[data-theme="dark"] {
+    --auth-bg: radial-gradient(circle at top, #020617 0, #020617 35%, #020617 100%);
+    --auth-card-bg: rgba(15, 23, 42, 0.98);
+    --auth-card-border: rgba(37, 99, 235, 0.7);
+    --auth-text-primary: #e5e7eb;
+    --auth-text-muted: #9ca3af;
+    --auth-input-bg: rgba(15, 23, 42, 0.9);
+    --auth-input-border: rgba(30, 64, 175, 0.9);
+    --auth-input-border-focus: #60a5fa;
+    --auth-shadow-soft: 0 28px 80px rgba(15, 23, 42, 0.95);
+    --auth-accent: #60a5fa;
+    --auth-accent-soft: rgba(37, 99, 235, 0.22);
+}
+
+/* ---------- Page background & container ---------- */
+
+body[data-theme] {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--auth-bg);
+    color: var(--auth-text-primary);
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+}
+
+/* Two-column auth layout */
+.auth-container {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    gap: 2.75rem;
+}
+
+/* Stack on small screens */
+@media (max-width: 900px) {
+    .auth-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.8rem;
+    }
+}
+
+/* ---------- Branding side ---------- */
+
+.auth-branding {
+    align-self: center;
+}
+
+.auth-branding .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.4rem;
+    color: var(--auth-text-primary);
+}
+
+.auth-branding .tagline {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--auth-accent);
+    margin-bottom: 0.7rem;
+}
+
+.auth-branding .product-description {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--auth-text-muted);
+    max-width: 24rem;
+    margin-bottom: 1.6rem;
+}
+
+.auth-branding .back-link {
+    font-size: 0.9rem;
+    color: var(--auth-accent);
+    text-decoration: none;
+}
+
+.auth-branding .back-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Auth card ---------- */
+
+.auth-form-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 1.8rem 1.9rem 1.9rem;
+    background: var(--auth-card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--auth-card-border);
+    box-shadow: var(--auth-shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle glow */
+.auth-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.35),
+        rgba(59, 130, 246, 0.08),
+        transparent 60%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-out;
+}
+
+.auth-card:hover::before {
+    opacity: 0.9;
+}
+
+.auth-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Tabs ---------- */
+
+.auth-tabs {
+    display: inline-flex;
+    padding: 0.18rem;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.14);
+    margin-bottom: 1.4rem;
+}
+
+.tab-button {
+    border: none;
+    background: transparent;
+    padding: 0.45rem 1.15rem;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--auth-text-muted);
+    transition:
+        background 0.18s ease-out,
+        color 0.18s ease-out,
+        transform 0.12s ease-out;
+}
+
+.tab-button.active {
+    background: var(--auth-accent);
+    color: #f9fafb;
+    transform: translateY(-1px);
+}
+
+/* ---------- Form basics ---------- */
+
+.auth-form h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--auth-text-primary);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: var(--auth-text-primary);
+}
+
+.form-group .required {
+    color: var(--auth-accent);
+}
+
+/* Inputs */
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"],
+.auth-form select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--auth-input-border);
+    background: var(--auth-input-bg);
+    font-size: 0.9rem;
+    color: var(--auth-text-primary);
+    outline: none;
+    transition:
+        border-color 0.16s ease-out,
+        box-shadow 0.16s ease-out,
+        background 0.16s ease-out;
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+    border-color: var(--auth-input-border-focus);
+    box-shadow: 0 0 0 1px var(--auth-input-border-focus);
+}
+
+/* Dark placeholder tweak */
+body[data-theme="dark"] .auth-form input::placeholder {
+    color: rgba(148, 163, 184, 0.8);
+}
+
+/* Error text */
+.error-message {
+    font-size: 0.75rem;
+    color: #dc2626;
+    margin-top: 0.15rem;
+}
+
+/* Password wrapper */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    color: var(--auth-text-muted);
+    font-size: 0.9rem;
+}
+
+.password-toggle:hover {
+    color: var(--auth-text-primary);
+}
+
+/* Password strength */
+.password-strength {
+    margin-top: 0.4rem;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.3);
+    overflow: hidden;
+}
+
+.password-strength .strength-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: inherit;
+    background: #dc2626;
+    transition: width 0.2s ease-out, background 0.2s ease-out;
+}
+
+/* Example: JS can set [data-strength="1|2|3"] */
+.password-strength .strength-bar[data-strength="1"] {
+    width: 33%;
+    background: #f97316;
+}
+
+.password-strength .strength-bar[data-strength="2"] {
+    width: 66%;
+    background: #eab308;
+}
+
+.password-strength .strength-bar[data-strength="3"] {
+    width: 100%;
+    background: #16a34a;
+}
+
+/* Password rules list */
+.password-rules {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    font-size: 0.78rem;
+    color: var(--auth-text-muted);
+}
+
+.password-rules li {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.15rem;
+}
+
+.password-rules li i {
+    font-size: 0.75rem;
+    color: #dc2626;
+}
+
+/* Valid rule state (JS will toggle data-valid="true") */
+.password-rules li[data-valid="true"] i {
+    color: #16a34a;
+}
+
+.password-rules li[data-valid="true"] {
+    color: var(--auth-text-primary);
+}
+
+/* ---------- Form options ---------- */
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0 1rem;
+    gap: 0.75rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--auth-text-muted);
+}
+
+.remember-me input {
+    width: 14px;
+    height: 14px;
+}
+
+.forgot-link {
+    font-size: 0.8rem;
+    color: var(--auth-accent);
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2563eb, #6366f1);
+    color: #f9fafb;
+    transition:
+        transform 0.12s ease-out,
+        box-shadow 0.14s ease-out,
+        filter 0.14s ease-out;
+}
+
+.btn.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    filter: grayscale(0.2);
+}
+
+.btn.btn-primary:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.45);
+}
+
+.btn.btn-secondary-outline {
+    background: transparent;
+    border-radius: 999px;
+}
+
+/* Social buttons */
+.social-login {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+}
+
+.btn.btn-social {
+    width: 100%;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    background: rgba(248, 250, 252, 0.9);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.42rem;
+    cursor: pointer;
+    color: var(--auth-text-primary);
+    transition:
+        background 0.16s ease-out,
+        border-color 0.16s ease-out,
+        transform 0.12s ease-out;
+}
+
+.btn.btn-social i {
+    font-size: 1rem;
+}
+
+.btn.btn-social:hover {
+    transform: translateY(-1px);
+    background: #ffffff;
+    border-color: var(--auth-accent);
+}
+
+/* Dark mode tweak for social */
+body[data-theme="dark"] .btn.btn-social {
+    background: rgba(15, 23, 42, 0.92);
+}
+
+/* Divider */
+.divider {
+    margin: 1rem 0;
+    text-align: center;
+    position: relative;
+    font-size: 0.8rem;
+    color: var(--auth-text-muted);
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    background: rgba(148, 163, 184, 0.6);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.divider span {
+    background: var(--auth-card-bg);
+    padding: 0 0.5rem;
+}
+
+/* Switch text */
+.auth-switch {
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
+    text-align: center;
+    color: var(--auth-text-muted);
+}
+
+.auth-switch a {
+    color: var(--auth-accent);
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Forgot password overlay ---------- */
+
+.forgot-panel {
+    position: absolute;
+    inset: 0;
+    padding: 1.7rem 1.8rem;
+    background: var(--auth-card-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: inherit;
+}
+
+.forgot-panel h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--auth-text-primary);
+}
+
+.forgot-panel p {
+    font-size: 0.84rem;
+    color: var(--auth-text-muted);
+    margin-bottom: 1rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* ---------- Footer ---------- */
+
+.auth-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.8rem 0 1.4rem;
+    color: var(--auth-text-muted);
+}
+
+.auth-footer .footer-links a {
+    color: var(--auth-text-muted);
+    text-decoration: none;
+}
+
+.auth-footer .footer-links a:hover {
+    color: var(--auth-accent);
+}
+
+/* ---------- Theme toggle button (icon) ---------- */
+
+.btn.btn-icon {
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    background: rgba(248, 250, 252, 0.9);
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+        background 0.16s ease-out,
+        border-color 0.16s ease-out,
+        transform 0.12s ease-out;
+}
+
+.btn.btn-icon i {
+    font-size: 0.95rem;
+}
+
+/* Dark mode icon styling */
+body[data-theme="dark"] .btn.btn-icon {
+    background: rgba(15, 23, 42, 0.94);
+    border-color: rgba(30, 64, 175, 0.9);
+}
+
+.btn.btn-icon:hover {
+    transform: translateY(-1px);
+    border-color: var(--auth-accent);
+}

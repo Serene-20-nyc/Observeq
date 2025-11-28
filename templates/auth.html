@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ - Login / Sign Up</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Note: Server-side no-cache headers (e.g., Cache-Control: no-store) should be configured for this page to prevent caching sensitive form data. -->
+</head>
+
+<body data-theme="light">
+    <div class="auth-container">
+        <!-- Left Side: Branding and Tagline -->
+        <div class="auth-branding">
+            <h1 class="logo">ObserveQ</h1>
+            <p class="tagline">Data Speaks, We Review</p>
+            <p class="product-description">
+                AI-based Student Behaviour Observation & Evaluation System. Gain objective, data-driven insights to
+                foster better learning environments.
+            </p>
+            <a href="home.html" class="back-link">← Back to Home</a>
+        </div>
+
+        <!-- Right Side: Forms (Login/Signup) -->
+        <div class="auth-form-area">
+            <div class="auth-card">
+
+                <!-- Toggle between Login and Signup -->
+                <div class="auth-tabs">
+                    <button class="tab-button active" id="tab-login">Log In</button>
+                    <button class="tab-button" id="tab-signup">Sign Up</button>
+                </div>
+
+                <!-- ------------------- 1. Login Form ------------------- -->
+                <form id="login-form" class="auth-form">
+                    <h2>Welcome Back</h2>
+
+                    <!-- Email/Username Field -->
+                    <div class="form-group">
+                        <label for="login-email">Email or Username</label>
+                        <input type="email" id="login-email" name="email" required
+                            placeholder="Enter your email or username">
+                        <small class="error-message" id="login-email-error" aria-live="polite"></small>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="login-password" name="password" required placeholder="••••••••">
+                            <button type="button" class="password-toggle" data-target="login-password"
+                                aria-label="Show password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <small class="error-message" id="login-password-error" aria-live="polite"></small>
+                    </div>
+
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember me on this device</label>
+                        </div>
+                        <a href="#" class="forgot-link" id="forgot-password-link">Forgot password?</a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="login-submit" class="btn btn-primary" disabled>
+                        Log In <span class="spinner-border" style="display: none;"></span>
+                    </button>
+
+                    <!-- Social Sign-in -->
+                    <div class="divider"><span>Or continue with</span></div>
+                    <div class="social-login">
+                        <button type="button" class="btn btn-social btn-google"><i class="fab fa-google"></i> Continue
+                            with Google</button>
+                        <button type="button" class="btn btn-social btn-microsoft"><i class="fab fa-microsoft"></i>
+                            Continue with Microsoft</button>
+                    </div>
+
+                    <!-- Switch to Signup -->
+                    <p class="auth-switch">Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+                </form>
+
+                <!-- ------------------- 2. Signup Form ------------------- -->
+                <form id="signup-form" class="auth-form" style="display: none;">
+                    <h2>Create Your Account</h2>
+
+                    <!-- Full Name Field (Optional) -->
+                    <div class="form-group">
+                        <label for="signup-name">Full Name (Optional)</label>
+                        <input type="text" id="signup-name" name="fullname" placeholder="John Doe">
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="signup-email">Email <span class="required">*</span></label>
+                        <input type="email" id="signup-email" name="email" required placeholder="your@institution.edu">
+                        <small class="error-message" id="signup-email-error" aria-live="polite"></small>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label for="signup-password">Password <span class="required">*</span></label>
+                        <div class="password-wrapper">
+                            <input type="password" id="signup-password" name="password" required
+                                placeholder="At least 8 characters">
+                            <button type="button" class="password-toggle" data-target="signup-password"
+                                aria-label="Show password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" id="password-strength-meter">
+                            <div class="strength-bar" data-strength="0"></div>
+                        </div>
+                        <small class="error-message" id="signup-password-error" aria-live="polite"></small>
+
+                        <!-- Password Rules -->
+                        <ul class="password-rules" id="password-rules">
+                            <li id="rule-length" data-valid="false"><i class="fas fa-times-circle"></i> At least 8
+                                characters</li>
+                            <li id="rule-uppercase" data-valid="false"><i class="fas fa-times-circle"></i> At least 1
+                                uppercase letter</li>
+                            <li id="rule-number" data-valid="false"><i class="fas fa-times-circle"></i> At least 1
+                                number</li>
+                        </ul>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password <span class="required">*</span></label>
+                        <input type="password" id="signup-confirm-password" name="confirm_password" required
+                            placeholder="Repeat password">
+                        <small class="error-message" id="signup-confirm-error" aria-live="polite"></small>
+                    </div>
+
+                    <!-- Role Dropdown (Optional) -->
+                    <div class="form-group">
+                        <label for="signup-role">Your Role (Optional)</label>
+                        <select id="signup-role" name="role">
+                            <option value="teacher">Teacher</option>
+                            <option value="admin">Admin</option>
+                            <option value="student">Student</option>
+                            <option value="parent">Parent / Guardian</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Terms & Privacy Checkbox -->
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms-agree" required>
+                        <label for="terms-agree">I agree to the
+                            <a href="#" target="_blank" rel="noopener noreferrer">Terms</a> &
+                            <a href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a> <span
+                                class="required">*</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="signup-submit" class="btn btn-primary" disabled>
+                        Create Account <span class="spinner-border" style="display: none;"></span>
+                    </button>
+
+                    <!-- Social Sign-up -->
+                    <div class="divider"><span>Or sign up with</span></div>
+                    <div class="social-login">
+                        <button type="button" class="btn btn-social btn-google"><i class="fab fa-google"></i> Sign up
+                            with Google</button>
+                        <button type="button" class="btn btn-social btn-microsoft"><i class="fab fa-microsoft"></i> Sign
+                            up with Microsoft</button>
+                    </div>
+
+                    <!-- Switch to Login -->
+                    <p class="auth-switch">Already have an account? <a href="#" id="switch-to-login">Log In</a></p>
+                </form>
+
+                <!-- ------------------- 3. Forgot Password Overlay ------------------- -->
+                <div id="forgot-password-panel" class="forgot-panel" style="display: none;">
+                    <h3>Password Recovery</h3>
+                    <p>Enter your email address and we'll send you a link to reset your password.</p>
+                    <form id="forgot-form">
+                        <div class="form-group">
+                            <label for="forgot-email">Email</label>
+                            <input type="email" id="forgot-email" name="email" required
+                                placeholder="your@institution.edu">
+                            <small class="error-message" id="forgot-email-error" aria-live="polite"></small>
+                        </div>
+                        <button type="submit" id="forgot-submit" class="btn btn-primary full-width">
+                            Send reset link <span class="spinner-border" style="display: none;"></span>
+                        </button>
+                        <button type="button" id="back-to-login" class="btn btn-secondary-outline full-width">← Back to
+                            Log In</button>
+                    </form>
+                    <p id="forgot-message" class="form-message"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="auth-footer">
+        <p> 2025 ObserveQ · Data Speaks, We Review</p>
+        <div class="footer-links">
+            <a href="#">Privacy</a> |
+            <a href="#">Terms</a>
+        </div>
+    </footer>
+
+    <script src="../js/home.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+ /* Enhanced ObserveQ Demo Styles */
+        :root {
+            --color-primary: #5B7CFF;
+            --color-primary-glow: rgba(91, 124, 255, 0.6);
+            --color-secondary: #00D9A3;
+            --color-secondary-glow: rgba(0, 217, 163, 0.5);
+        }
+        /* ============================
+   ObserveQ Demo – Themed Styles
+   Works with body[data-theme="dark" | "light"]
+============================ */
+:root {
+    --color-primary: #5B7CFF;
+    --color-primary-glow: rgba(91, 124, 255, 0.6);
+    --color-secondary: #00D9A3;
+    --color-secondary-glow: rgba(0, 217, 163, 0.5);
+}
+
+/* ---------- DARK THEME ---------- */
+body[data-theme="dark"] {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0f2e 0%, #050816 50%, #02121a 100%);
+    color: #f3f4f6;
+}
+
+body[data-theme="dark"]::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(91, 124, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 217, 163, 0.09) 0%, transparent 50%);
+    z-index: -1;
+    animation: gradientShift 15s ease-in-out infinite;
+}
+
+/* ---------- LIGHT THEME ---------- */
+body[data-theme="light"] {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #e0ecff 0, #f5f7fb 40%, #ffffff 100%);
+    color: #0f172a;
+}
+
+body[data-theme="light"]::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(91, 124, 255, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(0, 217, 163, 0.12) 0%, transparent 50%);
+    z-index: -1;
+    opacity: 1;
+    animation: gradientShift 18s ease-in-out infinite;
+}
+
+/* Shared background animation */
+@keyframes gradientShift {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+/* ---------- Containers & Tailwind harmony ---------- */
+
+main > div {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar color tweak for light theme */
+body[data-theme="light"] #demo-navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(148, 163, 184, 0.5);
+}
+
+body[data-theme="dark"] #demo-navbar {
+    background-color: rgba(15, 23, 42, 0.9);
+}
+
+/* ---------- Logo & gradients ---------- */
+
+.logo-text {
+    background: linear-gradient(135deg, #5B7CFF, #00D9A3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+.gradient-btn {
+    background: linear-gradient(135deg, #5B7CFF, #00D9A3);
+    transition: all 0.3s ease;
+    color: #0b1120;
+}
+
+.gradient-btn:hover {
+    box-shadow: 0 8px 25px rgba(91, 124, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #5B7CFF, #00D9A3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---------- Upload card, dashboard, etc. ---------- */
+
+.mock-dashboard-glow {
+    box-shadow: 0 20px 50px rgba(91, 124, 255, 0.3), 0 0 40px rgba(0, 217, 163, 0.2);
+    border: 1.5px solid rgba(91, 124, 255, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mock-dashboard-glow:hover {
+    box-shadow: 0 25px 60px rgba(91, 124, 255, 0.4), 0 0 50px rgba(0, 217, 163, 0.3);
+    transform: translateY(-3px);
+}
+
+.upload-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.upload-card:hover {
+    animation: pulse-glow 2s infinite ease-in-out;
+    transform: translateY(-2px);
+}
+
+.drag-over {
+    border-color: #5B7CFF !important;
+    background: linear-gradient(135deg, rgba(91, 124, 255, 0.15), rgba(0, 217, 163, 0.08)) !important;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(91, 124, 255, 0.5), 0 0 35px rgba(0, 217, 163, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 35px rgba(91, 124, 255, 0.7), 0 0 55px rgba(0, 217, 163, 0.4);
+    }
+}
+
+/* Progress bar */
+.progress-bar-fill {
+    transition: width 0.5s ease-out;
+    background: linear-gradient(90deg, #5B7CFF, #00D9A3) !important;
+}
+
+/* Card/background adaptations for light theme */
+body[data-theme="light"] .upload-card,
+body[data-theme="light"] .mock-dashboard-glow,
+body[data-theme="light"] .bg-gray-800\/50,
+body[data-theme="light"] .bg-gray-800\/70,
+body[data-theme="light"] .bg-gray-700\/50,
+body[data-theme="light"] .bg-gray-900\/70 {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    border-color: rgba(148, 163, 184, 0.45) !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* Text color tweaks in light mode */
+body[data-theme="light"] .text-gray-400,
+body[data-theme="light"] .text-gray-300,
+body[data-theme="light"] .text-gray-500 {
+    color: #4b5563 !important;
+}
+
+body[data-theme="light"] .text-gray-100,
+body[data-theme="light"] .text-white {
+    color: #111827 !important;
+}
+
+/* Heatmap border in light mode */
+body[data-theme="light"] .border-gray-800 {
+    border-color: rgba(148, 163, 184, 0.6) !important;
+}
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0f2e 0%, #050816 50%, #02121a 100%);
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(91, 124, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 217, 163, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            animation: gradientShift 15s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .mock-dashboard-glow {
+            box-shadow: 0 20px 50px rgba(91, 124, 255, 0.3), 0 0 40px rgba(0, 217, 163, 0.2);
+            border: 1.5px solid rgba(91, 124, 255, 0.3) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mock-dashboard-glow:hover {
+            box-shadow: 0 25px 60px rgba(91, 124, 255, 0.4), 0 0 50px rgba(0, 217, 163, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .drag-over {
+            border-color: #5B7CFF !important;
+            background: linear-gradient(135deg, rgba(91, 124, 255, 0.15), rgba(0, 217, 163, 0.05)) !important;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(91, 124, 255, 0.5), 0 0 35px rgba(0, 217, 163, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(91, 124, 255, 0.7), 0 0 55px rgba(0, 217, 163, 0.4);
+            }
+        }
+
+        .upload-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .upload-card:hover {
+            animation: pulse-glow 2s infinite ease-in-out;
+            transform: translateY(-2px);
+        }
+
+        .progress-bar-fill {
+            transition: width 0.5s ease-out;
+            background: linear-gradient(90deg, #5B7CFF, #00D9A3) !important;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, #5B7CFF, #00D9A3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        main > div {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .gradient-btn {
+            background: linear-gradient(135deg, #5B7CFF, #00D9A3);
+            transition: all 0.3s ease;
+        }
+
+        .gradient-btn:hover {
+            box-shadow: 0 8px 25px rgba(91, 124, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #5B7CFF, #00D9A3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }

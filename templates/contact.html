@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – AI-based Student Behaviour Evaluation</title>
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="../css/com.css">
+    <!-- Contact-page styles -->
+    <link rel="stylesheet" href="../css/contact.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bodybg" data-theme="light">
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="home.html#home" class="logo">
+                <span class="logo-icon"><i class="fas fa-eye"></i></span>
+                <span>ObserveQ</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="story.html">Stories</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="contact.html" class="active">Contact</a>
+
+                <!-- Mobile actions -->
+                <div class="nav-actions-mobile">
+                    <a href="auth.html" class="btn btn-secondary-outline small">Login</a>
+                    <a href="auth.html" class="btn btn-secondary-outline small">Sign Up</a>
+                    <button class="btn btn-primary small">
+                        <a href="demo.html">Demo</a>
+                    </button>
+                    <button id="theme-toggle-mobile" class="btn btn-icon theme-toggle-mobile" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="nav-right-items">
+                <!-- Desktop Login / Sign Up -->
+                <a href="auth.html" class="btn btn-link">Login</a>
+                <a href="auth.html" class="btn btn-secondary-outline">Sign Up</a>
+
+                <button class="btn btn-primary desktop-cta">
+                    <a href="demo.html">Demo</a>
+                </button>
+
+                <button id="theme-toggle-desktop" class="btn btn-icon" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact / API Section -->
+    <main>
+        <section id="contact" class="section contact-section">
+            <div class="container contact-grid glass-layer">
+                <!-- LEFT TEXT -->
+                <div class="contact-left">
+                    <h1>Let’s talk about student behaviour insights.</h1>
+                    <p>Whether you’re piloting ObserveQ in one classroom or across your institution, our team
+                        is here to help you get the most from data-driven student behaviour analytics.</p>
+
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@observeq.com</p>
+                        <p><i class="fas fa-phone-alt"></i> +91-00000-00000</p>
+                        <p><i class="fas fa-globe"></i> observeq.ai</p>
+                    </div>
+
+                    <p class="contact-hours">
+                        Support available <strong>Mon–Fri, 9 AM–6 PM IST</strong>.  
+                        Average response time: <strong>within 12 hours</strong>.
+                    </p>
+
+                    <p class="contact-mission">
+                        Our mission is to help educators create positive, data-informed learning
+                        environments. Reach out anytime — we’d love to collaborate.
+                    </p>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- FORM CARD -->
+                <div class="contact-right">
+                    <form id="contact-form" class="contact-form" autocomplete="off" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name</label>
+                                <input id="contact-name" type="text" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Work Email</label>
+                                <input id="contact-email" type="email" placeholder="you@school.edu" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-institution">Institution / Organisation</label>
+                                <input id="contact-institution" type="text"
+                                       placeholder="School / College / EdTech" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-role">Your Role</label>
+                                <input id="contact-role" type="text"
+                                       placeholder="Teacher, Admin, Founder..." required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">What problem are you trying to solve?</label>
+                            <textarea id="contact-message" rows="4"
+                                      placeholder="Describe your classroom or platform scenario"
+                                      required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary full-width">
+                            Request API Access
+                        </button>
+
+                        <div id="contact-form-message" class="form-message" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p><span id="year"></span> ObserveQ. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#contact">Back to top</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/home.js"></script>
+    <script>
+        // Set year in footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Behaviour Trends</title>
+
+    <!-- Shared styles from your project -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_behaviour.css">
+    <link rel="stylesheet" href="../../../css/parent_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+<body data-theme="light">
+<header class="navbar" id="navbar">
+    <div class="container navbar-content">
+        <a href="parent_dashboard.html" class="logo">
+            <span class="logo-icon"><i class="fas fa-child"></i></span>
+            <div class="logo-text-group">
+                <span class="logo-brand">ObserveQ</span>
+                <span class="child-name-pill">Your Child</span>
+            </div>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../home.html">Home</a>
+            <a href="../../about.html">About</a>
+            <a href="../../features.html">Features</a>
+            <a href="../../how-it-works.html">How It Works</a>
+            <a href="../../story.html">Stories</a>
+            <a href="../../contact.html">Contact</a>
+            <a href="parent_dashboard.html" class="nav-active">Parent Dashboard</a>
+        </nav>
+
+        <div class="nav-right-items">
+            <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+            <button id="theme-toggle-desktop" class="btn btn-icon">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="behaviour-page">
+    <div class="container">
+        <header style="margin-bottom: 1.5rem;">
+            <h1 class="page-title">Behaviour Trends</h1>
+            <p class="page-subtitle">
+                A timeline of how your child’s attention, participation, and distraction levels have evolved
+                across recent ObserveQ-analysed classes.
+            </p>
+        </header>
+
+        <div class="behaviour-grid">
+            <!-- LEFT COLUMN: Summary + Key Stats -->
+            <section class="panel-card">
+                <h2 class="section-heading">Overall pattern for November</h2>
+                <p class="section-subtext">
+                    Based on 12 recorded class sessions for <strong>Aarav Mehta</strong> (Grade 7A).
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Average attention score</div>
+                        <div class="stat-value">81%</div>
+                        <div class="stat-caption">↑ +6% vs last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Active participation</div>
+                        <div class="stat-value">7.4</div>
+                        <div class="stat-caption">answers per class, on average</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Off-task moments</div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-caption">short distractions per class</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Flagged sessions</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-caption">need gentle follow-up</div>
+                    </div>
+                </div>
+
+                <div class="trend-chips">
+                    <span class="trend-chip"><i class="fas fa-arrow-up"></i> Focus improving in mornings</span>
+                    <span class="trend-chip"><i class="fas fa-sun"></i> Highest engagement on Tue/Thu</span>
+                    <span class="trend-chip"><i class="fas fa-mug-hot"></i> Post-lunch attention dips slightly</span>
+                </div>
+
+                <div class="note-box">
+                    <strong>Quick parent takeaway</strong>
+                    Aarav is doing well in terms of attention and participation, especially in concept-heavy
+                    subjects like Math and Science. Short, planned breaks before afternoon study time may help
+                    smoothen the mild attention dip after lunch.
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: Timeline + Subject heatmap -->
+            <section>
+                <div class="panel-card" style="margin-bottom: 1.5rem;">
+                    <h2 class="section-heading">Recent class timeline</h2>
+                    <p class="section-subtext">
+                        Each entry represents a session analysed by ObserveQ. Use this to spot patterns across the week.
+                    </p>
+
+                    <div class="timeline">
+                        <div class="timeline-row">
+                            <div class="timeline-date">26 Nov · Science</div>
+                            <div>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-check-circle"></i> Very focused
+                                </span>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-flask"></i> High curiosity
+                                </span>
+                                <div class="timeline-note">
+                                    Asked multiple follow-up questions during the experiment demo. Minimal distraction.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-row">
+                            <div class="timeline-date">25 Nov · English</div>
+                            <div>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-comment-dots"></i> Moderate participation
+                                </span>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-book-open"></i> Needs nudge to read
+                                </span>
+                                <div class="timeline-note">
+                                    Stayed attentive but hesitant to volunteer for reading aloud. Could benefit from
+                                    gentle encouragement at home.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-row">
+                            <div class="timeline-date">23 Nov · Mathematics</div>
+                            <div>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-calculator"></i> Strong focus
+                                </span>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-lightbulb"></i> Solved on-board problem
+                                </span>
+                                <div class="timeline-note">
+                                    Maintained attention even during tricky word problems. Offered to explain a step to classmates.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-row">
+                            <div class="timeline-date">21 Nov · Social Studies</div>
+                            <div>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-users"></i> Group activity
+                                </span>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-exclamation-circle"></i> Mild distraction
+                                </span>
+                                <div class="timeline-note">
+                                    Slightly off-task during group discussion segments (chatting with friends), but
+                                    re-focused when called upon.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-row">
+                            <div class="timeline-date">19 Nov · Science</div>
+                            <div>
+                                <span class="timeline-tag">
+                                    <i class="fas fa-flag"></i> Flagged session
+                                </span>
+                                <div class="timeline-note">
+                                    Noticeable distraction in the last 15 minutes of class. Recommended to check if
+                                    there was any external reason (tired, unwell, etc.).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <h2 class="section-heading">Subject-wise trend snapshot</h2>
+                    <p class="section-subtext">
+                        Compare how Aarav behaves across different subjects in the last 4 weeks.
+                    </p>
+
+                    <div class="heat-table">
+                        <div class="heat-row header">
+                            <div>Subject</div>
+                            <div>Attention</div>
+                            <div>Participation</div>
+                            <div>Distraction</div>
+                        </div>
+                        <div class="heat-row">
+                            <div>Mathematics</div>
+                            <div><span class="heat-pill high">High</span></div>
+                            <div><span class="heat-pill high">High</span></div>
+                            <div><span class="heat-pill low">Low</span></div>
+                        </div>
+                        <div class="heat-row">
+                            <div>Science</div>
+                            <div><span class="heat-pill high">High</span></div>
+                            <div><span class="heat-pill high">High</span></div>
+                            <div><span class="heat-pill med">Medium</span></div>
+                        </div>
+                        <div class="heat-row">
+                            <div>English</div>
+                            <div><span class="heat-pill med">Medium</span></div>
+                            <div><span class="heat-pill med">Medium</span></div>
+                            <div><span class="heat-pill low">Low</span></div>
+                        </div>
+                        <div class="heat-row">
+                            <div>Social Studies</div>
+                            <div><span class="heat-pill med">Medium</span></div>
+                            <div><span class="heat-pill med">Medium</span></div>
+                            <div><span class="heat-pill med">Medium</span></div>
+                        </div>
+                        <div class="heat-row">
+                            <div>Computer Science</div>
+                            <div><span class="heat-pill high">High</span></div>
+                            <div><span class="heat-pill high">High</span></div>
+                            <div><span class="heat-pill low">Low</span></div>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>How to read this</strong>
+                        Focus on <em>changes</em>, not single classes. For example, if a subject moves from “Medium” to
+                        “High” participation over a few weeks, it’s a strong sign that Aarav is growing more confident
+                        there. If you see repeated “Flagged sessions” for the same subject, that’s a good cue to have
+                        a calm check-in with both Aarav and the teacher.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>ObserveQ. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../../js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+/* =========================================================
+   TEACHER – MY CLASSES PAGE
+   Works with: teacher_classes.html
+========================================================= */
+
+/* --- Layout --- */
+
+.teacher-dashboard-layout {
+    margin-top: 5.5rem; /* clear navbar */
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+@media (max-width: 960px) {
+    .teacher-dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Sidebar (teacher) --- */
+
+.teacher-sidebar {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 1.25rem 1rem;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100vh - 6.5rem);
+    overflow-y: auto;
+    transition: all 0.25s ease;
+}
+
+body[data-theme="dark"] .teacher-sidebar {
+    background: rgba(15, 23, 42, 0.96);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* Collapsed sidebar (desktop) */
+.teacher-sidebar.collapsed {
+    width: 68px;
+    min-width: 68px;
+    padding-inline: 0.75rem;
+}
+
+.teacher-dashboard-layout.sidebar-collapsed {
+    grid-template-columns: 80px minmax(0, 1fr);
+}
+
+/* Mobile behaviour: slide down */
+@media (max-width: 960px) {
+    .teacher-sidebar {
+        position: fixed;
+        inset: 5rem 0 auto 0;
+        max-height: calc(100vh - 5rem);
+        border-radius: 0 0 18px 18px;
+        transform: translateY(-130%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .teacher-sidebar.collapsed {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .teacher-dashboard-layout,
+    .teacher-dashboard-layout.sidebar-collapsed {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar header */
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 1.1rem;
+}
+
+.sidebar-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--text-muted);
+}
+
+.sidebar-child-name {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.sidebar-child-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.1rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--color-accent-primary, #16a34a);
+}
+
+/* Sidebar nav */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.sidebar-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.sidebar-group-footer {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed rgba(148, 163, 184, 0.4);
+}
+
+.sidebar-section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin-bottom: 0.1rem;
+}
+
+/* Collapsed: only icons visible */
+
+.teacher-sidebar.collapsed .sidebar-section-label,
+.teacher-sidebar.collapsed .sidebar-link-text span,
+.teacher-sidebar.collapsed .sidebar-link-text small,
+.teacher-sidebar.collapsed .sidebar-child-name,
+.teacher-sidebar.collapsed .sidebar-child-tag,
+.teacher-sidebar.collapsed .sidebar-logout-btn span {
+    display: none;
+}
+
+.teacher-sidebar.collapsed .sidebar-link {
+    justify-content: center;
+}
+
+.teacher-sidebar.collapsed .sidebar-link i {
+    margin-right: 0;
+}
+
+/* Sidebar links */
+
+.sidebar-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.55rem 0.6rem;
+    border-radius: 0.9rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.sidebar-link i {
+    margin-top: 0.05rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.sidebar-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.sidebar-link-text span {
+    font-weight: 500;
+}
+
+.sidebar-link-text small {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+
+.sidebar-link:hover {
+    background: rgba(56, 189, 248, 0.08);
+    transform: translateX(2px);
+}
+
+.sidebar-link.active {
+    background: linear-gradient(
+        135deg,
+        rgba(34, 197, 94, 0.16),
+        rgba(59, 130, 246, 0.16)
+    );
+    color: var(--color-accent-primary, #16a34a);
+}
+
+body[data-theme="dark"] .sidebar-link.active {
+    background: linear-gradient(
+        135deg,
+        rgba(34, 197, 94, 0.22),
+        rgba(59, 130, 246, 0.22)
+    );
+}
+
+/* Logout button */
+
+.sidebar-logout-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(248, 113, 113, 0.6);
+    background: transparent;
+    font-size: 0.86rem;
+    cursor: pointer;
+    color: rgb(248, 113, 113);
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.sidebar-logout-btn i {
+    font-size: 0.9rem;
+}
+
+.sidebar-logout-btn:hover {
+    background: rgba(248, 113, 113, 0.08);
+    transform: translateY(-1px);
+}
+
+/* --- Header area (My Classes) --- */
+
+.dashboard-header .dashboard-title {
+    font-size: 1.7rem;
+}
+
+.dashboard-header .dashboard-subtitle {
+    max-width: 680px;
+    font-size: 0.95rem;
+}
+
+/* Add new class button tweak */
+
+.btn.subtle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    padding-inline: 0.9rem;
+}
+
+/* --- Overview panel (top stats) --- */
+
+.teacher-overview-panel {
+    margin-top: 1.2rem;
+}
+
+.teacher-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 900px) {
+    .teacher-overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.overview-card {
+    border-radius: 1.1rem;
+    padding: 1rem 1.1rem;
+    background: rgba(248, 250, 252, 0.95);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+body[data-theme="dark"] .overview-card {
+    background: rgba(15, 23, 42, 0.96);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+.overview-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overview-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--text-muted);
+}
+
+.overview-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.overview-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.icon-soft {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    font-size: 0.98rem;
+}
+
+/* --- Section list (classes) --- */
+
+.session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-top: 0.8rem;
+}
+
+.session-card {
+    border-radius: 1.1rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    background: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: box-shadow 0.18s ease, transform 0.12s ease, border-color 0.18s ease;
+}
+
+body[data-theme="dark"] .session-card {
+    background: rgba(15, 23, 42, 0.96);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+.session-card:hover {
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+    transform: translateY(-1px);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.session-main h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.session-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+}
+
+.session-note {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    max-width: 620px;
+}
+
+.session-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-end;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.btn.small {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+}
+
+/* Stack actions below content on small screens */
+@media (max-width: 768px) {
+    .session-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .session-actions {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
+
+/* --- Filter button tweak --- */
+
+.btn.small i {
+    margin-right: 0.25rem;
+}
+
+/* --- Floating FAB toggle (bottom-right) --- */
+
+.teacher-fab-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.25rem;
+    z-index: 40;
+    border-radius: 999px;
+    border: none;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.82rem;
+    display: none;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    background: linear-gradient(
+        135deg,
+        rgba(34, 197, 94, 1),
+        rgba(59, 130, 246, 1)
+    );
+    color: #ffffff;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.45);
+}
+
+.teacher-fab-toggle i {
+    font-size: 0.95rem;
+}
+
+@media (max-width: 960px) {
+    .teacher-fab-toggle {
+        display: inline-flex;
+    }
+}

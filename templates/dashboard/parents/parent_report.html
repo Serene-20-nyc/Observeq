@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Reports & Downloads</title>
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/parent/parent_report.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+<body data-theme="light">
+<header class="navbar" id="navbar">
+    <div class="container navbar-content">
+        <a href="parent_dashboard.html" class="logo">
+            <span class="logo-icon"><i class="fas fa-child"></i></span>
+            <div class="logo-text-group">
+                <span class="logo-brand">ObserveQ</span>
+                <span class="child-name-pill">Your Child</span>
+            </div>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../home.html">Home</a>
+            <a href="../../about.html">About</a>
+            <a href="../../features.html">Features</a>
+            <a href="../../how-it-works.html">How It Works</a>
+            <a href="../../story.html">Stories</a>
+            <a href="../../contact.html">Contact</a>
+            <a href="parent_dashboard.html" class="nav-active">Parent Dashboard</a>
+        </nav>
+
+        <div class="nav-right-items">
+            <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+            <button id="theme-toggle-desktop" class="btn btn-icon">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="reports-page">
+    <div class="container">
+        <header style="margin-bottom: 1.5rem;">
+            <h1 class="page-title">Reports &amp; Downloads</h1>
+            <p class="page-subtitle">
+                Download AI-generated behaviour summaries, attendance reports, and exam-week snapshots
+                for <strong>Aarav Mehta</strong>, Grade 7A.
+            </p>
+        </header>
+
+        <div class="reports-grid">
+            <!-- LEFT: Snapshot + tips -->
+            <section class="panel-card">
+                <h2 class="section-heading">This term at a glance</h2>
+                <p class="section-subtext">
+                    A quick overview of how many reports have been generated and what they focus on.
+                </p>
+
+                <div class="summary-stat">
+                    <span class="label">Reports generated</span>
+                    <span class="value">12</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="label">Most recent</span>
+                    <span class="value">Unit Test 2 · Science</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="label">Focus areas flagged</span>
+                    <span class="value">3</span>
+                </div>
+
+                <div class="pill-row">
+                    <span class="small-pill"><i class="fas fa-brain"></i> Behaviour &amp; focus</span>
+                    <span class="small-pill"><i class="fas fa-eye"></i> Participation</span>
+                    <span class="small-pill"><i class="fas fa-calendar-alt"></i> Attendance</span>
+                    <span class="small-pill"><i class="fas fa-chalkboard-teacher"></i> Class-wise view</span>
+                </div>
+
+                <p class="download-hint">
+                    All downloads are in PDF format, designed for parent–teacher meetings.
+                    You can also share them with school counsellors or tutors.
+                </p>
+
+                <div class="note-box">
+                    <strong>How ObserveQ builds these reports</strong>
+                    Each report combines classroom behaviour metrics (attention, participation, distraction)
+                    with attendance and teacher-added notes. Nothing is recorded outside class time.
+                </div>
+            </section>
+
+            <!-- RIGHT: Report list -->
+            <section class="panel-card">
+                <h2 class="section-heading">Available reports</h2>
+                <p class="section-subtext">
+                    Filter by report type or month, then download what you need.
+                </p>
+
+                <div class="reports-filters">
+                    <select aria-label="Filter by month">
+                        <option>All months</option>
+                        <option>November 2025</option>
+                        <option>October 2025</option>
+                        <option>September 2025</option>
+                    </select>
+
+                    <button class="btn-chip active" type="button">All</button>
+                    <button class="btn-chip" type="button">Behaviour</button>
+                    <button class="btn-chip" type="button">Attendance</button>
+                    <button class="btn-chip" type="button">Exam weeks</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="reports-table">
+                        <thead>
+                        <tr>
+                            <th>Session / Period</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Highlights</th>
+                            <th>Download</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Example 1 -->
+                        <tr>
+                            <td>Unit Test 2 – Science</td>
+                            <td>
+                                <span class="report-type-pill">
+                                    <i class="fas fa-flask"></i> Exam week
+                                </span>
+                            </td>
+                            <td>22 Nov 2025</td>
+                            <td>
+                                <span class="tag-pill">Calm &amp; focused</span><br>
+                                Participation increased vs. previous test, minor distraction in last 10 mins.
+                            </td>
+                            <td>
+                                <button class="btn-download" type="button">
+                                    <i class="fas fa-file-download"></i> PDF
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Example 2 -->
+                        <tr>
+                            <td>Weekly Behaviour Summary · Week 3</td>
+                            <td>
+                                <span class="report-type-pill">
+                                    <i class="fas fa-wave-square"></i> Behaviour
+                                </span>
+                            </td>
+                            <td>15 Nov 2025</td>
+                            <td>
+                                Attention steady in Maths and Science, slight drop after lunch in Social Studies.
+                            </td>
+                            <td>
+                                <button class="btn-download" type="button">
+                                    <i class="fas fa-file-download"></i> PDF
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Example 3 -->
+                        <tr>
+                            <td>Attendance &amp; Punctuality – Term to date</td>
+                            <td>
+                                <span class="report-type-pill">
+                                    <i class="fas fa-calendar-check"></i> Attendance
+                                </span>
+                            </td>
+                            <td>10 Nov 2025</td>
+                            <td>
+                                94% presence, 3 late check-ins, 1 sick day with medical note attached.
+                            </td>
+                            <td>
+                                <button class="btn-download" type="button">
+                                    <i class="fas fa-file-download"></i> PDF
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Example 4 -->
+                        <tr>
+                            <td>Maths – Algebra practice session</td>
+                            <td>
+                                <span class="report-type-pill">
+                                    <i class="fas fa-square-root-alt"></i> Behaviour
+                                </span>
+                            </td>
+                            <td>05 Nov 2025</td>
+                            <td>
+                                Consistent hand-raising, strong peer support; flagged as a “high-engagement” class.
+                            </td>
+                            <td>
+                                <button class="btn-download" type="button">
+                                    <i class="fas fa-file-download"></i> PDF
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Example 5 -->
+                        <tr>
+                            <td>Parent–Teacher Meeting Summary – Mid-term</td>
+                            <td>
+                                <span class="report-type-pill">
+                                    <i class="fas fa-users"></i> Meeting notes
+                                </span>
+                            </td>
+                            <td>24 Oct 2025</td>
+                            <td>
+                                Focus on building homework routine, celebrate improved group-work behaviour.
+                            </td>
+                            <td>
+                                <button class="btn-download" type="button">
+                                    <i class="fas fa-file-download"></i> PDF
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Example 6 -->
+                        <tr>
+                            <td>Classroom Snapshot – English storytelling</td>
+                            <td>
+                                <span class="report-type-pill">
+                                    <i class="fas fa-book-open"></i> Behaviour
+                                </span>
+                            </td>
+                            <td>09 Oct 2025</td>
+                            <td>
+                                High participation, volunteered to read aloud; teacher notes rising confidence.
+                            </td>
+                            <td>
+                                <button class="btn-download" type="button">
+                                    <i class="fas fa-file-download"></i> PDF
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Example 7 -->
+                        <tr>
+                            <td>Behaviour trend overview · Aug–Oct</td>
+                            <td>
+                                <span class="report-type-pill">
+                                    <i class="fas fa-chart-line"></i> Overview
+                                </span>
+                            </td>
+                            <td>01 Oct 2025</td>
+                            <td>
+                                Overall engagement trending upward, occasional distraction on long lecture days.
+                            </td>
+                            <td>
+                                <button class="btn-download" type="button">
+                                    <i class="fas fa-file-download"></i> PDF
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Example 8 (empty message pattern) -->
+                        <tr>
+                            <td colspan="5" class="empty-state">
+                                Looking for older reports? Ask the school to share archived PDFs with you directly.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="note-box">
+                    <strong>Tip for parent–teacher meetings</strong>
+                    Pick one behaviour report, one attendance summary, and one exam-week report to bring
+                    to the meeting. This keeps the conversation focused and solution-oriented.
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>ObserveQ. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../../js/home.js"></script>
+</body>
+</html>

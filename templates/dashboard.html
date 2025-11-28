@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserveQ – Classroom Analytics Dashboard</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body data-theme="light">
+    <!-- Navbar (reused pattern) -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="home.html#home" class="logo">
+                <span class="logo-icon"><i class="fas fa-eye"></i></span>
+                <span>ObserveQ</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="story.html">Stories</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" class="nav-active">Dashboard</a>
+
+                <div class="nav-actions-mobile">
+                    <a href="auth.html" class="btn btn-secondary-outline small">Login</a>
+                    <a href="auth.html" class="btn btn-secondary-outline small">Sign Up</a>
+                    <button class="btn btn-primary small"><a href="demo.html">Demo</a></button>
+                    <button id="theme-toggle-mobile" class="btn btn-icon theme-toggle-mobile">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="nav-right-items">
+                <a href="auth.html" class="btn btn-link">Login</a>
+                <a href="auth.html" class="btn btn-secondary-outline">Sign Up</a>
+                <button class="btn btn-primary desktop-cta"><a href="demo.html">Demo</a></button>
+
+                <button id="theme-toggle-desktop" class="btn btn-icon">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="container dashboard-layout">
+            <!-- Left column: headline + summary cards + highlights -->
+            <section class="dashboard-section dashboard-header">
+                <div class="dashboard-heading-row">
+                    <div>
+                        <h1 class="dashboard-title">Classroom Behaviour Dashboard</h1>
+                        <p class="dashboard-subtitle">
+                            See engagement, distraction and class activity at a glance. This mock dashboard uses sample
+                            data to show how ObserveQ surfaces insights for teachers and admins.
+                        </p>
+                    </div>
+                    <div class="dashboard-meta">
+                        <div class="meta-pill">
+                            <i class="fas fa-school"></i>
+                            <span>Sample Institution</span>
+                        </div>
+                        <div class="meta-pill">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Today</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary cards filled by app.js -> renderDashboardSummary() -->
+                <div id="dashboard-summary-cards" class="dashboard-summary-grid">
+                    <!-- Populated by app.js -->
+                </div>
+
+                <!-- Todays Highlights list filled by app.js -->
+                <section class="dashboard-panel">
+                    <header class="dashboard-panel-header">
+                        <h2>Todays Highlights</h2>
+                        <p>Top students with higher distraction so you can intervene early.</p>
+                    </header>
+                    <ul id="todays-highlights-list" class="highlights-list">
+                        <!-- Populated by app.js -->
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Right column: analytics + class filter + charts -->
+            <aside class="dashboard-section dashboard-analytics">
+                <section class="dashboard-panel">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Engagement Analytics</h2>
+                            <p>Switch between daily, weekly, and monthly trends.</p>
+                        </div>
+                        <div class="analytics-controls">
+                            <select id="analytics-class-filter" class="dashboard-select">
+                                <!-- Options populated by app.js (populateClassDropdowns) -->
+                            </select>
+                        </div>
+                    </header>
+
+                    <div class="analytics-tabs">
+                        <button class="btn btn-secondary-outline btn-tab active" data-tab="daily">Daily</button>
+                        <button class="btn btn-secondary-outline btn-tab" data-tab="weekly">Weekly</button>
+                        <button class="btn btn-secondary-outline btn-tab" data-tab="monthly">Monthly</button>
+                    </div>
+
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>Engagement</h3>
+                            <div id="engagement-bars" class="bars-grid">
+                                <!-- Bars populated by renderAnalyticsCharts -->
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Distraction</h3>
+                            <div id="distraction-bars" class="bars-grid">
+                                <!-- Bars populated by renderAnalyticsCharts -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-summary-row">
+                        <div class="analytics-summary-item">
+                            <span class="label">Most Improved Student</span>
+                            <span id="most-improved-student" class="value">&mdash;</span>
+                        </div>
+                        <div class="analytics-summary-item">
+                            <span class="label">Most Distracted Period</span>
+                            <span id="most-distracted-period" class="value">&mdash;</span>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <!-- Second row: Students + Sessions / Upload -->
+        <div class="container dashboard-layout second-row">
+            <section class="dashboard-section">
+                <section class="dashboard-panel">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Students Overview</h2>
+                            <p>Filter by class to see engagement and distraction scores.</p>
+                        </div>
+                        <div class="dashboard-panel-actions">
+                            <select id="class-select-filter" class="dashboard-select"></select>
+                            <button id="add-student-btn" class="btn btn-secondary-outline small">
+                                <i class="fas fa-user-plus"></i>
+                                Add Student
+                            </button>
+                        </div>
+                    </header>
+
+                    <div class="table-wrapper">
+                        <table id="students-table" class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Roll No.</th>
+                                    <th>Engagement</th>
+                                    <th>Distraction</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Filled by renderStudentTable() -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section class="dashboard-section">
+                <!-- Sessions list + upload progress -->
+                <section class="dashboard-panel">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Sessions & Reports</h2>
+                            <p>Upload a new session and browse existing reports.</p>
+                        </div>
+                    </header>
+
+                    <div class="sessions-layout">
+                        <form id="new-session-form" class="session-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="session-title">Session Title</label>
+                                    <input type="text" id="session-title" placeholder="Lecture / Class name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="session-class">Class</label>
+                                    <select id="session-class"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="session-date">Date</label>
+                                    <input type="date" id="session-date">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="session-video">Session Video</label>
+                                    <input type="file" id="session-video" name="video" accept="video/*">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary full-width">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                Upload & Analyze (Mock)
+                            </button>
+                        </form>
+
+                        <div id="processing-area" class="processing-area" style="display: none;">
+                            <p id="processing-message" class="processing-text">Starting AI analysis...</p>
+                            <div class="progress-shell">
+                                <div id="analysis-progress-bar" class="progress-bar"></div>
+                            </div>
+                            <button id="view-report-btn" class="btn btn-secondary-outline small" style="display: none;">
+                                View Generated Report
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="dashboard-panel panel-container">
+                    <header class="dashboard-panel-header">
+                        <div>
+                            <h2>Recent Sessions</h2>
+                            <p>Browse all analyzed classes and open detailed reports.</p>
+                        </div>
+                    </header>
+
+                    <div class="table-wrapper">
+                        <table id="sessions-table" class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Class</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Filled by renderSessionsTable() -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+        </div>
+
+        <!-- Session Report View (hidden until a session is opened) -->
+        <div class="container">
+            <section id="session-report-view" class="dashboard-panel session-report" style="display: none;">
+                <header class="dashboard-panel-header">
+                    <div>
+                        <h2 id="report-session-title">Session Report</h2>
+                        <p>Detailed engagement and distraction breakdown for the selected class session.</p>
+                    </div>
+                    <div class="dashboard-panel-actions">
+                        <button class="btn btn-secondary-outline small" onclick="window.location.reload()">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Sessions
+                        </button>
+                    </div>
+                </header>
+
+                <div id="report-summary-cards" class="dashboard-summary-grid">
+                    <!-- Filled by showSessionReport() -->
+                </div>
+
+                <div class="report-layout">
+                    <div class="report-main">
+                        <div class="table-wrapper">
+                            <table id="report-students-table" class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Engagement</th>
+                                        <th>Distraction</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Filled by showSessionReport() -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <aside class="report-sidebar">
+                        <h3>Most Distracted in this Session</h3>
+                        <ul id="top-distracted-list" class="highlights-list">
+                            <!-- Filled by showSessionReport() -->
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+        </div>
+
+        <!-- Team section using existing app.js team rendering -->
+        <section class="section team-section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Your ObserveQ Team</h2>
+                    <p>Sample roles behind the scenes powering this dashboard experience.</p>
+                </div>
+                <div id="team-cards-container" class="team-cards-grid">
+                    <!-- Populated by renderTeamCards() from app.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p> a9 <span id="year"></span> ObserveQ. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="add-student-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Student (Mock)</h3>
+                <button class="close-btn" aria-label="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="add-student-form" class="modal-form">
+                <div class="form-group">
+                    <label for="student-name">Name</label>
+                    <input type="text" id="student-name" placeholder="Full name">
+                </div>
+                <div class="form-group">
+                    <label for="student-roll">Roll No.</label>
+                    <input type="text" id="student-roll" placeholder="e.g., CS001">
+                </div>
+                <div class="form-group">
+                    <label for="student-class">Class</label>
+                    <select id="student-class"></select>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Save (Mock)</button>
+                <div id="student-form-message" class="form-message" style="display:none;"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
