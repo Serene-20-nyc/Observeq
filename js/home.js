@@ -153,6 +153,15 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
             }
             // Persist in localStorage
             localStorage.setItem(storageKey, sidebar.classList.contains('collapsed'));
+            // Overlay: show/hide overlay when sidebar is open (i.e., not collapsed)
+            const overlay = document.getElementById('sidebar-overlay');
+            if (overlay) {
+                if (!sidebar.classList.contains('collapsed')) {
+                    overlay.classList.add('active');
+                } else {
+                    overlay.classList.remove('active');
+                }
+            }
         }
 
         logo.addEventListener('click', toggleSidebar);
@@ -164,6 +173,21 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         if (fabId) {
             const fab = document.getElementById(fabId);
             if (fab) fab.addEventListener('click', toggleSidebar);
+        }
+
+        // Add overlay creation (only once for all dashboards)
+        if (!document.getElementById('sidebar-overlay')) {
+            const overlay = document.createElement('div');
+            overlay.id = 'sidebar-overlay';
+            overlay.tabIndex = -1;
+            overlay.className = 'sidebar-overlay';
+            overlay.addEventListener('click', function () {
+                // Close the sidebar when overlay clicked
+                if (!sidebar.classList.contains('collapsed')) {
+                    toggleSidebar(new Event('click'));
+                }
+            });
+            document.body.appendChild(overlay);
         }
     }
 
