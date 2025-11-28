@@ -6,7 +6,7 @@
 /* ---------- Base tokens (light default) ---------- */
 
 body[data-theme="light"] {
-    background-image: url('../images/bg4.jpg');
+    background-image: url('../bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

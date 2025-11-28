@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ObserveQ – Recorded Sessions (Teacher)</title>
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css"> 
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_sessions.css">  
     <!-- Teacher sidebar toggle JS handled in global js/home.js -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <!-- Logo + Teacher toggle (collapses sidebar) -->
+            <a href="teacher_dashboard.html" class="logo parent-logo-toggle" id="teacher-logo-toggle">
+                <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">ObserveQ</span>
+                    <span class="child-name-pill" id="teacher-name-pill">Ms. Sharma · Science</span>
+                </div>
             </a>
-    <!-- Teacher sidebar toggle JS handled in global js/home.js -->
+
+            <!-- Main site nav -->
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../home.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../how-it-works.html">How It Works</a>
+                <a href="../../story.html">Stories</a>
+                <a href="../../contact.html">Contact</a>
+                <a href="teacher_dashboard.html" class="nav-active">Teacher Dashboard</a>
+            </nav>
+
+            <!-- Right-side controls -->
+            <div class="nav-right-items">
+                <a href="/api/logout" class="btn btn-secondary-outline">Logout</a>
+                <button id="theme-toggle-desktop" class="btn btn-icon">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <!-- Main Layout -->
     <main class="dashboard-main">
@@ -510,7 +546,7 @@
     </footer>
 
     <!-- Shared JS (theme toggle, navbar, etc.) -->
-    <script src="../../../js/home.js"></script>
+    <script src="../../js/home.js"></script>
 
     <!-- Teacher sidebar toggle handled in global js/home.js -->
     <!-- Teacher sessions page also includes small local scripts for upload interactions -->

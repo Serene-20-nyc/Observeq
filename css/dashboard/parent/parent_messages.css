@@ -1,9 +1,11 @@
 /* -----------------------------
-           Messages layout
+           PERFECTED Messages layout
         ----------------------------- */
         .messages-page {
             margin-top: 6rem;
             padding-bottom: 3.5rem;
+            min-height: 100vh;
+            background: var(--bg-primary);
         }
 
         .messages-header {

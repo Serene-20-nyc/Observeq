@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ObserveQ – Teacher Dashboard</title>
+    <link rel="stylesheet" href="../../../css/home.css">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <link rel="stylesheet" href="../../../css/dashboard/teacher/teacher_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Teacher sidebar toggle JS handled in global js/home.js -->
-            <a href="../../about.html">About</a>
+<body data-theme="light">
+    <header class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo teacher-logo-toggle" id="teacher-logo-toggle">
+                <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">ObserveQ</span>
+                    <span class="child-name-pill" id="teacher-child-logo">Your Classes</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../home.html">Home</a>
+                <a href="../../about.html">About</a>
             <a href="../../features.html">Features</a>
             <a href="../../how-it-works.html">How It Works</a>
             <a href="../../story.html">Stories</a>
@@ -54,7 +72,7 @@
                 <div class="sidebar-group">
                     <div class="sidebar-section-label">Teaching</div>
 
-                    <a href="teachers_classes.html" class="sidebar-link">
+                    <a href="teacher_classes.html" class="sidebar-link">
                         <i class="fas fa-chalkboard"></i>
                         <div class="sidebar-link-text">
                             <span>My Classes</span>
@@ -322,7 +340,7 @@
     </div>
 </footer>
 
-<script src="../../../js/home.js"></script>
+<script src="../../js/home.js"></script>
 <!-- Teacher sidebar toggle JS handled in global js/home.js -->
 </body>
 </html>

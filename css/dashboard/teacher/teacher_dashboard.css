@@ -1,5 +1,5 @@
 /* ============================================
-   Teacher Dashboard – Layout & Sidebar
+   PERFECTED Teacher Dashboard – Layout & Sidebar
    ============================================ */
 
 .teacher-dashboard-layout {
@@ -8,6 +8,8 @@
     grid-template-columns: 260px minmax(0, 1fr);
     gap: 2rem;
     align-items: flex-start;
+    min-height: 100vh;
+    background: var(--bg-primary);
 }
 
 @media (max-width: 960px) {

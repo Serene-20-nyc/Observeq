@@ -17,7 +17,7 @@
 /* Light mode overrides – this works with your global theme toggle */
 body[data-theme="light"] {
     /* Light theme background */
-    background-image: url('../wg3.jpg');
+    background-image: url('../bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -260,7 +260,7 @@ a {
 .about-section {
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at top left, rgba(91, 124, 255, 0.1), transparent 60%);
+    background: transparent 60%;
     border-top: 1px solid rgba(91, 124, 255, 0.2);
 }
 
@@ -286,7 +286,7 @@ a {
     height: 320px;
     top: -60px;
     left: -60px;
-    background: radial-gradient(circle, rgba(91, 124, 255, 0.1), transparent 55%);
+    background:  transparent 55%;
 }
 
 .about-section::after {
@@ -294,7 +294,7 @@ a {
     height: 320px;
     bottom: -60px;
     right: -60px;
-    background: radial-gradient(circle, rgba(0, 217, 163, 0.1), transparent 55%);
+    background:  transparent 55%;
     animation-delay: -4s;
 }
 

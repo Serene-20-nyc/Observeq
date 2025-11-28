@@ -1,3 +1,14 @@
+/* =======================================
+   PERFECTED ObserveQ Community Page Styles
+   ======================================= */
+
+.com-page {
+    margin-top: 5.5rem;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
 *,
 *::before,
 *::after {

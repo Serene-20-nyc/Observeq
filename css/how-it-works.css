@@ -1,12 +1,19 @@
 /* ============================================
-   How It Works – Layout + Theme
+   PERFECTED How It Works – Layout + Theme
    (works with body[data-theme="light" | "dark"])
 ============================================ */
+
+.how-it-works-page {
+    margin-top: 5.5rem;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
 
 /* ---------- Theme tokens (light default) ---------- */
 
 body[data-theme="light"] {
-    background-image: url('../wg2.jpg');
+    background-image: url('../bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
