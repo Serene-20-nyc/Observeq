@@ -4,6 +4,12 @@
 
 :root {
     /* Dark defaults (when no data-theme or data-theme="dark") */
+    background-image: url('../dg1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
     --bg-primary: #020617;
     --border-subtle: rgba(148, 163, 184, 0.3);
     --text-primary: #E5E7EB;

@@ -7,7 +7,6 @@
     margin-top: 5.5rem;
     padding-bottom: 4rem;
     min-height: 100vh;
-    background: var(--bg-primary);
 }
 
 /* ---------- Theme tokens (light default) ---------- */
@@ -22,7 +21,7 @@ body[data-theme="light"] {
 }
 
 body[data-theme="dark"] {
-    background-image: url('../images/bg5.jpg');
+    background-image: url('../dg1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

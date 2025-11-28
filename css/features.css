@@ -12,7 +12,7 @@ body[data-theme="light"] {
 }
 
 body[data-theme="dark"] {
-    background-image: url('../bg5.jpg');
+    background-image: url('../dg1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -29,7 +29,7 @@ body[data-theme="dark"] {
 .features-section {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #0a0f2e 0%, #050816 40%, #02121a 100%);
+    background: transparent;
     border-top: 1px solid rgba(91, 124, 255, 0.2);
 }
 
@@ -40,9 +40,7 @@ body[data-theme="dark"] {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(91, 124, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 217, 163, 0.06) 0%, transparent 50%);
+    background: transparent;
     z-index: 0;
     animation: gradientShift 15s ease-in-out infinite;
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ObserveQ - Login / Sign Up</title>
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/com.css">
     <link rel="stylesheet" href="../css/auth.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN for icons -->
@@ -73,6 +73,24 @@
                     <button type="submit" id="login-submit" class="btn btn-primary" disabled>
                         Log In <span class="spinner-border" style="display: none;"></span>
                     </button>
+
+                    <!-- Demo Credentials -->
+                    <div class="demo-section">
+                        <div class="divider"><span>Demo Accounts</span></div>
+                        <div class="demo-accounts">
+                            <div class="demo-account">
+                                    <button type="button" class="btn btn-secondary-outline small" onclick="fillDemoCredentials('teacher')"><a href="../templates/dashboard/teachers/teacher_behaviour.html">
+                                        Use Teacher Demo</a>
+                                    </button>
+                                </div>
+                                <div class="demo-account">
+                                    
+                                <button type="button" class="btn btn-secondary-outline small" onclick="fillDemoCredentials('parent')"><a href="../templates/dashboard/parents/child-profile.html">
+                                    Use Parent Demo</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Social Sign-in -->
                     <div class="divider"><span>Or continue with</span></div>
@@ -176,7 +194,7 @@
                     </div>
 
                     <!-- Switch to Login -->
-                    <p class="auth-switch">Already have an account? <a href="#" id="switch-to-login">Log In</a></p>
+                    <p class="auth-switch">Already have an account? <a href="#login" id="switch-to-login">Log In</a></p>
                 </form>
 
                 <!-- ------------------- 3. Forgot Password Overlay ------------------- -->
@@ -213,6 +231,27 @@
 
     <script src="../js/home.js"></script>
     <script src="../js/auth.js"></script>
+    <script>
+        function fillDemoCredentials(type) {
+            const emailField = document.getElementById('login-email');
+            const passwordField = document.getElementById('login-password');
+
+            if (type === 'teacher') {
+                emailField.value = 'teacher@demo.observeQ.com';
+                passwordField.value = 'demo123';
+            } else if (type === 'parent') {
+                emailField.value = 'parent@demo.observeQ.com';
+                passwordField.value = 'demo123';
+            }
+
+            // Enable the login button
+            const loginButton = document.getElementById('login-submit');
+            loginButton.disabled = false;
+
+            // Focus on the login button
+            loginButton.focus();
+        }
+    </script>
 </body>
 
 </html>

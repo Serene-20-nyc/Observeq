@@ -21,7 +21,7 @@ body[data-theme="light"] {
 }
 
 body[data-theme="dark"] {
-    background-image: url('../images/bg5.jpg');
+    background-image: url('../dg2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -49,7 +49,7 @@ body {
     --color-primary-hover: #4253dd;
     --color-primary-glow: rgba(91, 124, 255, 0.6);
 
-    --color-secondary: #00D9A3;
+    --color-secondary: thistle;
     --color-secondary-soft: rgba(0, 217, 163, 0.15);
 
     --color-accent: #FF6B9D;
@@ -125,7 +125,7 @@ body[data-theme="dark"] .contact-section::before {
 }
 
 body[data-theme="dark"] .glass-layer {
-    background: rgba(15, 23, 42, 0.88);
+    background: transparent;
     border-color: rgba(148, 163, 184, 0.35);
 }
 
@@ -133,7 +133,7 @@ body[data-theme="dark"] .glass-layer {
 
 .section {
     padding: 7rem 0 4rem;
-    background: var(--bg-primary);
+    background: transparent;
     color: var(--text-primary);
 }
 
@@ -280,7 +280,7 @@ body[data-theme="dark"] .glass-layer {
 
 body[data-theme="dark"] .form-group input,
 body[data-theme="dark"] .form-group textarea {
-    background: #020617;
+    background: transparent;
     color: var(--text-primary);
 }
 
