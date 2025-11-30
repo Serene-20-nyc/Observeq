@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Utility Functions ---
 
     const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    re
+
     const toggleLoading = (button, isLoading) => {
         const spinner = button.querySelector('.spinner-border');
         if (isLoading) {
