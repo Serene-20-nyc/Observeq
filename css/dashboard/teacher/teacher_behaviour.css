@@ -6,18 +6,22 @@
 
 /* --- Layout (reuse from classes page) --- */
 
-.teacher-dashboard-layout {
-    margin-top: 5.5rem; /* clear navbar */
-    display: grid;
-    grid-template-columns: 270px minmax(0, 1fr);
-    gap: 2rem;
-    align-items: flex-start;
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-@media (max-width: 960px) {
-    .teacher-dashboard-layout {
-        grid-template-columns: 1fr;
-    }
+.teacher-dashboard-layout {
+    flex: 1;
+    display: flex;
+}
+
+.dashboard-content {
+    flex: 1;
+    overflow-y: auto;
 }
 
 /* --- Sidebar (same as classes page) --- */

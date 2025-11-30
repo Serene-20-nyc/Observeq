@@ -281,7 +281,7 @@ body[data-theme="dark"] .navbar.scrolled {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #00D9A3 0%, #5B7CFF 100%);
+    background: thistle;
     opacity: 0;
     transition: opacity 0.3s ease;
 }

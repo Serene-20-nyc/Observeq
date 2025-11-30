@@ -383,3 +383,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     });
 });
+
+async function performLogout(button) {
+    try {
+        if (button) button.disabled = true;
+        if (typeof toggleLoading === 'function') toggleLoading(button, true);
+
+        try {
+            await fetch('/api/logout', {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' }
+            });
+        } catch (err) {
+            console.warn('Logout request failed (continuing client-side):', err);
+        }
+
+        // Clear client-side auth state
+        try { localStorage.removeItem('authToken'); } catch {}
+        try { sessionStorage.clear(); } catch {}
+
+        document.cookie.split(';').forEach(c => {
+            const name = c.split('=')[0].trim();
+            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+        });
+
+        // Redirect to login page
+        window.location.href = './auth.html';
+    } finally {
+        if (typeof toggleLoading === 'function') toggleLoading(button, false);
+        if (button) button.disabled = false;
+    }
+}

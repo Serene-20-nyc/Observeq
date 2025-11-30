@@ -1,0 +1,111 @@
+/* Base styles for all parent dashboard pages - FULL SCREEN */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Main layout containers */
+.parent-dashboard-layout,
+.dashboard-layout,
+main {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Sidebar - fixed width */
+.parent-sidebar,
+.dashboard-sidebar,
+aside {
+    width: 250px;
+    height: 100%;
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 1px solid var(--border-color);
+}
+
+/* Content area - takes remaining space */
+.dashboard-content,
+.main-content,
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2rem;
+}
+
+/* Footer sticks to bottom */
+footer {
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+/* Ensure no extra scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+    .parent-sidebar,
+    .dashboard-sidebar,
+    aside {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 99;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .dashboard-content,
+    .main-content,
+    .content-area {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .dashboard-content,
+    .main-content,
+    .content-area {
+        padding: 1rem;
+    }
+}

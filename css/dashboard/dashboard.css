@@ -1,4 +1,91 @@
- .dashboard-main {
+/* Global dashboard layout / reset to ensure pages fill viewport */
+* { box-sizing: border-box; }
+html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg, #fff);
+  color: var(--text, #111);
+  overflow: hidden;
+}
+
+/* main layout container used by all dashboard pages */
+.parent-dashboard-layout,
+.teacher-dashboard-layout,
+.dashboard-layout {
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* sidebar */
+.dashboard-sidebar,
+.parent-sidebar,
+.teacher-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 1px solid var(--border-color, #e6e6e6);
+}
+
+/* content area should expand and scroll vertically */
+.dashboard-content,
+.main-content,
+.content-area {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+/* footer sticks to bottom */
+footer { flex-shrink: 0; }
+
+/* small responsive adjustments */
+@media (max-width: 960px) {
+  .dashboard-sidebar,
+  .parent-sidebar,
+  .teacher-sidebar { position: fixed; top: 0; left: 0; height: 100vh; z-index: 100; }
+  .dashboard-content { padding: 1rem; }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main dashboard layout takes remaining space */
+.teacher-dashboard-layout,
+.parent-dashboard-layout {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 60px); /* Adjust if you have a fixed header */
+}
+
+/* Content area expands to fill available space */
+.dashboard-content,
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Footer sticks to bottom */
+footer {
+    margin-top: auto;
+}
+
+.dashboard-main {
     padding-top: 6.75rem;
     padding-bottom: 4.25rem;
 }

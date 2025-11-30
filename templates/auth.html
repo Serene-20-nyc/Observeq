@@ -79,15 +79,12 @@
                         <div class="divider"><span>Demo Accounts</span></div>
                         <div class="demo-accounts">
                             <div class="demo-account">
-                                    <button type="button" class="btn btn-secondary-outline small" onclick="fillDemoCredentials('teacher')"><a href="../templates/dashboard/teachers/teacher_behaviour.html">
-                                        Use Teacher Demo</a>
+                                    <button type="button" class="btn btn-secondary-outline small" onclick="fillDemoCredentials('teacher')">Teacher Demo
                                     </button>
                                 </div>
                                 <div class="demo-account">
                                     
-                                <button type="button" class="btn btn-secondary-outline small" onclick="fillDemoCredentials('parent')"><a href="../templates/dashboard/parents/child-profile.html">
-                                    Use Parent Demo</a>
-                                </button>
+                                <button type="button" class="btn btn-secondary-outline small" onclick="fillDemoCredentials('parent')">Parent Demo
                             </div>
                         </div>
                     </div>
@@ -235,21 +232,30 @@
         function fillDemoCredentials(type) {
             const emailField = document.getElementById('login-email');
             const passwordField = document.getElementById('login-password');
+            const loginButton = document.getElementById('login-submit');
+
+            if (!emailField || !passwordField) return;
 
             if (type === 'teacher') {
                 emailField.value = 'teacher@demo.observeQ.com';
                 passwordField.value = 'demo123';
-            } else if (type === 'parent') {
-                emailField.value = 'parent@demo.observeQ.com';
-                passwordField.value = 'demo123';
+                if (loginButton) loginButton.disabled = false;
+                window.location.href = '../templates/dashboard/teachers/teacher_behaviour.html';
+                return;
             }
 
-            // Enable the login button
-            const loginButton = document.getElementById('login-submit');
-            loginButton.disabled = false;
+            if (type === 'parent') {
+                emailField.value = 'parent@demo.observeQ.com';
+                passwordField.value = 'demo123';
+                if (loginButton) loginButton.disabled = false;
+                window.location.href = '../templates/dashboard/parents/child-profile.html';
+                return;
+            }
 
-            // Focus on the login button
-            loginButton.focus();
+            if (loginButton) {
+                loginButton.disabled = false;
+                loginButton.focus();
+            }
         }
     </script>
 </body>

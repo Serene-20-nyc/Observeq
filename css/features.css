@@ -58,7 +58,112 @@ body[data-theme="dark"] {
 /* --- FEATURES - LIGHT THEME OVERRIDES --- */
 
 body[data-theme="light"] .features-section {
-    /* Subtle light background instead of dark gradient */
+    /* Subtle light background instead of dark gradient */a/* ================================
+   SPACING — LESS COMPACT VERSION
+================================ */
+
+/* More space around sections */
+/* ================================
+   SPACING — LESS COMPACT VERSION
+================================ */
+
+/* More space around sections */
+/* ==========================================
+   SUPER AIRY / EXTRA BREATHING ROOM VERSION
+========================================== */
+
+/* Much more vertical space around the section */
+.section {
+    padding: 10rem 0 8rem !important;
+}
+
+/* Extra breathing space for the heading */
+.section-heading {
+    margin-bottom: 6rem !important;
+}
+
+.section-heading h2 {
+    margin-bottom: 1.6rem !important;
+    line-height: 1.3 !important;
+    font-size: 2.8rem !important;
+}
+
+.section-heading p {
+    line-height: 1.9 !important;
+    font-size: 1.15rem !important;
+}
+
+/* Increase spacing between cards → airy layout */
+.features-grid {
+    gap: 3.6rem !important;
+}
+
+/* Feature card inside padding → more open */
+.feature-card {
+    padding: 3.2rem 2.8rem !important;
+    gap: 1.6rem !important;
+    border-radius: 26px !important;
+}
+
+/* Increase breathing room around icons */
+.feature-icon {
+    margin-bottom: 1.2rem !important;
+    transform: scale(1.05);
+}
+
+/* Title and content inside card → more spaced */
+.feature-card h3 {
+    margin-bottom: 0.8rem !important;
+    line-height: 1.45 !important;
+    font-size: 1.3rem !important;
+}
+
+.feature-card p {
+    line-height: 1.9 !important;
+    font-size: 1.05rem !important;
+}
+
+/* =============================
+   RESPONSIVE — Not tight anymore
+============================= */
+
+@media (max-width: 1024px) {
+
+    .section {
+        padding: 8rem 0 6rem !important;
+    }
+
+    .features-grid {
+        gap: 3rem !important;
+    }
+
+    .feature-card {
+        padding: 2.8rem 2.4rem !important;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .section {
+        padding: 7rem 0 5rem !important;
+    }
+
+    .section-heading h2 {
+        font-size: 2.4rem !important;
+    }
+
+    .features-grid {
+        gap: 2.5rem !important;
+    }
+
+    .feature-card {
+        padding: 2.6rem 2.2rem !important;
+        gap: 1.4rem !important;
+    }
+}
+
+
+
     background: var(--bg-primary);
     border-top: 1px solid var(--border-subtle);
 }
@@ -156,6 +261,8 @@ body[data-theme="light"] .feature-icon {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-left: 150px;
+    padding-right: 150px;
     gap: 2rem;
 }
 

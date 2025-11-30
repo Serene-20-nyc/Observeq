@@ -1,3 +1,22 @@
+/* ...existing code... */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.teacher-dashboard-layout {
+    flex: 1;
+    display: flex;
+}
+
+.dashboard-content {
+    flex: 1;
+    overflow-y: auto;
+}
 .attendance-page {
     margin-top: 6rem;
     padding-bottom: 4rem;
