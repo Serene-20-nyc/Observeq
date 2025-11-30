@@ -1,14 +1,11 @@
- /* Enhanced ObserveQ Demo Styles */
+ 
         :root {
             --color-primary: #5B7CFF;
             --color-primary-glow: rgba(91, 124, 255, 0.6);
             --color-secondary: #00D9A3;
             --color-secondary-glow: rgba(0, 217, 163, 0.5);
         }
-        /* ============================
-   ObserveQ Demo – Themed Styles
-   Works with body[data-theme="dark" | "light"]
-============================ */
+ 
 :root {
     --color-primary: #5B7CFF;
     --color-primary-glow: rgba(91, 124, 255, 0.6);
@@ -16,7 +13,7 @@
     --color-secondary-glow: rgba(0, 217, 163, 0.5);
 }
 
-/* ---------- DARK THEME ---------- */
+/*  DARK THEME */
 body[data-theme="dark"] {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0a0f2e 0%, #050816 50%, #02121a 100%);
@@ -34,7 +31,7 @@ body[data-theme="dark"]::before {
     animation: gradientShift 15s ease-in-out infinite;
 }
 
-/* ---------- LIGHT THEME ---------- */
+/*  LIGHT THEME */
 body[data-theme="light"] {
     font-family: 'Poppins', sans-serif;
     background: radial-gradient(circle at top, #e0ecff 0, #f5f7fb 40%, #ffffff 100%);
@@ -59,7 +56,7 @@ body[data-theme="light"]::before {
     50% { opacity: 0.9; transform: scale(1.05); }
 }
 
-/* ---------- Containers & Tailwind harmony ---------- */
+/*  Containers & Tailwind harmony */
 
 main > div {
     animation: fadeInUp 0.8s ease-out;
@@ -70,7 +67,7 @@ main > div {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Navbar color tweak for light theme */
+/* Navbar color light theme */
 body[data-theme="light"] #demo-navbar {
     background-color: rgba(255, 255, 255, 0.9);
     border-color: rgba(148, 163, 184, 0.5);
@@ -80,7 +77,7 @@ body[data-theme="dark"] #demo-navbar {
     background-color: rgba(15, 23, 42, 0.9);
 }
 
-/* ---------- Logo & gradients ---------- */
+/*  Logo & gradients */
 
 .logo-text {
     background: linear-gradient(135deg, #5B7CFF, #00D9A3);
@@ -108,7 +105,7 @@ body[data-theme="dark"] #demo-navbar {
     background-clip: text;
 }
 
-/* ---------- Upload card, dashboard, etc. ---------- */
+/*  Upload card, dashboard, etc. */
 
 .mock-dashboard-glow {
     box-shadow: 0 20px 50px rgba(91, 124, 255, 0.3), 0 0 40px rgba(0, 217, 163, 0.2);

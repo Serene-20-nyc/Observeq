@@ -1,10 +1,4 @@
-/* =======================================
-   PERFECTED ObserveQ Styles - Submission Ready (Enhanced)
-======================================= */
 
-/* =======================================
-   1. Enhanced Global Reset & Base Styles
-======================================= */
 
 *,
 *::before,
@@ -31,12 +25,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* =======================================
-   2. Enhanced Theme Variables
-======================================= */
-
 :root {
-    /* Brand colors - Enhanced for competition */
     --color-primary: #5B7CFF;
     --color-primary-soft: rgba(91, 124, 255, 0.18);
     --color-primary-hover: #4253dd;
@@ -52,7 +41,6 @@ body {
     --color-danger: #E53935;
     --color-warning: #FFB020;
 
-    /* Light theme */
     --bg-primary: #F3F6FF;
     --bg-primary-gradient: linear-gradient(135deg, #F7F9FC 0%, #E8EDFF 100%);
     --bg-elevated: #FFFFFF;
@@ -78,7 +66,6 @@ body {
     --navbar-blur: 20px;
 }
 
-/* Dark theme overrides */
 body[data-theme="dark"] {
     --bg-primary: #050816;
     --bg-primary-gradient: linear-gradient(135deg, #050816 0%, #0a0f2e 100%);
@@ -96,7 +83,6 @@ body[data-theme="dark"] {
     --color-secondary-soft: rgba(0, 217, 163, 0.18);
 }
 
-/* Animated gradient background */
 body {
     background: var(--bg-primary-gradient);
     position: relative;
@@ -130,10 +116,6 @@ body::before {
     }
 }
 
-/* =======================================
-   3. Layout Helpers
-======================================= */
-
 .container {
     width: 100%;
     max-width: 1120px;
@@ -145,10 +127,6 @@ a {
     text-decoration: none;
     color: inherit;
 }
-
-/* =======================================
-   4. Enhanced Navbar
-======================================= */
 
 .navbar {
     position: fixed;
@@ -184,7 +162,6 @@ body[data-theme="dark"] .navbar.scrolled {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* Optional: tiny slide-in on load */
 .navbar {
     transform: translateY(-4px);
 }
@@ -200,7 +177,6 @@ body[data-theme="dark"] .navbar.scrolled {
     height: 4.25rem;
 }
 
-/* Enhanced Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -234,7 +210,6 @@ body[data-theme="dark"] .navbar.scrolled {
     transform: translateY(-1px);
 }
 
-/* Parent dashboard child name pill (optional, if used inside logo) */
 .logo-text-group {
     display: flex;
     flex-direction: column;
@@ -269,7 +244,6 @@ body[data-theme="dark"] .navbar.scrolled {
     background: rgba(91, 124, 255, 0.18);
 }
 
-/* Nav Menu */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -315,10 +289,6 @@ body[data-theme="dark"] .navbar.scrolled {
     gap: 0.75rem;
 }
 
-/* =======================================
-   5. Enhanced Buttons
-======================================= */
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -359,7 +329,6 @@ body[data-theme="dark"] .navbar.scrolled {
     font-size: 0.85rem;
 }
 
-/* Primary Button - Enhanced */
 .btn-primary {
     background: linear-gradient(135deg, #5B7CFF 0%, #00D9A3 100%);
     color: #fff;
@@ -393,7 +362,6 @@ body[data-theme="dark"] .navbar.scrolled {
     z-index: 1;
 }
 
-/* Secondary outline - Enhanced */
 .btn-secondary-outline {
     background: transparent;
     border: 2px solid rgba(91, 124, 255, 0.35);
@@ -407,7 +375,6 @@ body[data-theme="dark"] .navbar.scrolled {
     box-shadow: 0 8px 20px rgba(91, 124, 255, 0.25);
 }
 
-/* Link-style button */
 .btn-link {
     background: transparent;
     border: none;
@@ -419,7 +386,6 @@ body[data-theme="dark"] .navbar.scrolled {
     color: var(--text-primary);
 }
 
-/* Icon button - Enhanced */
 .btn-icon {
     width: 36px;
     height: 36px;
@@ -448,10 +414,6 @@ body[data-theme="dark"] .btn-icon {
     color: #fff;
 }
 
-/* =======================================
-   6. Hamburger & Mobile Nav
-======================================= */
-
 .hamburger {
     display: none;
     background: transparent;
@@ -465,10 +427,6 @@ body[data-theme="dark"] .btn-icon {
     display: none;
 }
 
-/* =======================================
-   7. Enhanced Hero Section
-======================================= */
-
 .hero-section {
     position: relative;
     padding: 7.5rem 0 5rem;
@@ -478,7 +436,6 @@ body[data-theme="dark"] .btn-icon {
     align-items: center;
 }
 
-/* Background video wrapper */
 .hero-bg {
     position: absolute;
     inset: 0;
@@ -495,7 +452,6 @@ body[data-theme="dark"] .btn-icon {
     transform: scale(1.06);
 }
 
-/* Enhanced Overlay with animated gradients + extra darkening for readability */
 .hero-bg-overlay {
     position: absolute;
     inset: 0;
@@ -529,7 +485,6 @@ body[data-theme="light"] .hero-bg-overlay {
     }
 }
 
-/* Hero content */
 .hero-grid {
     position: relative;
     z-index: 2;
@@ -545,7 +500,6 @@ body[data-theme="light"] .hero-bg-overlay {
     animation: fadeInUp 0.8s ease-out;
 }
 
-/* Optional right visual card (for future dashboards / preview) */
 .hero-visual {
     position: relative;
     display: flex;
@@ -581,7 +535,6 @@ body[data-theme="light"] .hero-bg-overlay {
     }
 }
 
-/* Hero text elements */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -594,7 +547,6 @@ body[data-theme="light"] .hero-bg-overlay {
     }
 }
 
-/* Enhanced Badge */
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -651,7 +603,6 @@ body[data-theme="light"] .hero-bg-overlay {
     }
 }
 
-/* Enhanced Title & subtitle */
 .hero-title {
     font-size: clamp(2.5rem, 3.7vw, 3.6rem);
     line-height: 1.08;
@@ -674,7 +625,6 @@ body[data-theme="light"] .hero-bg-overlay {
     line-height: 1.7;
 }
 
-/* Enhanced CTAs */
 .hero-ctas {
     display: flex;
     flex-wrap: wrap;
@@ -701,7 +651,6 @@ body[data-theme="light"] .hero-bg-overlay {
     border-color: rgba(91, 124, 255, 0.85);
 }
 
-/* Enhanced Stats */
 .hero-stats {
     display: flex;
     flex-wrap: wrap;
@@ -745,10 +694,6 @@ body[data-theme="light"] .hero-bg-overlay {
     margin-top: 0.2rem;
 }
 
-/* =======================================
-   8. Footer
-======================================= */
-
 .footer {
     background: var(--bg-elevated);
     border-top: 1px solid var(--border-subtle);
@@ -786,10 +731,6 @@ body[data-theme="dark"] .footer {
     background: #020617;
     border-top-color: rgba(91, 124, 255, 0.2);
 }
-
-/* =======================================
-   9. Responsive Styles
-======================================= */
 
 @media (max-width: 900px) {
     .nav-menu {
@@ -848,7 +789,7 @@ body[data-theme="dark"] .footer {
 
     .hero-visual {
         order: -1;
-        /* show visual above text on mobile if used */
+    
     }
 
     .hero-visual-card {

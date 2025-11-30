@@ -1,9 +1,6 @@
-/* ========== ABOUT.CSS (clean + theme-aware) ========== */
-/*  Base + Variables                                     */
-/* ===================================================== */
 
 :root {
-    /* Dark defaults (when no data-theme or data-theme="dark") */
+    
     background-image: url('../dg1.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -20,9 +17,8 @@
 }
 
 
-/* Light mode overrides – this works with your global theme toggle */
 body[data-theme="light"] {
-    /* Light theme background */
+    
     background-image: url('../wg4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,7 +34,6 @@ body[data-theme="light"] {
     --color-hover-subtle: rgba(91, 124, 255, 0.05);
 }
 
-/* ========== Global base (page-level) ========== */
 
 *,
 *::before,
@@ -52,7 +47,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Performance optimizations */
 * {
     will-change: auto;
 }
@@ -66,7 +60,6 @@ html {
     perspective: 1000px;
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -97,7 +90,6 @@ a {
     padding: 0 1.5rem;
 }
 
-/* ========== Navbar (kept same look as before) ========== */
 
 .navbar {
     position: sticky;
@@ -192,8 +184,6 @@ a {
     display: none;
 }
 
-/* Buttons */
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -255,8 +245,6 @@ a {
     margin-left: 0.3rem;
 }
 
-/* ========== About / Why ObserveQ Section ========== */
-
 .section {
     padding: 6rem 0 4rem;
     background: transparent;
@@ -270,7 +258,6 @@ a {
     border-top: 1px solid rgba(91, 124, 255, 0.2);
 }
 
-/* Glows only in dark theme */
 .about-section::before,
 .about-section::after {
     content: "";
@@ -304,7 +291,6 @@ a {
     animation-delay: -4s;
 }
 
-/* Light mode: flat background, remove glows */
 body[data-theme="light"] .about-section {
     background: transparent;
     border-top: 1px solid var(--border-subtle);
@@ -546,7 +532,6 @@ h2{
     opacity: 1;
 }
 
-/* Dark theme background */
 body[data-theme="dark"] {
     background-image: url('../images/bg5.jpg');
     background-repeat: no-repeat;
@@ -637,8 +622,6 @@ body[data-theme="dark"] .pill:hover {
     color: #ffffff;
 }
 
-/* ========== Footer ========== */
-
 .footer {
     border-top: 1px solid rgba(148, 163, 184, 0.25);
     background: rgba(2, 6, 23, 0.95);
@@ -669,8 +652,6 @@ body[data-theme="dark"] .pill:hover {
     color: #e5e7eb;
 }
 
-/* ========== Responsive ========== */
-
 @media (max-width: 900px) {
     .section {
         padding-top: 5rem;
@@ -687,7 +668,7 @@ body[data-theme="dark"] .pill:hover {
     }
 
     .nav-menu {
-        display: none; /* mobile version handled in home.css */
+        display: none; 
     }
 
     .hamburger {
@@ -719,7 +700,6 @@ body[data-theme="dark"] .pill:hover {
     }
 }
 
-/* ========== Performance optimizations ========== */
 * {
     will-change: auto;
 }
@@ -730,7 +710,6 @@ body[data-theme="dark"] .pill:hover {
     perspective: 1000px;
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

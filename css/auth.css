@@ -1,9 +1,3 @@
-/* ============================
-   Auth Page Theme + Layout
-   ObserveQ – Final Polish
-============================ */
-
-/* ---------- Theme tokens (light default) ---------- */
 
 body {
     /* use your abstract background image */
@@ -22,7 +16,6 @@ body {
     min-height: 100vh;
 }
 
-/* Dark theme overrides */
 body[data-theme="dark"] {
     background: radial-gradient(circle at top, #020617 0, #020617 35%, #020617 100%);
     --auth-card-bg: rgba(15, 23, 42, 0.96);
@@ -37,14 +30,11 @@ body[data-theme="dark"] {
     --auth-accent-soft: rgba(37, 99, 235, 0.22);
 }
 
-/* ---------- Page background & container ---------- */
-
 body[data-theme] {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     color: var(--auth-text-primary);
 }
 
-/* subtle overlay on top of image for readability */
 body::before {
     content: "";
     position: fixed;
@@ -63,7 +53,6 @@ body[data-theme="dark"]::before {
         linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 1));
 }
 
-/* Make page vertically centered including footer */
 .page-shell {
     min-height: 100vh;
     display: flex;
@@ -82,7 +71,6 @@ body[data-theme="dark"]::before {
     gap: 2.75rem;
 }
 
-/* Stack on small screens */
 @media (max-width: 900px) {
     .auth-container {
         grid-template-columns: minmax(0, 1fr);
@@ -104,8 +92,6 @@ body[data-theme="dark"]::before {
         margin-top: 0.3rem;
     }
 }
-
-/* ---------- Branding side ---------- */
 
 .auth-branding {
     align-self: center;
@@ -166,8 +152,6 @@ body[data-theme="dark"]::before {
     transform: translateX(-1px);
 }
 
-/* ---------- Auth card ---------- */
-
 .auth-form-area {
     display: flex;
     align-items: center;
@@ -193,7 +177,6 @@ body[data-theme="dark"]::before {
         border-color 0.25s ease-out;
 }
 
-/* subtle glow */
 .auth-card::before {
     content: "";
     position: absolute;
@@ -220,8 +203,6 @@ body[data-theme="dark"]::before {
     position: relative;
     z-index: 1;
 }
-
-/* ---------- Tabs ---------- */
 
 .auth-tabs {
     display: inline-flex;
@@ -253,8 +234,6 @@ body[data-theme="dark"]::before {
     box-shadow: 0 8px 18px rgba(37, 99, 235, 0.4);
 }
 
-/* ---------- Form basics ---------- */
-
 .auth-form h2 {
     font-size: 1.3rem;
     font-weight: 600;
@@ -278,7 +257,6 @@ body[data-theme="dark"]::before {
     color: var(--auth-accent);
 }
 
-/* Inputs */
 .auth-form input[type="email"],
 .auth-form input[type="password"],
 .auth-form input[type="text"],
@@ -306,21 +284,18 @@ body[data-theme="dark"]::before {
     transform: translateY(-1px);
 }
 
-/* Dark placeholder tweak */
 body[data-theme="dark"] .auth-form input::placeholder {
     color: rgba(148, 163, 184, 0.8);
 }
 
-/* Error text */
 .error-message {
     font-size: 0.75rem;
     color: #dc2626;
     margin-top: 0.15rem;
     min-height: 0.9rem;
-    /* keeps layout stable */
+    
 }
 
-/* Password wrapper */
 .password-wrapper {
     position: relative;
 }
@@ -344,7 +319,6 @@ body[data-theme="dark"] .auth-form input::placeholder {
     transform: translateY(-50%) scale(1.05);
 }
 
-/* Password strength */
 .password-strength {
     margin-top: 0.4rem;
     height: 4px;
@@ -376,7 +350,6 @@ body[data-theme="dark"] .auth-form input::placeholder {
     background: #16a34a;
 }
 
-/* Password rules list */
 .password-rules {
     list-style: none;
     margin: 0.5rem 0 0;
@@ -397,7 +370,6 @@ body[data-theme="dark"] .auth-form input::placeholder {
     color: #dc2626;
 }
 
-/* Valid rule state */
 .password-rules li[data-valid="true"] i {
     color: #16a34a;
 }
@@ -405,8 +377,6 @@ body[data-theme="dark"] .auth-form input::placeholder {
 .password-rules li[data-valid="true"] {
     color: var(--auth-text-primary);
 }
-
-/* ---------- Form options ---------- */
 
 .form-options {
     display: flex;
@@ -439,8 +409,6 @@ body[data-theme="dark"] .auth-form input::placeholder {
 .forgot-link:hover {
     text-decoration: underline;
 }
-
-/* ---------- Buttons ---------- */
 
 .btn.btn-primary {
     display: inline-flex;
@@ -496,7 +464,6 @@ body[data-theme="dark"] .auth-form input::placeholder {
     transform: translateY(-1px);
 }
 
-/* Social buttons */
 .social-login {
     display: grid;
     gap: 0.5rem;
@@ -535,12 +502,10 @@ body[data-theme="dark"] .auth-form input::placeholder {
     box-shadow: 0 10px 22px rgba(148, 163, 184, 0.35);
 }
 
-/* Dark mode tweak for social */
 body[data-theme="dark"] .btn.btn-social {
     background: rgba(15, 23, 42, 0.96);
 }
 
-/* Divider */
 .divider {
     margin: 1.1rem 0;
     text-align: center;
@@ -572,7 +537,6 @@ body[data-theme="dark"] .btn.btn-social {
     padding: 0 0.5rem;
 }
 
-/* Switch text */
 .auth-switch {
     margin-top: 0.8rem;
     font-size: 0.82rem;
@@ -588,8 +552,6 @@ body[data-theme="dark"] .btn.btn-social {
 .auth-switch a:hover {
     text-decoration: underline;
 }
-
-/* ---------- Forgot password overlay ---------- */
 
 .forgot-panel {
     position: absolute;
@@ -620,7 +582,6 @@ body[data-theme="dark"] .btn.btn-social {
     width: 100%;
 }
 
-/* ---------- Demo accounts section ---------- */
 .demo-section .divider {
     margin-top: 1.4rem;
 }
@@ -653,7 +614,6 @@ body[data-theme="dark"] .demo-account {
     background: rgba(15, 23, 42, 0.96);
 }
 
-/* ---------- Footer ---------- */
 
 .auth-footer {
     text-align: center;
@@ -670,8 +630,6 @@ body[data-theme="dark"] .demo-account {
 .auth-footer .footer-links a:hover {
     color: var(--auth-accent);
 }
-
-/* ---------- Theme toggle button (icon) ---------- */
 
 .btn.btn-icon {
     border-radius: 999px;
@@ -695,7 +653,6 @@ body[data-theme="dark"] .demo-account {
     font-size: 0.95rem;
 }
 
-/* Dark mode icon styling */
 body[data-theme="dark"] .btn.btn-icon {
     background: rgba(15, 23, 42, 0.94);
     border-color: rgba(30, 64, 175, 0.9);
@@ -706,8 +663,6 @@ body[data-theme="dark"] .btn.btn-icon {
     border-color: thistle;
     box-shadow: 0 10px 22px rgba(148, 163, 184, 0.4);
 }
-
-/* ---------- Small screens fine-tuning ---------- */
 
 @media (max-width: 600px) {
     .auth-card {

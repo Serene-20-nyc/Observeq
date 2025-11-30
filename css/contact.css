@@ -1,4 +1,4 @@
-/* ========== Base ========== */
+
 *,
 *::before,
 *::after {
@@ -33,16 +33,7 @@ body {
     font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* Background image on body */
-.bodybg {
-    min-height: 100vh;
-    background-image: url("../contaact.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-/* Light theme variables */
+/* Light theme */
 :root {
     --color-primary: #5B7CFF;
     --color-primary-soft: rgba(91, 124, 255, 0.18);
@@ -76,7 +67,7 @@ body {
     --navbar-blur: 20px;
 }
 
-/* Dark theme overrides */
+/* Dark theme */
 body[data-theme="dark"] {
     --bg-primary: transparent;
     --bg-elevated: #050816;
@@ -93,7 +84,7 @@ body[data-theme="dark"] {
     --color-secondary-soft: rgba(0, 217, 163, 0.18);
 }
 
-/* Make text readable on bg */
+
 .contact-section::before {
     content: "";
     position: fixed;
@@ -114,7 +105,6 @@ body[data-theme="dark"] .contact-section::before {
     );
 }
 
-/* Slight glass effect container */
 .glass-layer {
     background: rgba(255, 255, 255, 0.78);
     border-radius: 24px;
@@ -129,8 +119,6 @@ body[data-theme="dark"] .glass-layer {
     border-color: rgba(148, 163, 184, 0.35);
 }
 
-/* ========== Layout ========== */
-
 .section {
     padding: 7rem 0 4rem;
     background: transparent;
@@ -142,7 +130,6 @@ body[data-theme="dark"] .glass-layer {
     margin: 0 auto;
 }
 
-/* Contact grid layout */
 .contact-grid {
     display: grid;
     grid-template-columns: 1.15fr 0.95fr;
@@ -151,7 +138,6 @@ body[data-theme="dark"] .glass-layer {
     padding: 3rem;
 }
 
-/* Left section */
 .contact-left h1 {
     font-size: 2.4rem;
     font-weight: 700;
@@ -182,7 +168,6 @@ body[data-theme="dark"] .glass-layer {
     opacity: 0.85;
 }
 
-/* Hours & mission */
 .contact-hours {
     margin-top: 1rem;
     font-size: 0.95rem;
@@ -197,7 +182,6 @@ body[data-theme="dark"] .glass-layer {
     font-size: 0.95rem;
 }
 
-/* Social icons */
 .social-links {
     display: flex;
     gap: 0.8rem;
@@ -224,7 +208,6 @@ body[data-theme="dark"] .glass-layer {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Right section – form card */
 .contact-right {
     display: flex;
     justify-content: flex-end;
@@ -241,7 +224,6 @@ body[data-theme="dark"] .glass-layer {
     box-shadow: 0 10px 45px rgba(0, 0, 0, 0.07);
 }
 
-/* Form grid */
 .form-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -256,7 +238,6 @@ body[data-theme="dark"] .glass-layer {
     margin-bottom: 0.75rem;
 }
 
-/* Labels */
 .form-group label {
     font-size: 0.78rem;
     font-weight: 600;
@@ -265,7 +246,6 @@ body[data-theme="dark"] .glass-layer {
     color: var(--text-muted);
 }
 
-/* Inputs */
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -301,18 +281,19 @@ body[data-theme="dark"] .form-group textarea {
     border-color: rgba(91, 124, 255, 0.6);
 }
 
-/* Submit button full width */
 .full-width {
     width: 100%;
 }
-
-/* Message text (success/error placeholder) */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 220px;
+}
 .form-message {
     margin-top: 0.75rem;
     font-size: 0.9rem;
 }
 
-/* ========== Navbar (same style as home, trimmed) ========== */
 
 .navbar {
     position: fixed;
@@ -377,7 +358,6 @@ body[data-theme="dark"] .navbar {
     transform: rotate(-5deg) scale(1.05);
 }
 
-/* Nav menu */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -425,7 +405,6 @@ body[data-theme="dark"] .navbar {
     gap: 0.75rem;
 }
 
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -467,7 +446,6 @@ body[data-theme="dark"] .navbar {
     font-size: 0.85rem;
 }
 
-/* Primary */
 .btn-primary {
     background: linear-gradient(135deg, #5B7CFF 0%, #00D9A3 100%);
     color: #fff;
@@ -483,7 +461,6 @@ body[data-theme="dark"] .navbar {
     box-shadow: 0 8px 25px rgba(91, 124, 255, 0.6);
 }
 
-/* Secondary outline */
 .btn-secondary-outline {
     background: transparent;
     border: 2px solid rgba(91, 124, 255, 0.3);
@@ -496,7 +473,6 @@ body[data-theme="dark"] .navbar {
     transform: translateY(-2px);
 }
 
-/* Link button */
 .btn-link {
     background: transparent;
     border: none;
@@ -508,7 +484,6 @@ body[data-theme="dark"] .navbar {
     color: var(--text-primary);
 }
 
-/* Icon button */
 .btn-icon {
     width: 36px;
     height: 36px;
@@ -542,7 +517,6 @@ body[data-theme="dark"] .btn-icon {
     box-shadow: 0 10px 40px rgba(15, 23, 42, 0.15);
 }
 
-/* Footer */
 .footer {
     background: var(--bg-elevated);
     border-top: 1px solid var(--border-subtle);
@@ -575,7 +549,7 @@ body[data-theme="dark"] .btn-icon {
     transform: translateY(-1px);
 }
 
-/* ========== Responsive ========== */
+/* Responsive */
 
 @media (max-width: 900px) {
     .contact-grid {

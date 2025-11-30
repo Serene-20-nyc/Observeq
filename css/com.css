@@ -1,6 +1,4 @@
-/* =======================================
-   PERFECTED ObserveQ Community Page Styles
-   ======================================= */
+
 
 .com-page {
     margin-top: 5.5rem;
@@ -22,7 +20,7 @@ html {
 }
 
 :root {
-    /* Brand colors - Enhanced for competition */
+    
     --color-primary: #5B7CFF;
     --color-primary-soft: rgba(91, 124, 255, 0.18);
     --color-primary-hover: #4253dd;
@@ -61,7 +59,7 @@ html {
     --navbar-blur: 20px;
 }
 
-/* Dark theme overrides */
+/* Dark theme  */
 
 .navbar {
     position: fixed;
@@ -110,7 +108,7 @@ body[data-theme="dark"] .navbar.scrolled {
     height: 4.25rem;
 }
 
-/* Enhanced Logo */
+
 .logo {
     display: flex;
     align-items: center;
@@ -175,7 +173,7 @@ body[data-theme="dark"] .navbar.scrolled {
     background: rgba(91, 124, 255, 0.18);
 }
 
-/* Nav Menu */
+
 .nav-menu {
     display: flex;
     align-items: center;
@@ -221,10 +219,6 @@ body[data-theme="dark"] .navbar.scrolled {
     gap: 0.75rem;
 }
 
-/* =======================================
-   5. Enhanced Buttons
-======================================= */
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -265,7 +259,7 @@ body[data-theme="dark"] .navbar.scrolled {
     font-size: 0.85rem;
 }
 
-/* Primary Button - Enhanced */
+
 .btn-primary {
     background: linear-gradient(135deg, #5B7CFF 0%, #00D9A3 100%);
     color: #fff;
@@ -301,7 +295,6 @@ body[data-theme="dark"] .navbar.scrolled {
     z-index: 1;
 }
 
-/* Secondary outline - Enhanced */
 .btn-secondary-outline {
     background: transparent;
     border: 2px solid rgba(91, 124, 255, 0.3);
@@ -316,7 +309,6 @@ body[data-theme="dark"] .navbar.scrolled {
     box-shadow: 0 8px 20px rgba(91, 124, 255, 0.25);
 }
 
-/* Link-style button */
 .btn-link {
     background: transparent;
     border: none;
@@ -328,7 +320,6 @@ body[data-theme="dark"] .navbar.scrolled {
     color: var(--text-primary);
 }
 
-/* Icon button - Enhanced */
 .btn-icon {
     width: 36px;
     height: 36px;
@@ -355,9 +346,7 @@ body[data-theme="dark"] .btn-icon {
     color: #fff;
 }
 
-/* =======================================
-   6. Hamburger & Mobile Nav
-======================================= */
+   /* 6. Hamburger & Mobile Nav */
 
 .hamburger {
     display: none;
@@ -371,10 +360,8 @@ body[data-theme="dark"] .btn-icon {
 .nav-actions-mobile {
     display: none;
 }
-/* =======================================
-   8. Footer
-======================================= */
 
+    /* 8. Footer */
 .footer {
     background: var(--bg-elevated);
     border-top: 1px solid var(--border-subtle);
@@ -411,9 +398,7 @@ body[data-theme="dark"] .footer {
     border-top-color: rgba(91, 124, 255, 0.2);
 }
 
-/* =======================================
-   9. Responsive Styles
-======================================= */
+   /* 9. Responsive Styles */
 
 @media (max-width: 900px) {
     .nav-menu {
